@@ -11,9 +11,7 @@
 |
 */
 
-Route::get(
-    '/',
-    function () {
-        return view('welcome');
-    }
-);
+Route::namespace('Admin')->prefix('admin')->group(function () {
+    Route::get('login','LoginController@index')->name('login');
+    Route::post('login','LoginController@login');
+});
