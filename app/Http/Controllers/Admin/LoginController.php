@@ -18,7 +18,7 @@ class LoginController extends Controller
     {
         // 如果用户被认证过,则直接跳转到dashboard
         if (auth()->user()) {
-            redirect()->route('dashboard');
+            return redirect()->route('dashboard');
         }
 
         return view('login');
