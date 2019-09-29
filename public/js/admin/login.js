@@ -97,6 +97,17 @@ console.log('---login---');
 
 /***/ }),
 
+/***/ "./resources/sass/admin/admin.scss":
+/*!*****************************************!*\
+  !*** ./resources/sass/admin/admin.scss ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ "./resources/sass/admin/login.scss":
 /*!*****************************************!*\
   !*** ./resources/sass/admin/login.scss ***!
@@ -109,13 +120,14 @@ console.log('---login---');
 /***/ }),
 
 /***/ 0:
-/*!*****************************************************************************!*\
-  !*** multi ./resources/js/admin/login.js ./resources/sass/admin/login.scss ***!
-  \*****************************************************************************/
+/*!***************************************************************************************************************!*\
+  !*** multi ./resources/js/admin/login.js ./resources/sass/admin/admin.scss ./resources/sass/admin/login.scss ***!
+  \***************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! /Users/admin/code/abianji/resources/js/admin/login.js */"./resources/js/admin/login.js");
+__webpack_require__(/*! /Users/admin/code/abianji/resources/sass/admin/admin.scss */"./resources/sass/admin/admin.scss");
 module.exports = __webpack_require__(/*! /Users/admin/code/abianji/resources/sass/admin/login.scss */"./resources/sass/admin/login.scss");
 
 
