@@ -11,13 +11,16 @@
 |
 */
 
+Route::get('/',function () {
+   return phpinfo();
+});
+
 Route::namespace('Admin')->prefix('admin')->group(function () {
     Route::get('login','LoginController@index')->name('login');
     Route::post('login','LoginController@login')->name('post.login');
 });
 
-Route::namespace('Admin')->prefix('admin')->middleware('admin.user')->group(function () {
-   Route::get('/',function () {
-      return 'dashboard';
-   })->name('dashboard');
+Route::namespace('Admin')->prefix('admin')->group(function () {
+   Route::get('/','AdminController@index')->name('dashboard');
+   Route::post('logout','\AdminController@logout')->name('logout');
 });
