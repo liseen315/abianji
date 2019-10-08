@@ -1,19 +1,24 @@
+/*!
+ *   AdminLTE v3.0.0-rc.1
+ *   Author: Colorlib
+ *	 Website: AdminLTE.io <http://adminlte.io>
+ *   License: Open source - MIT <http://opensource.org/licenses/MIT>
+ */
+@import "~bootstrap/scss/functions";
+@import "bootstrap-variables";
 @import "~bootstrap/scss/bootstrap";
-@import "~icheck-bootstrap/icheck-bootstrap";
-@import "~@fortawesome/fontawesome-free/css/all.css";
+@import "~@fortawesome/fontawesome-free/css/all.min.css";
+@import "~icheck-bootstrap/icheck-bootstrap.min.css";
 
-.icheck-primary > input:first-child:not(:checked):not(:disabled):hover + label::before,
-.icheck-primary > input:first-child:not(:checked):not(:disabled):hover + input[type="hidden"] + label::before {
-  border-color: #007bff;
-}
 
-.icheck-primary > input:first-child:not(:checked):not(:disabled):focus + label::before,
-.icheck-primary > input:first-child:not(:checked):not(:disabled):focus + input[type="hidden"] + label::before {
-  border-color: #007bff;
-}
+// Variables and Mixins
+// ---------------------------------------------------
+@import 'variables';
+@import 'mixins';
 
-.icheck-primary > input:first-child:checked + label::before,
-.icheck-primary > input:first-child:checked + input[type="hidden"] + label::before {
-  background-color: #007bff;
-  border-color: #007bff;
-}
+// Core
+// ---------------------------------------------------
+@import 'layout';
+@import "main-header";
+
+@import "elevation";

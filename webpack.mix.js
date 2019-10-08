@@ -38,9 +38,13 @@ function mix_js_files(folder) {
     }
 }
 
+mix.copyDirectory('resources/images','public/images')
+
 mix_scss_files('/admin/')
 
 mix_js_files('/admin/')
+
+
 
 
 if (mix.inProduction()) {

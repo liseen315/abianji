@@ -20,7 +20,7 @@ Route::namespace('Admin')->prefix('admin')->group(function () {
     Route::post('login','LoginController@login')->name('post.login');
 });
 
-Route::namespace('Admin')->prefix('admin')->middleware('admin.auth')->group(function () {
+Route::namespace('Admin')->prefix('admin')->group(function () {
    Route::get('/','AdminController@index')->name('dashboard');
    Route::post('logout','\AdminController@logout')->name('logout');
 });
