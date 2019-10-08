@@ -59,9 +59,7 @@
                 </div>
             @endif
         </div>
-        <!-- /.login-card-body -->
     </div>
 </div>
-<script src="{{ mix('js/admin/login.js') }}"></script>
 </body>
 </html>
