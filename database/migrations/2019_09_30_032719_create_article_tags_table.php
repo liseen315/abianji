@@ -14,8 +14,8 @@ class CreateArticleTagsTable extends Migration
     public function up()
     {
         Schema::create('article_tags', function (Blueprint $table) {
-            $table->bigIncrements('article_id')->default(0)->comment('文章id');
-            $table->bigInteger('tag_id')->default(0)->comment('Tagid');
+            $table->bigInteger('article_id')->unsigned()->default(0)->comment('文章id');
+            $table->bigInteger('tag_id')->unsigned()->default(0)->comment('Tagid');
             $table->timestamps();
         });
     }
