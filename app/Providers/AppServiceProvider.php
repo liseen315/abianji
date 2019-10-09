@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Providers;
-
+use Blade;
+use Route;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -27,6 +28,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        // 为模板的sidebar active状态定义指令
+        Blade::directive('sideIsActive',function ($expression) {
+            list($targetName, $activeStr) = explode(',', $expression);
+
+            return "<?php if (strpos(Route::currentRouteName(),{$targetName}) === 0) { echo {$activeStr}; } else { echo '' ;}  ?>";
+        });
     }
 }

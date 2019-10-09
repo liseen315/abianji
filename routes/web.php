@@ -23,4 +23,30 @@ Route::namespace('Admin')->prefix('admin')->group(function () {
 Route::namespace('Admin')->prefix('admin')->group(function () {
    Route::get('/','AdminController@index')->name('dashboard');
    Route::post('logout','\AdminController@logout')->name('logout');
+
+   // 文章
+   Route::prefix('article')->group(function () {
+       Route::get('/','ArticleController@index')->name('article.index');
+       Route::get('create', 'ArticleController@create')->name('article.create');
+       Route::post('store', 'ArticleController@store')->name('article.store');
+       Route::get('edit/{id}','ArticleController@edit')->name('article.edit');
+       Route::post('update','ArticleController@update')->name('article.update');
+       Route::post('delete','ArticleController@delete')->name('article.delete');
+   });
+
+   // 分类
+   Route::prefix('category')->group(function () {
+       Route::get('/','CategoryController@index')->name('category.index');
+       Route::get('create','CategoryController@create')->name('category.create');
+       Route::post('store','CategoryController@store')->name('category.store');
+       Route::get('edit/{id}','CategoryController@edit')->name('category.edit');
+       Route::post('update','CategoryController@update')->name('category.update');
+       Route::post('delete','CategoryController@delete')->name('category.delete');
+   });
+
+   // 标签
+   Route::prefix('tag')->group(function () {
+       Route::get('/','TagController@index')->name('tag.index');
+       Route::get('create','TagController@create')->name('tag.create');
+   });
 });
