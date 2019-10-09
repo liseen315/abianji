@@ -1,5 +1,7 @@
-@import "base";
-@import "plugins/icheck-bootstrap";
+//
+// Pages: Login & Register
+//
+
 .login-logo,
 .register-logo {
   font-size: 2.1rem;
@@ -88,12 +90,4 @@
 
 .social-auth-links {
   margin: 10px 0;
-}
-
-
-.login-box {
-  .alert {
-    margin-bottom: 0;
-    margin-top: 1em;
-  }
 }

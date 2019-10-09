@@ -2,6 +2,6 @@
 
 @section('title', 'DashBoard')
 
-@section('style')
-    <link href="{{ mix('css/admin/dashboard.css') }}" rel="stylesheet">
+@section('content')
+    <div>This a 仪表盘</div>
 @endsection
