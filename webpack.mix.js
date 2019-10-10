@@ -39,6 +39,7 @@ function mix_js_files(folder) {
 }
 
 mix.copyDirectory('resources/images','public/images')
+mix.copyDirectory('resources/js/plugins','public/js/plugins')
 
 mix_scss_files('/admin/')
 
