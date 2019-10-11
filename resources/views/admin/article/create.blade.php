@@ -6,7 +6,6 @@
 
 @section('style')
     <link rel="stylesheet" href="{{ asset('assets/editormd/css/editormd.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/bootstrap-fileinput/css/fileinput.min.css') }}">
 @endsection
 
 @section('content')
@@ -56,6 +55,10 @@
 
                         <div class="form-group">
                             <label>文章封面</label>
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="J_coverImgInput" name="cover" accept="image/png, image/jpeg, image/gif, image/jpg">
+                                <label class="custom-file-label" for="J_coverImgInput">Choose file</label>
+                            </div>
                         </div>
 
                         <div class="form-group">
@@ -118,7 +121,6 @@
 
 @section('scripts')
     <script src="{{ asset('assets/editormd/editormd.min.js') }}"></script>
-    <script src="{{ asset('assets/bootstrap-fileinput/js/fileinput.min.js') }}"></script>
     <script>
 
         $(function() {
@@ -146,6 +148,11 @@
 
             $('#J_submitTagBtn').on('click',function (event) {
                 console.log('click add Tag');
+            })
+            
+            $('#J_coverImgInput').on('change',function () {
+                let fileName = $(this).val().split('\\').pop();
+                $(this).next('.custom-file-label').addClass("selected").html(fileName);
             })
         })
     </script>
