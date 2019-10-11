@@ -6,8 +6,11 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Abianji - @yield('title')</title>
-    @yield('style')
+    <link rel="stylesheet" href="{{ asset('assets/select2/css/select2.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}">
     <link href="{{ mix('css/admin/admin.css') }}" rel="stylesheet">
+    @yield('style')
+
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -20,6 +23,9 @@
             </li>
             <li class="nav-item d-none d-sm-inline-block">
                 <a href="{{route('dashboard')}}" class="nav-link">首页</a>
+            </li>
+            <li class="nav-item d-none d-sm-inline-block">
+                <a class="nav-link">@yield('bread-title')</a>
             </li>
         </ul>
         {{--Right navbar--}}
@@ -126,17 +132,7 @@
 
     {{--Content Wrapper--}}
     <div class="content-wrapper">
-        {{--Content Header--}}
-        <div class="content-header">
-            <div class="container-fluid">
-                <div class="row mb-2">
-                    <div class="col-sm-6">
-                        <h1 class="m-0 text-dark">@yield('contentHeader')</h1>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <section class="content">
+        <section class="content pt-4 pb-4">
             <div class="container-fluid">
                 @yield('content')
             </div>
@@ -151,6 +147,9 @@
         </div>
     </footer>
 </div>
+<script src="{{ asset('assets/jquery/jquery.min.js') }}"></script>
+<script src="{{ asset('assets/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ asset('assets/select2/js/select2.full.min.js') }}"></script>
 <script src="{{ mix('js/admin/admin.js') }}"></script>
 @yield('scripts')
 </body>

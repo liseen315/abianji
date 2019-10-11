@@ -2,12 +2,11 @@
 
 @section('title','创建文章')
 
-@section('contentHeader','创建文章')
+@section('bread-title','创建文章')
 
 @section('style')
-    <link rel="stylesheet" href="{{ asset('plugins/select2/css/select2.min.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('plugins/editormd/css/editormd.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/editormd/css/editormd.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/bootstrap-fileinput/css/fileinput.min.css') }}">
 @endsection
 
 @section('content')
@@ -41,7 +40,7 @@
                             <label>标签</label>
                             <div class="container">
                                 <div class="row">
-                                    <select class="select2 col-md-10" multiple="multiple" data-placeholder="选择标签">
+                                    <select class="select2 col-md-10" multiple="multiple" >
                                         <option>Alabama</option>
                                         <option>Alaska</option>
                                         <option>California</option>
@@ -50,12 +49,13 @@
                                         <option>Texas</option>
                                         <option>Washington</option>
                                     </select>
-                                    <button type="button" class="btn btn-block btn-primary col-md-1 ml-md-5">添加标签</button>
+                                    <button type="button" class="btn btn-primary ml-md-5" data-toggle="modal" data-target="#tagModal">添加标签</button>
                                 </div>
                             </div>
-                            <div class="input-group">
+                        </div>
 
-                            </div>
+                        <div class="form-group">
+                            <label>文章封面</label>
                         </div>
 
                         <div class="form-group">
@@ -64,27 +64,70 @@
                                 <textarea name="markdown">{{ old('markdown') }}</textarea>
                             </div>
                         </div>
+
+                        <div class="form-group">
+                            <label>是否置顶</label>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="form-check col-auto">
+                                        <input class="form-check-input" type="radio" name="is_top" value="1" id="top">
+                                        <label class="form-check-label" for="top">置顶</label>
+                                    </div>
+                                    <div class="form-check col-auto">
+                                        <input class="form-check-input" type="radio" name="is_top" value="0" id="unTop" checked>
+                                        <label class="form-check-label" for="unTop">取消置顶</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="container">
+                                <div class="row justify-content-end">
+                                    <button type="submit" class="btn btn-primary">提交</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
     </form>
+
+    {{--Tag Modal--}}
+    <div class="modal fade" id="tagModal" tabindex="-1" role="dialog" aria-labelledby="tagModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">添加标签</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-center">
+                    <form class="form-group" role="form">
+                        <input class="form-control mb-3" type="text" placeholder="标签名">
+                        <button type="button" class="btn btn-block btn-primary" id="J_submitTagBtn">提交</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
 
 @section('scripts')
-    <script src="{{ asset('plugins/select2/js/select2.full.min.js') }}"></script>
-    <script src="{{ asset('plugins/editormd/editormd.min.js') }}"></script>
+    <script src="{{ asset('assets/editormd/editormd.min.js') }}"></script>
+    <script src="{{ asset('assets/bootstrap-fileinput/js/fileinput.min.js') }}"></script>
     <script>
 
         $(function() {
             $('.select2').select2({
                 theme: 'bootstrap4'
             })
-
             editormd.urls.atLinkBase = "https://github.com/";
 
-            let testEditor = editormd("abianji-content", {
+            editormd("abianji-content", {
                 autoFocus : false,
                 width     : "100%",
                 height    : 720,
@@ -94,12 +137,16 @@
                 todoList  : true,
                 placeholder: "{{ 'Enter article content' }}",
                 toolbarAutoFixed: false,
-                path      : '{{ asset('/plugins/editormd/lib') }}/',
+                path      : '{{ asset('/assets/editormd/lib') }}/',
                 emoji: true,
                 toolbarIcons : ['undo', 'redo', 'bold', 'del', 'italic', 'quote', 'uppercase', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'list-ul', 'list-ol', 'hr', 'link', 'reference-link', 'image', 'code', 'code-block', 'table', 'emoji', 'html-entities', 'watch', 'preview', 'search'],
                 imageUpload: true,
                 imageUploadURL : '',
             });
+
+            $('#J_submitTagBtn').on('click',function (event) {
+                console.log('click add Tag');
+            })
         })
     </script>
 @endsection
