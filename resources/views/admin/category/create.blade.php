@@ -1,8 +1,8 @@
 @extends('layouts.admin')
 
 @section('title','创建分类')
-
 @section('bread-title','创建分类')
+
 
 @section('content')
     @if (count($errors) > 0)

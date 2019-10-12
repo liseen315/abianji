@@ -9,7 +9,8 @@ use App\Http\Controllers\Controller;
 class CategoryController extends Controller
 {
     public function index() {
-        return view('admin.category.index');
+        $categories = Category::with('children')->where('parent_id',0)->get();
+        return view('admin.category.index',compact('categories',$categories));
     }
 
     public function create() {
