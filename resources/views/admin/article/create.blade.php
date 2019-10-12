@@ -9,94 +9,92 @@
 @endsection
 
 @section('content')
-    <form action="" method="post" enctype="multipart/form-data">
-        {{ csrf_field() }}
-        <div class="card">
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label>选择分类</label>
-                            <div class="input-group">
-                                <select name="category_id" class="form-control select2">
-                                    <option>Alabama</option>
-                                    <option>Alaska</option>
-                                    <option>California</option>
-                                    <option>Delaware</option>
-                                    <option>Tennessee</option>
-                                    <option>Texas</option>
-                                    <option>Washington</option>
-                                </select>
+
+    <div class="card">
+        <div class="card-body">
+            <form action="" method="post" enctype="multipart/form-data">
+                {{ csrf_field() }}
+                <div class="form-group">
+                    <label>选择分类</label>
+                    <div class="input-group">
+                        <select name="category_id" class="form-control select2">
+                            <option>Alabama</option>
+                            <option>Alaska</option>
+                            <option>California</option>
+                            <option>Delaware</option>
+                            <option>Tennessee</option>
+                            <option>Texas</option>
+                            <option>Washington</option>
+                        </select>
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    <label>标题</label>
+                    <input type="text" class="form-control" name="title" value="{{ old('title') }}">
+                </div>
+
+                <div class="form-group">
+                    <label>标签</label>
+                    <div class="container">
+                        <div class="row">
+                            <select class="select2 col-md-10" multiple="multiple" >
+                                <option>Alabama</option>
+                                <option>Alaska</option>
+                                <option>California</option>
+                                <option>Delaware</option>
+                                <option>Tennessee</option>
+                                <option>Texas</option>
+                                <option>Washington</option>
+                            </select>
+                            <button type="button" class="btn btn-primary ml-md-5" data-toggle="modal" data-target="#tagModal">添加标签</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>文章封面</label>
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="J_coverImgInput" name="cover" accept="image/png, image/jpeg, image/gif, image/jpg">
+                        <label class="custom-file-label" for="J_coverImgInput">Choose file</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>内容</label>
+                    <div id="abianji-content">
+                        <textarea name="markdown">{{ old('markdown') }}</textarea>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>是否置顶</label>
+                    <div class="container">
+                        <div class="row">
+                            <div class="form-check col-auto">
+                                <input class="form-check-input" type="radio" name="is_top" value="1" id="top">
+                                <label class="form-check-label" for="top">置顶</label>
                             </div>
-
-                        </div>
-                        <div class="form-group">
-                            <label>标题</label>
-                            <input type="text" class="form-control" name="title" value="{{ old('title') }}">
-                        </div>
-
-                        <div class="form-group">
-                            <label>标签</label>
-                            <div class="container">
-                                <div class="row">
-                                    <select class="select2 col-md-10" multiple="multiple" >
-                                        <option>Alabama</option>
-                                        <option>Alaska</option>
-                                        <option>California</option>
-                                        <option>Delaware</option>
-                                        <option>Tennessee</option>
-                                        <option>Texas</option>
-                                        <option>Washington</option>
-                                    </select>
-                                    <button type="button" class="btn btn-primary ml-md-5" data-toggle="modal" data-target="#tagModal">添加标签</button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label>文章封面</label>
-                            <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="J_coverImgInput" name="cover" accept="image/png, image/jpeg, image/gif, image/jpg">
-                                <label class="custom-file-label" for="J_coverImgInput">Choose file</label>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label>内容</label>
-                            <div id="abianji-content">
-                                <textarea name="markdown">{{ old('markdown') }}</textarea>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label>是否置顶</label>
-                            <div class="container">
-                                <div class="row">
-                                    <div class="form-check col-auto">
-                                        <input class="form-check-input" type="radio" name="is_top" value="1" id="top">
-                                        <label class="form-check-label" for="top">置顶</label>
-                                    </div>
-                                    <div class="form-check col-auto">
-                                        <input class="form-check-input" type="radio" name="is_top" value="0" id="unTop" checked>
-                                        <label class="form-check-label" for="unTop">取消置顶</label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="container">
-                                <div class="row justify-content-end">
-                                    <button type="submit" class="btn btn-primary">提交</button>
-                                </div>
+                            <div class="form-check col-auto">
+                                <input class="form-check-input" type="radio" name="is_top" value="0" id="unTop" checked>
+                                <label class="form-check-label" for="unTop">取消置顶</label>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
 
-    </form>
+                <div class="form-group">
+                    <div class="container">
+                        <div class="row justify-content-end">
+                            <button type="submit" class="btn btn-primary">提交</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
 
     {{--Tag Modal--}}
     <div class="modal fade" id="tagModal" tabindex="-1" role="dialog" aria-labelledby="tagModal" aria-hidden="true">

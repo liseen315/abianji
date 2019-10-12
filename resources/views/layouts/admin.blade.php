@@ -8,6 +8,7 @@
     <title>Abianji - @yield('title')</title>
     <link rel="stylesheet" href="{{ asset('assets/select2/css/select2.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/bootstrap-select/css/bootstrap-select.min.css') }}">
     <link href="{{ mix('css/admin/admin.css') }}" rel="stylesheet">
     @yield('style')
 
@@ -150,6 +151,7 @@
 <script src="{{ asset('assets/jquery/jquery.min.js') }}"></script>
 <script src="{{ asset('assets/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <script src="{{ asset('assets/select2/js/select2.full.min.js') }}"></script>
+<script src="{{ asset('assets/bootstrap-select/js/bootstrap-select.min.js') }}"></script>
 <script src="{{ mix('js/admin/admin.js') }}"></script>
 @yield('scripts')
 </body>
