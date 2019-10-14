@@ -20,12 +20,12 @@ class CategoryController extends Controller
 
     public function store(Request $request) {
         $this->validate($request,[
-            'name' => 'required|min:3|max:255|string'
+            'name' => 'required|min:2|max:10|string'
         ]);
         $data = $request->except('_token');
 
         Category::create($data);
-        return redirect()->route('category.index')->with('status','创建分类成功');
+        return redirect()->route('category.index')->with('success','创建分类成功');
     }
 
     public function edit() {

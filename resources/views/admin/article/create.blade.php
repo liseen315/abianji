@@ -9,22 +9,27 @@
 @endsection
 
 @section('content')
+    @if (count($errors) > 0)
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
 
     <div class="card">
         <div class="card-body">
-            <form action="" method="post" enctype="multipart/form-data">
+            <form action="{{ route('article.store') }}" method="post" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <div class="form-group">
                     <label>选择分类</label>
                     <div class="input-group">
                         <select name="category_id" class="form-control select2">
-                            <option>Alabama</option>
-                            <option>Alaska</option>
-                            <option>California</option>
-                            <option>Delaware</option>
-                            <option>Tennessee</option>
-                            <option>Texas</option>
-                            <option>Washington</option>
+                            @foreach ($categories as $category)
+                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                            @endforeach
                         </select>
                     </div>
 
@@ -38,14 +43,10 @@
                     <label>标签</label>
                     <div class="container">
                         <div class="row">
-                            <select class="select2 col-md-10" multiple="multiple" >
-                                <option>Alabama</option>
-                                <option>Alaska</option>
-                                <option>California</option>
-                                <option>Delaware</option>
-                                <option>Tennessee</option>
-                                <option>Texas</option>
-                                <option>Washington</option>
+                            <select class="select2 col-md-10" multiple="multiple" name="tag_ids[]">
+                                @foreach($tags as $tag)
+                                    <option value="{{ $tag->id }}">{{ $tag->name }}</option>
+                                @endforeach
                             </select>
                             <button type="button" class="btn btn-primary ml-md-5" data-toggle="modal" data-target="#tagModal">添加标签</button>
                         </div>
@@ -132,8 +133,6 @@
                 width     : "100%",
                 height    : 720,
                 toc       : true,
-                //atLink    : false,    // disable @link
-                //emailLink : false,    // disable email address auto link
                 todoList  : true,
                 placeholder: "{{ 'Enter article content' }}",
                 toolbarAutoFixed: false,

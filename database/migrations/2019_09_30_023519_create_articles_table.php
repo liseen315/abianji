@@ -19,7 +19,6 @@ class CreateArticlesTable extends Migration
             $table->string('title')->default('')->comment('文章标题');
             $table->string('slug')->default('')->comment('slug');
             $table->bigInteger('author_id')->default('1')->comment('作者id默认就是Liseen了');
-            $table->text('content')->comment('内容');
             $table->text('markdown')->comment('markdown');
             $table->integer('views')->default(0)->comment('浏览数');
             $table->string('cover')->default('')->comment('封面图');
