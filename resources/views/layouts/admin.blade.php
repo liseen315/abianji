@@ -5,10 +5,13 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Abianji - @yield('title')</title>
     <link rel="stylesheet" href="{{ asset('assets/select2/css/select2.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/bootstrap-select/css/bootstrap-select.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/toastr/toastr.min.css') }}">
+
     <link href="{{ mix('css/admin/admin.css') }}" rel="stylesheet">
     @yield('style')
 
@@ -152,7 +155,17 @@
 <script src="{{ asset('assets/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <script src="{{ asset('assets/select2/js/select2.full.min.js') }}"></script>
 <script src="{{ asset('assets/bootstrap-select/js/bootstrap-select.min.js') }}"></script>
+<script src="{{ asset('assets/toastr/toastr.min.js') }}"></script>
 <script src="{{ mix('js/admin/admin.js') }}"></script>
+<script>
+    $(function () {
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+    })
+</script>
 @yield('scripts')
 </body>
 </html>
