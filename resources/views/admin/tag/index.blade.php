@@ -45,7 +45,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">删除标签</h5>
+                    <h5 class="modal-title">删除标签</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -69,7 +69,7 @@
 
             $('.J_delModal').on('show.bs.modal', function (e) {
                 $(this).find('.del-confirm').attr('data-id', $(e.relatedTarget).data('id'));
-                $(this).find('.tag-name').html('确定要删除' + $(e.relatedTarget).data('name') + '标签么?');
+                $(this).find('.tag-name').html('确定要删除 <span class="text-danger">' + $(e.relatedTarget).data('name') + '</span> 标签么?');
             });
 
             $('.del-confirm').on('click', function (e) {

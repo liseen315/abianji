@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Requests\Article\ArticleStoreRequest;
 use App\Models\Article;
 use App\Models\Category;
 use App\Models\Tag;
@@ -12,22 +13,23 @@ class ArticleController extends Controller
 {
     //
 
-    public function index() {
+    public function index()
+    {
         $articles = Article::all();
-        return view('admin.article.index',compact('articles'));
+
+        return view('admin.article.index', compact('articles'));
     }
 
-    public function create() {
-        $categories = Category::where('parent_id','!=',0)->get();
+    public function create()
+    {
+        $categories = Category::where('parent_id', '!=', 0)->get();
         $tags = Tag::all();
-        return view('admin.article.create', compact('categories','tags'));
+
+        return view('admin.article.create', compact('categories', 'tags'));
     }
 
-    public function store(Request $request) {
-        $this->validate($request,[
-            'category_id'=>'required',
-            'cover' => 'file|max:1024',
-        ]);
+    public function store(ArticleStoreRequest $request)
+    {
 
         $articleData = $request->except('_token');
 
@@ -36,20 +38,25 @@ class ArticleController extends Controller
             $articleData['cover'] = $path;
         }
 
-        $article = Article::create($articleData);
+        Article::create($articleData);
 
-        return redirect()->route('article.index')->with('success','创建文章成功');
+        return redirect()->route('article.index')->with('success', '创建文章成功');
     }
 
-    public function edit($id) {
-
-    }
-
-    public function update($id) {
+    public function edit()
+    {
 
     }
 
-    public function delete() {
+    public function update($id)
+    {
 
+    }
+
+    public function delete(Article $article)
+    {
+        $article->delete();
+
+        return redirect()->route('article.index')->with('success', '删除文章成功');
     }
 }

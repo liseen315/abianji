@@ -29,9 +29,9 @@ Route::namespace('Admin')->prefix('admin')->group(function () {
        Route::get('/','ArticleController@index')->name('article.index');
        Route::get('create', 'ArticleController@create')->name('article.create');
        Route::post('store', 'ArticleController@store')->name('article.store');
-       Route::get('edit/{id}','ArticleController@edit')->name('article.edit');
-       Route::post('update','ArticleController@update')->name('article.update');
-       Route::post('delete','ArticleController@delete')->name('article.delete');
+       Route::get('edit/{article}','ArticleController@edit')->name('article.edit');
+       Route::post('update/{article}','ArticleController@update')->name('article.update');
+       Route::post('delete/{article}','ArticleController@delete')->name('article.delete');
    });
 
    // 分类
@@ -39,9 +39,9 @@ Route::namespace('Admin')->prefix('admin')->group(function () {
        Route::get('/','CategoryController@index')->name('category.index');
        Route::get('create','CategoryController@create')->name('category.create');
        Route::post('store','CategoryController@store')->name('category.store');
-       Route::get('edit/{id}','CategoryController@edit')->name('category.edit');
-       Route::post('update','CategoryController@update')->name('category.update');
-       Route::post('delete','CategoryController@delete')->name('category.delete');
+       Route::get('edit/{category}','CategoryController@edit')->name('category.edit');
+       Route::post('update/{category}','CategoryController@update')->name('category.update');
+       Route::post('delete/{category}','CategoryController@delete')->name('category.delete');
    });
 
    // 标签
