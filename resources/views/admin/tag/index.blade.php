@@ -5,14 +5,9 @@
 @section('bread-title','标签列表')
 
 @section('content')
-    @if (session('success'))
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            {{ session('success') }}
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-    @endif
+
+    @component('.admin.components.success')
+    @endcomponent
 
     <table class="table table-bordered table-striped table-hover table-condensed">
         <tr>
@@ -26,9 +21,12 @@
                     <td>{{ $tag->id }}</td>
                     <td>{{ $tag->name }}</td>
                     <td style="text-align: center;">
-                        <button type="button" class="btn btn-sm btn-primary mr-1 J_editBtn" data-id="{{ $tag->id }}">
-                            编辑
-                        </button>
+                        <a href="{{ route('tag.edit', $tag->id) }}">
+                            <button type="button" class="btn btn-sm btn-primary mr-1 J_editBtn">
+                                编辑
+                            </button>
+                        </a>
+
                         <button type="button" class="btn btn-sm btn-danger J_delTagBtn" data-id="{{ $tag->id }}"
                                 data-name="{{ $tag->name }}" data-toggle="modal" data-target=".J_delModal">删除
                         </button>

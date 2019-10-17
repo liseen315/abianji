@@ -5,15 +5,9 @@
 @section('bread-title','创建标签')
 
 @section('content')
-    @if (count($errors) > 0)
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
+
+    @component('admin.components.error')
+    @endcomponent
 
     <div class="card">
         <div class="card-body">

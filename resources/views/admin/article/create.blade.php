@@ -9,15 +9,8 @@
 @endsection
 
 @section('content')
-    @if (count($errors) > 0)
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
+    @component('.admin.components.error')
+    @endcomponent
 
     <div class="card">
         <div class="card-body">
@@ -48,7 +41,9 @@
                                     <option value="{{ $tag->id }}">{{ $tag->name }}</option>
                                 @endforeach
                             </select>
-                            <button type="button" class="btn btn-primary ml-md-5" data-toggle="modal" data-target="#tagModal">添加标签</button>
+                            <button type="button" class="btn btn-primary ml-md-5" data-toggle="modal"
+                                    data-target="#tagModal">添加标签
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -56,7 +51,8 @@
                 <div class="form-group">
                     <label>文章封面</label>
                     <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="J_coverImgInput" name="cover" accept="image/png, image/jpeg, image/gif, image/jpg">
+                        <input type="file" class="custom-file-input" id="J_coverImgInput" name="cover"
+                               accept="image/png, image/jpeg, image/gif, image/jpg">
                         <label class="custom-file-label" for="J_coverImgInput">Choose file</label>
                     </div>
                 </div>
@@ -122,32 +118,32 @@
     <script src="{{ asset('assets/editormd/editormd.min.js') }}"></script>
     <script>
 
-        $(function() {
+        $(function () {
             $('.select2').select2({
                 theme: 'bootstrap4'
             })
             editormd.urls.atLinkBase = "https://github.com/";
 
             editormd("abianji-content", {
-                autoFocus : false,
-                width     : "100%",
-                height    : 720,
-                toc       : true,
-                todoList  : true,
+                autoFocus: false,
+                width: "100%",
+                height: 720,
+                toc: true,
+                todoList: true,
                 placeholder: "{{ 'Enter article content' }}",
                 toolbarAutoFixed: false,
-                path      : '{{ asset('/assets/editormd/lib') }}/',
+                path: '{{ asset('/assets/editormd/lib') }}/',
                 emoji: true,
-                toolbarIcons : ['undo', 'redo', 'bold', 'del', 'italic', 'quote', 'uppercase', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'list-ul', 'list-ol', 'hr', 'link', 'reference-link', 'image', 'code', 'code-block', 'table', 'emoji', 'html-entities', 'watch', 'preview', 'search'],
+                toolbarIcons: ['undo', 'redo', 'bold', 'del', 'italic', 'quote', 'uppercase', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'list-ul', 'list-ol', 'hr', 'link', 'reference-link', 'image', 'code', 'code-block', 'table', 'emoji', 'html-entities', 'watch', 'preview', 'search'],
                 imageUpload: true,
-                imageUploadURL : '',
+                imageUploadURL: '',
             });
 
-            $('#J_submitTagBtn').on('click',function (event) {
+            $('#J_submitTagBtn').on('click', function (event) {
                 console.log('click add Tag');
             })
-            
-            $('#J_coverImgInput').on('change',function () {
+
+            $('#J_coverImgInput').on('change', function () {
                 let fileName = $(this).val().split('\\').pop();
                 $(this).next('.custom-file-label').addClass("selected").html(fileName);
             })

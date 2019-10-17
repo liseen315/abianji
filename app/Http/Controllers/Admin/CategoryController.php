@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Requests\Category\CategoryStoreRequest;
 use App\Models\Category;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class CategoryController extends Controller
@@ -18,10 +18,8 @@ class CategoryController extends Controller
         return view('admin.category.create',compact('categories',$categories));
     }
 
-    public function store(Request $request) {
-        $this->validate($request,[
-            'name' => 'required|min:2|max:10|string'
-        ]);
+    public function store(CategoryStoreRequest $request) {
+
         $data = $request->except('_token');
 
         Category::create($data);
