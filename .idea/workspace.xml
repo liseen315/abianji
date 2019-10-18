@@ -4,13 +4,139 @@
     <list default="true" id="934a5965-240a-4ea1-a5d9-6af9709ec462" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/ArticleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ArticleController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/CategoryController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/TagController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/TagController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Article.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Article.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Category.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Tag.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Tag.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/select2/js/i18n/af.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/select2/js/i18n/af.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/select2/js/i18n/ar.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/select2/js/i18n/ar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/select2/js/i18n/az.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/select2/js/i18n/az.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/select2/js/i18n/bg.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/select2/js/i18n/bg.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/select2/js/i18n/bn.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/select2/js/i18n/bn.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/select2/js/i18n/bs.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/select2/js/i18n/bs.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/select2/js/i18n/ca.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/select2/js/i18n/ca.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/select2/js/i18n/cs.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/select2/js/i18n/cs.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/select2/js/i18n/da.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/select2/js/i18n/da.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/select2/js/i18n/de.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/select2/js/i18n/de.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/select2/js/i18n/dsb.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/select2/js/i18n/dsb.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/select2/js/i18n/el.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/select2/js/i18n/el.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/select2/js/i18n/en.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/select2/js/i18n/en.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/select2/js/i18n/es.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/select2/js/i18n/es.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/select2/js/i18n/et.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/select2/js/i18n/et.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/select2/js/i18n/eu.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/select2/js/i18n/eu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/select2/js/i18n/fa.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/select2/js/i18n/fa.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/select2/js/i18n/fi.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/select2/js/i18n/fi.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/select2/js/i18n/fr.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/select2/js/i18n/fr.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/select2/js/i18n/gl.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/select2/js/i18n/gl.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/select2/js/i18n/he.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/select2/js/i18n/he.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/select2/js/i18n/hi.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/select2/js/i18n/hi.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/select2/js/i18n/hr.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/select2/js/i18n/hr.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/select2/js/i18n/hsb.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/select2/js/i18n/hsb.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/select2/js/i18n/hu.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/select2/js/i18n/hu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/select2/js/i18n/hy.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/select2/js/i18n/hy.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/select2/js/i18n/id.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/select2/js/i18n/id.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/select2/js/i18n/is.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/select2/js/i18n/is.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/select2/js/i18n/it.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/select2/js/i18n/it.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/select2/js/i18n/ja.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/select2/js/i18n/ja.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/select2/js/i18n/ka.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/select2/js/i18n/ka.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/select2/js/i18n/km.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/select2/js/i18n/km.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/select2/js/i18n/ko.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/select2/js/i18n/ko.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/select2/js/i18n/lt.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/select2/js/i18n/lt.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/select2/js/i18n/lv.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/select2/js/i18n/lv.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/select2/js/i18n/mk.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/select2/js/i18n/mk.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/select2/js/i18n/ms.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/select2/js/i18n/ms.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/select2/js/i18n/nb.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/select2/js/i18n/nb.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/select2/js/i18n/ne.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/select2/js/i18n/ne.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/select2/js/i18n/nl.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/select2/js/i18n/nl.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/select2/js/i18n/pl.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/select2/js/i18n/pl.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/select2/js/i18n/ps.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/select2/js/i18n/ps.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/select2/js/i18n/pt-BR.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/select2/js/i18n/pt-BR.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/select2/js/i18n/pt.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/select2/js/i18n/pt.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/select2/js/i18n/ro.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/select2/js/i18n/ro.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/select2/js/i18n/ru.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/select2/js/i18n/ru.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/select2/js/i18n/sk.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/select2/js/i18n/sk.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/select2/js/i18n/sl.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/select2/js/i18n/sl.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/select2/js/i18n/sq.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/select2/js/i18n/sq.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/select2/js/i18n/sr-Cyrl.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/select2/js/i18n/sr-Cyrl.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/select2/js/i18n/sr.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/select2/js/i18n/sr.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/select2/js/i18n/sv.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/select2/js/i18n/sv.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/select2/js/i18n/th.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/select2/js/i18n/th.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/select2/js/i18n/tk.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/select2/js/i18n/tk.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/select2/js/i18n/tr.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/select2/js/i18n/tr.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/select2/js/i18n/uk.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/select2/js/i18n/uk.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/select2/js/i18n/vi.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/select2/js/i18n/vi.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/select2/js/i18n/zh-CN.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/select2/js/i18n/zh-CN.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/select2/js/i18n/zh-TW.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/select2/js/i18n/zh-TW.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/select2/js/select2.full.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/select2/js/select2.full.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/select2/js/select2.full.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/select2/js/select2.full.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/select2/js/select2.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/select2/js/select2.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/select2/js/select2.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/select2/js/select2.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/select2/js/i18n/af.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/select2/js/i18n/af.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/select2/js/i18n/ar.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/select2/js/i18n/ar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/select2/js/i18n/az.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/select2/js/i18n/az.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/select2/js/i18n/bg.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/select2/js/i18n/bg.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/select2/js/i18n/bn.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/select2/js/i18n/bn.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/select2/js/i18n/bs.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/select2/js/i18n/bs.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/select2/js/i18n/build.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/select2/js/i18n/ca.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/select2/js/i18n/ca.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/select2/js/i18n/cs.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/select2/js/i18n/cs.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/select2/js/i18n/da.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/select2/js/i18n/da.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/select2/js/i18n/de.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/select2/js/i18n/de.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/select2/js/i18n/dsb.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/select2/js/i18n/dsb.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/select2/js/i18n/el.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/select2/js/i18n/el.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/select2/js/i18n/en.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/select2/js/i18n/en.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/select2/js/i18n/es.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/select2/js/i18n/es.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/select2/js/i18n/et.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/select2/js/i18n/et.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/select2/js/i18n/eu.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/select2/js/i18n/eu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/select2/js/i18n/fa.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/select2/js/i18n/fa.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/select2/js/i18n/fi.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/select2/js/i18n/fi.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/select2/js/i18n/fr.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/select2/js/i18n/fr.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/select2/js/i18n/gl.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/select2/js/i18n/gl.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/select2/js/i18n/he.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/select2/js/i18n/he.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/select2/js/i18n/hi.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/select2/js/i18n/hi.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/select2/js/i18n/hr.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/select2/js/i18n/hr.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/select2/js/i18n/hsb.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/select2/js/i18n/hsb.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/select2/js/i18n/hu.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/select2/js/i18n/hu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/select2/js/i18n/hy.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/select2/js/i18n/hy.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/select2/js/i18n/id.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/select2/js/i18n/id.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/select2/js/i18n/is.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/select2/js/i18n/is.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/select2/js/i18n/it.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/select2/js/i18n/it.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/select2/js/i18n/ja.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/select2/js/i18n/ja.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/select2/js/i18n/ka.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/select2/js/i18n/ka.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/select2/js/i18n/km.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/select2/js/i18n/km.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/select2/js/i18n/ko.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/select2/js/i18n/ko.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/select2/js/i18n/lt.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/select2/js/i18n/lt.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/select2/js/i18n/lv.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/select2/js/i18n/lv.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/select2/js/i18n/mk.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/select2/js/i18n/mk.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/select2/js/i18n/ms.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/select2/js/i18n/ms.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/select2/js/i18n/nb.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/select2/js/i18n/nb.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/select2/js/i18n/ne.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/select2/js/i18n/ne.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/select2/js/i18n/nl.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/select2/js/i18n/nl.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/select2/js/i18n/pl.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/select2/js/i18n/pl.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/select2/js/i18n/ps.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/select2/js/i18n/ps.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/select2/js/i18n/pt-BR.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/select2/js/i18n/pt-BR.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/select2/js/i18n/pt.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/select2/js/i18n/pt.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/select2/js/i18n/ro.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/select2/js/i18n/ro.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/select2/js/i18n/ru.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/select2/js/i18n/ru.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/select2/js/i18n/sk.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/select2/js/i18n/sk.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/select2/js/i18n/sl.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/select2/js/i18n/sl.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/select2/js/i18n/sq.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/select2/js/i18n/sq.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/select2/js/i18n/sr-Cyrl.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/select2/js/i18n/sr-Cyrl.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/select2/js/i18n/sr.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/select2/js/i18n/sr.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/select2/js/i18n/sv.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/select2/js/i18n/sv.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/select2/js/i18n/th.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/select2/js/i18n/th.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/select2/js/i18n/tk.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/select2/js/i18n/tk.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/select2/js/i18n/tr.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/select2/js/i18n/tr.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/select2/js/i18n/uk.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/select2/js/i18n/uk.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/select2/js/i18n/vi.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/select2/js/i18n/vi.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/select2/js/i18n/zh-CN.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/select2/js/i18n/zh-CN.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/select2/js/i18n/zh-TW.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/select2/js/i18n/zh-TW.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/select2/js/select2.full.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/select2/js/select2.full.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/select2/js/select2.full.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/select2/js/select2.full.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/select2/js/select2.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/select2/js/select2.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/select2/js/select2.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/select2/js/select2.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/article/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/article/create.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/article/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/article/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/category/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/category/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/tag/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/tag/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/admin.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -39,67 +165,56 @@
     <favorites_list name="abianji" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.64934057">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/ArticleController.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="556">
-                  <caret line="52" lean-forward="true" selection-start-line="52" selection-end-line="52" />
-                  <folding>
-                    <element signature="e#46#96#0#PHP" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/resources/views/admin/article/index.blade.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="203">
-                  <caret line="35" column="12" lean-forward="true" selection-start-line="35" selection-start-column="12" selection-end-line="35" selection-end-column="12" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/CategoryController.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="466">
-                  <caret line="94" column="78" lean-forward="true" selection-start-line="92" selection-start-column="8" selection-end-line="94" selection-end-column="78" />
-                  <folding>
-                    <element signature="e#46#98#0#PHP" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/routes/web.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="97">
-                  <caret line="28" column="69" lean-forward="true" selection-start-line="28" selection-start-column="56" selection-end-line="28" selection-end-column="69" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/resources/views/admin/category/index.blade.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="337">
-                  <caret line="97" column="112" selection-start-line="97" selection-start-column="16" selection-end-line="97" selection-end-column="112" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/admin/article/create.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="292">
+              <caret line="126" column="17" lean-forward="true" selection-start-line="119" selection-start-column="16" selection-end-line="126" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/layouts/admin.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="303">
+              <caret line="153" column="6" lean-forward="true" selection-start-line="153" selection-start-column="6" selection-end-line="153" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/admin/article/index.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="41" column="45" lean-forward="true" selection-start-line="41" selection-start-column="45" selection-end-line="41" selection-end-column="45" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/admin/article/edit.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="84" column="26" lean-forward="true" selection-start-line="80" selection-start-column="20" selection-end-line="84" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/ArticleController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="15" column="5" lean-forward="true" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+              <folding>
+                <element signature="e#46#96#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -111,10 +226,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>voyager.login</find>
-      <find>ogin-card-body</find>
-      <find>icheck-primar</find>
-      <find>border-right</find>
       <find>$gray-700</find>
       <find>attempt</find>
       <find>sendLoginResponse</find>
@@ -132,15 +243,19 @@
       <find>content-header</find>
       <find>btn-de</find>
       <find>tagModal</find>
-      <find>custom-file-label</find>
       <find>customFile</find>
-      <find>select2</find>
       <find>parent_id</find>
       <find>markdown</find>
       <find>delete</find>
       <find>J_delTagBtn</find>
       <find>J_editBtn</find>
       <find>J_delCategoryModal</find>
+      <find>J_coverImgInput</find>
+      <find>J_submitTagBtn</find>
+      <find>selected</find>
+      <find>custom-file-label</find>
+      <find>select2</find>
+      <find>syncTags</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/resources/sass/admin</dir>
@@ -157,7 +272,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/views/layouts/adminbase.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminController.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/admin.php" />
         <option value="$PROJECT_DIR$/resources/sass/admin/variables.scss" />
@@ -183,10 +297,8 @@
         <option value="$PROJECT_DIR$/resources/js/bootstrap.js" />
         <option value="$PROJECT_DIR$/resources/sass/admin/_buttons.scss" />
         <option value="$PROJECT_DIR$/database/migrations/2019_09_30_024711_create_categories_table.php" />
-        <option value="$PROJECT_DIR$/app/Models/Tag.php" />
         <option value="$PROJECT_DIR$/config/filesystems.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/components/toast.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/layouts/admin.blade.php" />
         <option value="$PROJECT_DIR$/config/errorcode.php" />
         <option value="$PROJECT_DIR$/app/Http/Requests/Tag/TagStoreRequest.php" />
         <option value="$PROJECT_DIR$/app/Http/Requests/Category/CategoryStoreRequest.php" />
@@ -194,20 +306,23 @@
         <option value="$PROJECT_DIR$/resources/views/admin/tag/create.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/components/success.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/category/create.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/article/create.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/tag/edit.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/TagController.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/category/edit.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/tag/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/category/index.blade.php" />
-        <option value="$PROJECT_DIR$/app/Models/Article.php" />
         <option value="$PROJECT_DIR$/app/Models/Category.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/CategoryController.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_09_30_023519_create_articles_table.php" />
         <option value="$PROJECT_DIR$/app/Http/Requests/Article/ArticleStoreRequest.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/ArticleController.php" />
+        <option value="$PROJECT_DIR$/app/Models/Tag.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/TagController.php" />
+        <option value="$PROJECT_DIR$/app/Models/Article.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/article/create.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/layouts/admin.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/article/edit.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/article/index.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/ArticleController.php" />
       </list>
     </option>
   </component>
@@ -320,8 +435,8 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="19" />
-    <option name="y" value="23" />
+    <option name="x" value="10" />
+    <option name="y" value="37" />
     <option name="width" value="1440" />
     <option name="height" value="820" />
   </component>
@@ -331,6 +446,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -342,6 +458,19 @@
               <item name="abianji" type="b2602c69:ProjectViewProjectNode" />
               <item name="abianji" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="abianji" type="b2602c69:ProjectViewProjectNode" />
+              <item name="abianji" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="abianji" type="b2602c69:ProjectViewProjectNode" />
+              <item name="abianji" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="select2" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="abianji" type="b2602c69:ProjectViewProjectNode" />
@@ -368,7 +497,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -446,12 +574,13 @@
       <workItem from="1570607984852" duration="5641000" />
       <workItem from="1570687279722" duration="26158000" />
       <workItem from="1570859678440" duration="15037000" />
-      <workItem from="1571033673262" duration="32708000" />
+      <workItem from="1571033673262" duration="34030000" />
+      <workItem from="1571362246792" duration="13002000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="193365000" />
+    <option name="totallyTimeSpent" value="207689000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -463,10 +592,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="820" extended-state="6" />
+    <frame x="9" y="33" width="1440" height="820" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.46845123" visible="true" weight="0.07796852" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.46845123" visible="true" weight="0.22603719" />
       <window_info id="Structure" order="1" sideWeight="0.532" side_tool="true" weight="0.18025751" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" sideWeight="0.53154874" side_tool="true" weight="0.1795422" />
@@ -480,7 +609,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32921812" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49928468" visible="true" weight="0.16170213" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49928468" visible="true" weight="0.2964539" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5007153" side_tool="true" weight="0.24680851" />
       <window_info anchor="bottom" id="TypeScript" order="12" weight="0.32907802" />
       <window_info anchor="bottom" id="Thumbnails" order="13" weight="0.32907802" />
@@ -518,65 +647,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="18" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/admin/Treeview.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="14" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/admin/Layout.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="121">
-          <caret line="30" column="40" lean-forward="true" selection-start-line="30" selection-start-column="40" selection-end-line="30" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/sass/admin/_buttons.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="49">
-          <caret line="34" column="26" lean-forward="true" selection-start-line="34" selection-start-column="26" selection-end-line="34" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Middleware/AdminAuth.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="5" lean-forward="true" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Concerns/HasRelationships.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="169" column="29" selection-start-line="169" selection-start-column="20" selection-end-line="169" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard/standard_8.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="919" column="9" selection-start-line="919" selection-start-column="9" selection-end-line="919" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Models/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" selection-start-line="7" selection-start-column="6" selection-end-line="17" />
-          <folding>
-            <element signature="e#30#85#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Http/RedirectResponse.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1038">
@@ -684,13 +754,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/layouts/admin.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="159" column="8" selection-start-line="159" selection-start-column="8" selection-end-line="159" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/errorcode.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -715,13 +778,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/article/create.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="77">
-          <caret line="130" column="26" lean-forward="true" selection-start-line="130" selection-start-column="26" selection-end-line="130" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/webpack.mix.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
@@ -729,24 +785,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Requests/Tag/TagStoreRequest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="7" lean-forward="true" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/admin/tag/create.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/tag/edit.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="14" lean-forward="true" selection-end-line="26" />
         </state>
       </provider>
     </entry>
@@ -769,20 +811,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/tag/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="27" column="16" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Models/Tag.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="1" lean-forward="true" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Models/Category.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -790,24 +818,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Models/Article.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Requests/Article/ArticleStoreRequest.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="379">
           <caret line="39" column="5" lean-forward="true" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_09_30_023519_create_articles_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="10" column="6" lean-forward="true" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
         </state>
       </provider>
     </entry>
@@ -825,54 +839,150 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/TagController.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/category/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="48" column="22" lean-forward="true" selection-start-line="48" selection-start-column="22" selection-end-line="48" selection-end-column="22" />
-          <folding>
-            <element signature="e#46#88#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="162">
+          <caret line="35" column="66" lean-forward="true" selection-start-line="35" selection-start-column="66" selection-end-line="35" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/tag/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="353">
+          <caret line="27" column="16" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/CategoryController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="466">
-          <caret line="94" column="78" lean-forward="true" selection-start-line="92" selection-start-column="8" selection-end-line="94" selection-end-column="78" />
+        <state relative-caret-position="420">
+          <caret line="84" selection-start-line="84" selection-end-line="84" />
           <folding>
             <element signature="e#46#98#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/tag/edit.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="97">
-          <caret line="28" column="69" lean-forward="true" selection-start-line="28" selection-start-column="56" selection-end-line="28" selection-end-column="69" />
+        <state relative-caret-position="195">
+          <caret line="13" column="34" lean-forward="true" selection-start-line="13" selection-start-column="34" selection-end-line="13" selection-end-column="34" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/ArticleController.php">
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_09_30_032719_create_article_tags_table.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="556">
-          <caret line="52" lean-forward="true" selection-start-line="52" selection-end-line="52" />
+        <state relative-caret-position="180">
+          <caret line="14" column="5" lean-forward="true" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_09_30_032632_create_tags_table.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Models/Tag.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="1" lean-forward="true" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_09_30_023519_create_articles_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Models/Article.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="50" selection-start-line="21" selection-start-column="50" selection-end-line="21" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/TagController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="77">
+          <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
           <folding>
-            <element signature="e#46#96#0#PHP" expanded="true" />
+            <element signature="e#46#88#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/category/index.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/Providers/AppServiceProvider.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="337">
-          <caret line="97" column="112" selection-start-line="97" selection-start-column="16" selection-end-line="97" selection-end-column="112" />
+        <state relative-caret-position="330">
+          <caret line="24" column="42" lean-forward="true" selection-start-line="24" selection-start-column="42" selection-end-line="24" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Providers/AuthServiceProvider.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Providers/BroadcastServiceProvider.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Providers/EventServiceProvider.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Concerns/HasAttributes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="191">
+          <caret line="1052" column="20" selection-start-line="1052" selection-start-column="20" selection-end-line="1052" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="26" column="8" lean-forward="true" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/layouts/admin.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="303">
+          <caret line="153" column="6" lean-forward="true" selection-start-line="153" selection-start-column="6" selection-end-line="153" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Requests/Tag/TagStoreRequest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="7" lean-forward="true" selection-start-line="22" selection-start-column="7" selection-end-line="22" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/article/create.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="292">
+          <caret line="126" column="17" lean-forward="true" selection-start-line="119" selection-start-column="16" selection-end-line="126" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/article/edit.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="84" column="26" lean-forward="true" selection-start-line="80" selection-start-column="20" selection-end-line="84" selection-end-column="26" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/admin/article/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="35" column="12" lean-forward="true" selection-start-line="35" selection-start-column="12" selection-end-line="35" selection-end-column="12" />
+        <state relative-caret-position="289">
+          <caret line="41" column="45" lean-forward="true" selection-start-line="41" selection-start-column="45" selection-end-line="41" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/ArticleController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="5" lean-forward="true" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+          <folding>
+            <element signature="e#46#96#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

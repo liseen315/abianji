@@ -25,7 +25,10 @@
                 <td>{{ $article->views }}</td>
                 <td>{{ $article->created_at }}</td>
                 <td>
-                    <button type="button" class="btn btn-primary btn-primary mr-1">编辑</button>
+                    <a href="{{ route('article.edit', $article->id ) }}">
+                        <button type="button" class="btn btn-primary btn-primary mr-1">编辑</button>
+                    </a>
+
                     <button type="button" class="btn btn-primary btn-danger" data-toggle="modal"
                             data-target=".J_delArticleModal" data-url="{{ route('article.delete',$article->id) }}"
                             data-name="{{ $article->title }}">删除
@@ -34,6 +37,13 @@
             </tr>
         @endforeach
     </table>
+
+    <div class="container">
+        <div class="row justify-content-end">
+            {{ $articles->links() }}
+        </div>
+    </div>
+
 
     {{--Del Modal 这个可以抽离成组件等基础逻辑完成后抽离--}}
     <div class="modal fade J_delArticleModal" tabindex="-1" role="dialog" aria-hidden="true">

@@ -28,9 +28,11 @@ class TagController extends Controller
      */
     public function store(TagStoreRequest $request)
     {
-        $data = $request->except('_token');
+        $data = $request->only('name');
 
         Tag::create($data);
+
+
         return redirect()->route('tag.index')->with('success', '创建标签成功');
     }
 

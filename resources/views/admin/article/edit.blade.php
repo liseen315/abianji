@@ -1,8 +1,8 @@
 @extends('layouts.admin')
 
-@section('title','创建文章')
+@section('title','编辑文章')
 
-@section('bread-title','创建文章')
+@section('bread-title','编辑文章')
 
 @section('style')
     <link rel="stylesheet" href="{{ asset('assets/editormd/css/editormd.min.css') }}">
@@ -14,14 +14,14 @@
 
     <div class="card">
         <div class="card-body">
-            <form action="{{ route('article.store') }}" method="post" enctype="multipart/form-data">
+            <form action="{{ route('article.update',$article->id) }}" method="post" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <div class="form-group">
                     <label>选择分类</label>
                     <div class="input-group">
                         <select name="category_id" class="form-control select2">
                             @foreach ($categories as $category)
-                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                <option value="{{ $category->id }}" @if($article->category_id === $category->id) selected="selected" @endif>{{ $category->name }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -29,34 +29,35 @@
                 </div>
                 <div class="form-group">
                     <label>标题</label>
-                    <input type="text" class="form-control" name="title" value="{{ old('title') }}">
+                    <input type="text" class="form-control" name="title" value="{{ $article->title }}">
                 </div>
 
                 <div class="form-group">
                     <label>标签</label>
-                    <div class="input-group">
-                        <select class="select2" multiple="multiple" name="tag_list[]">
-                            @foreach($tags as $tag)
-                                <option value="{{ $tag->id }}">{{ $tag->name }}</option>
-                            @endforeach
-                        </select>
+                    <div class="container">
+                        <div class="row">
+                            <select class="select2 col-md-10" multiple="multiple" name="tag_list[]">
+                                @foreach($tags as $tag)
+                                    <option value="{{ $tag->id }}" @if(in_array($tag->id,$checkTags)) selected="selected" @endif>{{ $tag->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
                     </div>
-
                 </div>
 
                 <div class="form-group">
                     <label>文章封面</label>
                     <div class="custom-file">
                         <input type="file" class="custom-file-input" id="J_coverImgInput" name="cover"
-                               accept="image/png, image/jpeg, image/gif, image/jpg">
-                        <label class="custom-file-label" for="J_coverImgInput">Choose file</label>
+                               accept="image/png, image/jpeg, image/gif, image/jpg" value="{{ $article->cover }}">
+                        <label class="custom-file-label" for="J_coverImgInput">{{ $article->cover }}</label>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label>内容</label>
                     <div id="abianji-content">
-                        <textarea name="markdown">{{ old('markdown') }}</textarea>
+                        <textarea name="markdown">{{ $article->markdown }}</textarea>
                     </div>
                 </div>
 
@@ -65,11 +66,11 @@
                     <div class="container">
                         <div class="row">
                             <div class="form-check col-auto">
-                                <input class="form-check-input" type="radio" name="is_top" value="1" id="top">
+                                <input class="form-check-input" type="radio" name="is_top" value="1" id="top" @if($article->is_top === 1) checked @endif>
                                 <label class="form-check-label" for="top">置顶</label>
                             </div>
                             <div class="form-check col-auto">
-                                <input class="form-check-input" type="radio" name="is_top" value="0" id="unTop" checked>
+                                <input class="form-check-input" type="radio" name="is_top" value="0" id="unTop" @if($article->is_top === 0) checked @endif>
                                 <label class="form-check-label" for="unTop">取消置顶</label>
                             </div>
                         </div>
@@ -79,7 +80,7 @@
                 <div class="form-group">
                     <div class="container">
                         <div class="row justify-content-end">
-                            <button type="submit" class="btn btn-primary">提交</button>
+                            <button type="submit" class="btn btn-primary">更新文章</button>
                         </div>
                     </div>
                 </div>
@@ -87,45 +88,23 @@
         </div>
     </div>
 
-
-
-    {{--Tag Modal--}}
-    <div class="modal fade" id="tagModal" tabindex="-1" role="dialog" aria-labelledby="tagModal" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">添加标签</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body text-center">
-                    <form class="form-group" role="form">
-                        <input class="form-control mb-3" type="text" placeholder="标签名">
-                        <button type="button" class="btn btn-block btn-primary" id="J_submitTagBtn">提交</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
 @endsection
 
 @section('scripts')
     <script src="{{ asset('assets/editormd/editormd.min.js') }}"></script>
     <script>
-
+        $('.select2').select2({
+            theme: 'bootstrap4',
+            tags: true,
+            tokenSeparators: [",", " "],
+            createTag: function(newTag) {
+                return {
+                    id: 'new:' + newTag.term,
+                    text: newTag.term + ' (new)'
+                };
+            }
+        })
         $(function () {
-            $('.select2').select2({
-                theme: 'bootstrap4',
-                tags: true,
-                tokenSeparators: [",", " "],
-                createTag: function(newTag) {
-                    return {
-                        id: 'new:' + newTag.term,
-                        text: newTag.term + ' (new)'
-                    };
-                }
-            })
 
             editormd.urls.atLinkBase = "https://github.com/";
 
