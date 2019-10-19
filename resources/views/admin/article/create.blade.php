@@ -35,7 +35,7 @@
                 <div class="form-group">
                     <label>标签</label>
                     <div class="input-group">
-                        <select class="select2" multiple="multiple" name="tag_list[]">
+                        <select class="form-group select2" multiple="multiple" name="tag_list[]">
                             @foreach($tags as $tag)
                                 <option value="{{ $tag->id }}">{{ $tag->name }}</option>
                             @endforeach

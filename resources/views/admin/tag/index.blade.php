@@ -27,8 +27,9 @@
                             </button>
                         </a>
 
-                        <button type="button" class="btn btn-sm btn-danger J_delTagBtn" data-id="{{ $tag->id }}"
-                                data-name="{{ $tag->name }}" data-toggle="modal" data-target=".J_delModal">删除
+                        <button type="button" class="btn btn-sm btn-danger J_delTagBtn"
+                                data-url="{{ route('tag.delete', $tag->id) }}" data-name="{{ $tag->name }}"
+                                data-toggle="modal" data-target=".J_delModal">删除
                         </button>
                     </td>
                 </tr>
@@ -50,13 +51,16 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body text-center">
-                    <label class="tag-name"></label>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                    <button type="button" class="btn btn-primary del-confirm">确认</button>
-                </div>
+                <form action="" method="post" enctype="multipart/form-data">
+                    {{ csrf_field() }}
+                    <div class="modal-body text-center">
+                        <label class="tag-name"></label>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                        <button type="submit" class="btn btn-primary del-confirm">确认</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -68,32 +72,34 @@
 
 
             $('.J_delModal').on('show.bs.modal', function (e) {
-                $(this).find('.del-confirm').attr('data-id', $(e.relatedTarget).data('id'));
-                $(this).find('.tag-name').html('确定要删除 <span class="text-danger">' + $(e.relatedTarget).data('name') + '</span> 标签么?');
+                let name = $(e.relatedTarget).data('name');
+                let url = $(e.relatedTarget).data('url');
+                $(this).find('form').attr('action', url);
+                $(this).find('.tag-name').html('确认要删除 <span class="text-danger">' + name + '</span> 标签么?');
             });
 
-            $('.del-confirm').on('click', function (e) {
-                $.ajax({
-                    type: 'POST',
-                    url: '{{ route('tag.delete') }}',
-                    dataType: 'json',
-                    data: {id: $(e.target).data('id')},
-                    success: function (response) {
-                        $('.J_delModal').modal('hide');
-                        if (response.status === 0) {
-                            toastr.success(response.msg);
-                            setTimeout(function () {
-                                location.reload();
-                            }, 1000);
+            {{--$('.del-confirm').on('click', function (e) {--}}
+            {{--    $.ajax({--}}
+            {{--        type: 'POST',--}}
+            {{--        url: '{{ route('tag.delete') }}',--}}
+            {{--        dataType: 'json',--}}
+            {{--        data: {id: $(e.target).data('id')},--}}
+            {{--        success: function (response) {--}}
+            {{--            $('.J_delModal').modal('hide');--}}
+            {{--            if (response.status === 0) {--}}
+            {{--                toastr.success(response.msg);--}}
+            {{--                setTimeout(function () {--}}
+            {{--                    location.reload();--}}
+            {{--                }, 1000);--}}
 
-                        } else {
-                            toastr.error(response.msg);
-                        }
+            {{--            } else {--}}
+            {{--                toastr.error(response.msg);--}}
+            {{--            }--}}
 
 
-                    }
-                })
-            });
+            {{--        }--}}
+            {{--    })--}}
+            {{--});--}}
         })
     </script>
 @endsection

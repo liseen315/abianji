@@ -49,7 +49,7 @@ Route::namespace('Admin')->prefix('admin')->group(function () {
        Route::get('/','TagController@index')->name('tag.index');
        Route::get('create','TagController@create')->name('tag.create');
        Route::post('store','TagController@store')->name('tag.store');
-       Route::post('delete','TagController@delete')->name('tag.delete');
+       Route::post('delete/{tag}','TagController@delete')->name('tag.delete');
        Route::get('edit/{tag}','TagController@edit')->name('tag.edit');
        Route::post('update/{tag}','TagController@update')->name('tag.update');
    });

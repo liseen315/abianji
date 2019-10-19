@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\Tag\TagStoreRequest;
+use App\Models\Article;
 use App\Models\Tag;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -43,7 +44,7 @@ class TagController extends Controller
      */
     public function edit(Tag $tag)
     {
-        return view('admin.tag.edit',compact('tag',$tag));
+        return view('admin.tag.edit', compact('tag', $tag));
     }
 
     /**
@@ -52,9 +53,10 @@ class TagController extends Controller
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Tag $tag, Request $request) {
+    public function update(Tag $tag, Request $request)
+    {
         $tag->update(['name' => $request->input('name')]);
-        return redirect()->route('tag.index')->with('success','更新标签成功');
+        return redirect()->route('tag.index')->with('success', '更新标签成功');
     }
 
     /**
@@ -62,10 +64,10 @@ class TagController extends Controller
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function delete(Request $request)
+    public function delete(Tag $tag)
     {
         // 这里明天处理Tag删除后需要处理article_tags中间表
-        if (empty($request->input('id'))) {
+        /*if (empty($request->input('id'))) {
             return response()->json(['status' => 2001, 'msg' => config('errorcode.code')[2001]]);
         }
 
@@ -79,6 +81,14 @@ class TagController extends Controller
             return response()->json(['status' => 2002, 'msg' => config('errorcode')[2002]]);
         }
 
-        return response()->json(['status' => 0, 'msg' => '删除成功']);
+        return response()->json(['status' => 0, 'msg' => '删除成功']);*/
+
+        foreach ($tag->articles as $article) {
+            $article->pivot->delete();
+        }
+
+        $tag->delete();
+
+        return redirect()->route('tag.index')->with('success', '删除标签成功');
     }
 }
