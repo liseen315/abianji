@@ -8,7 +8,7 @@
     @component('.admin.components.success')
     @endcomponent
 
-    <table class="table table-bordered table-striped table-hover table-condensed">
+    <table class="table table-bordered table-striped table-hover table-condensed" style="table-layout: fixed;">
         <tr>
             <th style="width: 10%">ID</th>
             <th>标题</th>
@@ -20,7 +20,7 @@
         @foreach($articles as $article)
             <tr>
                 <td>{{ $article->id }}</td>
-                <td>{{ $article->title }}</td>
+                <td style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">{{ $article->title }}</td>
                 <td>{{ $article->category ? $article->category->name : '暂无分类' }}</td>
                 <td>{{ $article->views }}</td>
                 <td>{{ $article->created_at }}</td>

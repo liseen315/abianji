@@ -18175,6 +18175,10 @@ html.maximized-card {
   color: inherit;
 }
 
+.table td {
+  vertical-align: middle;
+}
+
 .table.table-head-fixed thead tr:nth-child(1) th {
   background-color: #ffffff;
   border-bottom: 0;

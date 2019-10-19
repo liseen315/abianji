@@ -34,14 +34,11 @@
 
                 <div class="form-group">
                     <label>标签</label>
-                    <div class="input-group">
-                        <select class="form-group select2" multiple="multiple" name="tag_list[]">
-                            @foreach($tags as $tag)
-                                <option value="{{ $tag->id }}">{{ $tag->name }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-
+                    <select class="form-group select2" style="width: 100%;" multiple="multiple" name="tag_list[]">
+                        @foreach($tags as $tag)
+                            <option value="{{ $tag->id }}">{{ $tag->name }}</option>
+                        @endforeach
+                    </select>
                 </div>
 
                 <div class="form-group">
@@ -119,7 +116,7 @@
                 theme: 'bootstrap4',
                 tags: true,
                 tokenSeparators: [",", " "],
-                createTag: function(newTag) {
+                createTag: function (newTag) {
                     return {
                         id: 'new:' + newTag.term,
                         text: newTag.term + ' (new)'
