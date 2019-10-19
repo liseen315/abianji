@@ -9,17 +9,13 @@
 @import "~bootstrap/scss/bootstrap";
 @import "~@fortawesome/fontawesome-free/css/all.min.css";
 @import "~icheck-bootstrap/icheck-bootstrap.min.css";
-
-
 // Variables and Mixins
 // ---------------------------------------------------
 @import 'variables';
 @import 'mixins';
-
 // Core
 // ---------------------------------------------------
 @import 'layout';
-
 // Components
 // ---------------------------------------------------
 @import 'main-header';
@@ -45,7 +41,6 @@
 @import 'carousel';
 @import 'social-widgets';
 @import 'modals';
-
 // Pages
 // ---------------------------------------------------
 @import 'pages/mailbox';
@@ -56,7 +51,6 @@
 @import 'pages/profile';
 @import 'pages/e_commerce';
 @import 'pages/projects';
-
 // Plugins
 // ---------------------------------------------------
 @import 'plugins/fullcalendar';
@@ -68,7 +62,6 @@
 @import 'plugins/sweetalert2';
 @import 'plugins/toastr';
 @import 'plugins/miscellaneous';
-
 // Miscellaneous
 // ---------------------------------------------------
 @import 'miscellaneous';

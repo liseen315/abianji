@@ -64,11 +64,16 @@ class TagController extends Controller
      */
     public function delete(Request $request)
     {
+        // 这里明天处理Tag删除后需要处理article_tags中间表
         if (empty($request->input('id'))) {
             return response()->json(['status' => 2001, 'msg' => config('errorcode.code')[2001]]);
         }
 
+        $targetTag = Tag::find($request->input('id'));
+        dd($targetTag->article_list);
+
         $result = Tag::where('id', '=', $request->input('id'))->delete();
+
 
         if (!$result) {
             return response()->json(['status' => 2002, 'msg' => config('errorcode')[2002]]);
