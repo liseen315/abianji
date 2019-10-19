@@ -10,11 +10,10 @@ use App\Http\Controllers\Controller;
 
 class ArticleController extends Controller
 {
-    //
 
     public function index()
     {
-        $articles = Article::simplePaginate(15);
+        $articles = Article::orderBy('created_at', 'desc')->simplePaginate(15);
 
         return view('admin.article.index', compact('articles'));
     }
