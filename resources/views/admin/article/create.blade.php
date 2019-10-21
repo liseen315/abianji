@@ -43,10 +43,9 @@
 
                 <div class="form-group">
                     <label>文章封面</label>
-                    <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="J_coverImgInput" name="cover"
-                               accept="image/png, image/jpeg, image/gif, image/jpg">
-                        <label class="custom-file-label" for="J_coverImgInput">Choose file</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control">
+                        <div class="btn btn-primary">浏览</div>
                     </div>
                 </div>
 
@@ -85,26 +84,6 @@
     </div>
 
 
-
-    {{--Tag Modal--}}
-    <div class="modal fade" id="tagModal" tabindex="-1" role="dialog" aria-labelledby="tagModal" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">添加标签</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body text-center">
-                    <form class="form-group" role="form">
-                        <input class="form-control mb-3" type="text" placeholder="标签名">
-                        <button type="button" class="btn btn-block btn-primary" id="J_submitTagBtn">提交</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
 @endsection
 
 @section('scripts')
@@ -141,14 +120,10 @@
                 imageUploadURL: '',
             });
 
-            $('#J_submitTagBtn').on('click', function (event) {
-                console.log('click add Tag');
-            })
-
-            $('#J_coverImgInput').on('change', function () {
-                let fileName = $(this).val().split('\\').pop();
-                $(this).next('.custom-file-label').addClass("selected").html(fileName);
-            })
+            // $('#J_coverImgInput').on('change', function () {
+            //     let fileName = $(this).val().split('\\').pop();
+            //     $(this).next('.custom-file-label').addClass("selected").html(fileName);
+            // })
         })
     </script>
 @endsection

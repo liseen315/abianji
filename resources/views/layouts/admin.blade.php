@@ -7,12 +7,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Abianji - @yield('title')</title>
+    <link href="{{ mix('css/admin/admin.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('assets/select2/css/select2.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/bootstrap-select/css/bootstrap-select.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/toastr/toastr.min.css') }}">
-
-    <link href="{{ mix('css/admin/admin.css') }}" rel="stylesheet">
     @yield('style')
 
 </head>
@@ -151,12 +150,10 @@
         </div>
     </footer>
 </div>
-<script src="{{ asset('assets/jquery/jquery.min.js') }}"></script>
-<script src="{{ asset('assets/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-<script src="{{ asset('assets/select2/js/select2.min.js') }}"></script>
-<script src="{{ asset('assets/bootstrap-select/js/bootstrap-select.min.js') }}"></script>
-<script src="{{ asset('assets/toastr/toastr.min.js') }}"></script>
-<script src="{{ mix('js/admin/admin.js') }}"></script>
+<script type="text/javascript" src="{{ mix('js/admin/admin.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/select2/js/select2.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/bootstrap-select/js/bootstrap-select.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/toastr/toastr.min.js') }}"></script>
 <script>
     $(function () {
         $.ajaxSetup({

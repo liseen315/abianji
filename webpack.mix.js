@@ -45,9 +45,7 @@ mix_scss_files('/admin/')
 
 mix_js_files('/admin/')
 
-
-
-
+// 后面考虑抽取extract.某些不变的库例如bootstrap,jq等
 if (mix.inProduction()) {
     mix.version();
 }
