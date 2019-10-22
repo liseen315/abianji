@@ -7,7 +7,9 @@ use App\Models\Article;
 use App\Models\Category;
 use App\Models\Tag;
 use App\Http\Controllers\Controller;
-
+use Illuminate\Http\Request;
+use Validator;
+use Cloudder;
 class ArticleController extends Controller
 {
 
@@ -71,6 +73,24 @@ class ArticleController extends Controller
         return redirect()->route('article.index')->with('success', '删除文章成功');
     }
 
+    public function upload(Request $request)
+    {
+        $validation = Validator::make($request->all(), [
+            'cover_img' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048'
+        ]);
+
+        if ($validation->passes()) {
+            $image = $request->file('cover_img');
+            $upload = Cloudder::upload($image);
+
+            if ($upload) {
+                return response()->json(['status'=> 0,'msg' => '上传图片成功']);
+            }
+        } else {
+            return response()->json(['status' => 3001, 'msg' => config('errCode')[3001]]);
+        }
+    }
+
     private function syncTags(Article $article, array $tags)
     {
 
@@ -86,4 +106,6 @@ class ArticleController extends Controller
 
         $article->tags()->sync($allTagIds);
     }
+
+
 }

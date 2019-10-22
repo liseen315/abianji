@@ -158,9 +158,21 @@
                 $('.J_optionBox').removeClass('d-flex').hide();
                 $('.J_browseBox').show();
             })
-            
-            $('.J_uploadBtn').on('click',function () {
-                
+
+            $('.J_uploadBtn').on('click', function () {
+                let formData = new FormData()
+                formData.append('cover_img',uploadFile)
+                $.ajax({
+                    type: 'POST',
+                    url: '{{ route('article.upload') }}',
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    data: formData,
+                    success: function (response) {
+                        console.log('---response----', response)
+                    }
+                })
             })
         })
 
