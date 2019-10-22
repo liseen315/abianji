@@ -43,9 +43,26 @@
 
                 <div class="form-group">
                     <label>文章封面</label>
-                    <div class="input-group">
-                        <input type="text" class="form-control">
-                        <div class="btn btn-primary">浏览</div>
+                    <div class="preview-box J_previewBox">
+                        <div class="preview-text J_previewText">文件预览窗口</div>
+                    </div>
+                    <div class="input-group cover-group">
+                        <input type="text" class="form-control cover-input J_coverLabel" disabled>
+                        <div class="btn btn-primary btn-file J_browseBox">
+                            <i class="fas fa-folder"></i>
+                            <span>浏览文件</span>
+                            <input type="file" class="file" id="J_ImgFile" accept="image/*">
+                        </div>
+                        <div class="btn-group J_optionBox">
+                            <div class="btn btn-secondary J_delBtn">
+                                <i class="fas fa-trash-alt"></i>
+                                <span>删除</span>
+                            </div>
+                            <div class="btn btn-secondary J_uploadBtn">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <span>上传</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -91,6 +108,8 @@
     <script>
 
         $(function () {
+            let uploadFile = null
+
             $('.select2').select2({
                 theme: 'bootstrap4',
                 tags: true,
@@ -120,10 +139,39 @@
                 imageUploadURL: '',
             });
 
-            // $('#J_coverImgInput').on('change', function () {
-            //     let fileName = $(this).val().split('\\').pop();
-            //     $(this).next('.custom-file-label').addClass("selected").html(fileName);
-            // })
+
+            $('#J_ImgFile').on('change', function (event) {
+                $('.J_previewText').hide();
+                uploadFile = event.target.files[0];
+                showPreview(uploadFile);
+                $('.J_coverLabel').val(uploadFile.name);
+                $('.J_previewContent').remove()
+                $('.J_browseBox').hide();
+                $('.J_optionBox').addClass('d-flex').show();
+            })
+
+            $('.J_delBtn').on('click', function () {
+                uploadFile = null
+                $('.J_previewText').show();
+                $('.J_previewContent').remove()
+                $('.J_coverLabel').val('');
+                $('.J_optionBox').removeClass('d-flex').hide();
+                $('.J_browseBox').show();
+            })
+            
+            $('.J_uploadBtn').on('click',function () {
+                
+            })
         })
+
+        function showPreview(file) {
+            $('.J_coverLabel').val(file.name);
+            let reader = new FileReader();
+            reader.onload = function (e) {
+                let html = `<div class="preview-content J_previewContent"><img src="${e.target.result}" alt=""></div>`
+                $('.J_previewBox').append(html);
+            }
+            reader.readAsDataURL(file);
+        }
     </script>
 @endsection
