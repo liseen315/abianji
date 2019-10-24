@@ -2,5 +2,6 @@
     "/js/admin/Layout.js": "/js/admin/Layout.js",
     "/css/admin/admin.css": "/css/admin/admin.css",
     "/js/admin/Treeview.js": "/js/admin/Treeview.js",
-    "/js/admin/admin.js": "/js/admin/admin.js"
+    "/js/admin/admin.js": "/js/admin/admin.js",
+    "/js/admin/article.js": "/js/admin/article.js"
 }

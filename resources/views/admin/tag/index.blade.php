@@ -69,37 +69,12 @@
 @section('scripts')
     <script>
         $(function () {
-
-
             $('.J_delModal').on('show.bs.modal', function (e) {
                 let name = $(e.relatedTarget).data('name');
                 let url = $(e.relatedTarget).data('url');
                 $(this).find('form').attr('action', url);
                 $(this).find('.tag-name').html('确认要删除 <span class="text-danger">' + name + '</span> 标签么?');
             });
-
-            {{--$('.del-confirm').on('click', function (e) {--}}
-            {{--    $.ajax({--}}
-            {{--        type: 'POST',--}}
-            {{--        url: '{{ route('tag.delete') }}',--}}
-            {{--        dataType: 'json',--}}
-            {{--        data: {id: $(e.target).data('id')},--}}
-            {{--        success: function (response) {--}}
-            {{--            $('.J_delModal').modal('hide');--}}
-            {{--            if (response.status === 0) {--}}
-            {{--                toastr.success(response.msg);--}}
-            {{--                setTimeout(function () {--}}
-            {{--                    location.reload();--}}
-            {{--                }, 1000);--}}
-
-            {{--            } else {--}}
-            {{--                toastr.error(response.msg);--}}
-            {{--            }--}}
-
-
-            {{--        }--}}
-            {{--    })--}}
-            {{--});--}}
         })
     </script>
 @endsection

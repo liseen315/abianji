@@ -66,23 +66,7 @@ class TagController extends Controller
      */
     public function delete(Tag $tag)
     {
-        // 这里明天处理Tag删除后需要处理article_tags中间表
-        /*if (empty($request->input('id'))) {
-            return response()->json(['status' => 2001, 'msg' => config('errorcode.code')[2001]]);
-        }
-
-        $targetTag = Tag::find($request->input('id'));
-        dd($targetTag->article_list);
-
-        $result = Tag::where('id', '=', $request->input('id'))->delete();
-
-
-        if (!$result) {
-            return response()->json(['status' => 2002, 'msg' => config('errorcode')[2002]]);
-        }
-
-        return response()->json(['status' => 0, 'msg' => '删除成功']);*/
-
+        // 删除关联表内的记录
         foreach ($tag->articles as $article) {
             $article->pivot->delete();
         }
