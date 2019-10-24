@@ -21,7 +21,8 @@
             @endcomponent
         </div>
     </div>
-
+    @component('.admin.components.loading')
+    @endcomponent
 @endsection
 
 @section('scripts')
