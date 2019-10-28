@@ -22643,6 +22643,10 @@ html.maximized-card {
   margin: 10px 0;
 }
 
+.login-form {
+  margin-bottom: 10px;
+}
+
 .error-page {
   margin: 20px auto 0;
   width: 600px;

@@ -17,7 +17,7 @@
         <div class="card-body login-card-body">
             <p class="login-box-msg">Sign in to start your session</p>
 
-            <form action="{{route('post.login')}}" method="post">
+            <form action="{{route('post.login')}}" method="post" class="login-form">
                 {{ csrf_field() }}
                 <div class="input-group mb-3">
                     <input type="email" name="email" class="form-control" placeholder="Email" required>
@@ -49,15 +49,8 @@
                     </div>
                 </div>
             </form>
-            @if(!$errors->isEmpty())
-                <div class="alert alert-danger">
-                    <ul class="list-unstyled">
-                        @foreach($errors->all() as $err)
-                            <li>{{$err}}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
+            @component('admin.components.error')
+            @endcomponent
         </div>
     </div>
 </div>

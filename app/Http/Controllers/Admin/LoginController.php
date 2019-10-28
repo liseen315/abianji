@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Requests\Auth\AdminLoginRequest;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -30,10 +31,10 @@ class LoginController extends Controller
      * @return \Illuminate\Http\Response|\Symfony\Component\HttpFoundation\Response|void
      * @throws \Illuminate\Validation\ValidationException
      */
-    public function login(Request $request)
+    public function login(AdminLoginRequest $request)
     {
         // 验证登录,默认email
-        $this->validateLogin($request);
+//        $this->validateLogin($request);
 
         if ($this->hasTooManyLoginAttempts($request)) {
             $this->fireLockoutEvent($request);
