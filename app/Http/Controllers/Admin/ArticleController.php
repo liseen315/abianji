@@ -10,6 +10,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Validator;
 use Cloudder;
+use Str;
 
 class ArticleController extends Controller
 {
@@ -36,6 +37,8 @@ class ArticleController extends Controller
         if (is_null($request->input('cover'))) {
             $articleData['cover'] = '';
         }
+
+        // $articleData['slug'] = Str::slug($articleData['title'],'-'); 框架自带的slug还不支持中文😭
         $article = Article::create($articleData);
 
         // 给文章插入Tag

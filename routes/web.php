@@ -58,4 +58,12 @@ Route::namespace('Admin')->prefix('admin')->middleware('admin.auth')->group(func
         Route::get('edit/{tag}', 'TagController@edit')->name('tag.edit');
         Route::post('update/{tag}', 'TagController@update')->name('tag.update');
     });
+
+    // 基础配置
+    Route::prefix('config')->group(function () {
+        Route::get('edit','ConfigController@edit')->name('config.edit');
+        Route::post('update','ConfigController@update')->name('config.update');
+        Route::get('create','ConfigController@create')->name('config.create');
+        Route::post('store','ConfigController@store')->name('config.store');
+    });;
 });

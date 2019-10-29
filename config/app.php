@@ -181,7 +181,13 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        /**
+         * IdeHelper
+         */
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+        /**
+         * CDN Cloudinary
+         */
         JD\Cloudder\CloudderServiceProvider::class,
 
     ],

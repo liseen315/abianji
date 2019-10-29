@@ -34,17 +34,17 @@
 
         {{--Right navbar--}}
         <ul class="navbar-nav ml-auto">
-           <li class="nav-item dropdown">
-               <a href="#" class="nav-link" data-toggle="dropdown">{{ $user->name }}</a>
-               <div class="dropdown-menu dropdown-menu-right">
-                   <a href="#" class="dropdown-item text-right">
-                       <form action="{{ route('logout') }}" method="POST">
-                           {{ csrf_field() }}
-                           <button type="submit" class="btn btn-sm btn-block">登出</button>
-                       </form>
-                   </a>
-               </div>
-           </li>
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link" data-toggle="dropdown">{{ $user->name }}</a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a href="#" class="dropdown-item text-right">
+                        <form action="{{ route('logout') }}" method="POST">
+                            {{ csrf_field() }}
+                            <button type="submit" class="btn btn-sm btn-block">登出</button>
+                        </form>
+                    </a>
+                </div>
+            </li>
         </ul>
     </div>
     {{--/.navbar--}}
@@ -53,13 +53,15 @@
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
         {{--logo--}}
         <a href="{{route('dashboard')}}" class="brand-link">
-            <img src="{{url('images/AdminLTELogo.png')}}" alt="Abianji Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+            <img src="{{url('images/AdminLTELogo.png')}}" alt="Abianji Logo" class="brand-image img-circle elevation-3"
+                 style="opacity: .8">
             <span class="brand-text font-weight-light">管理面板</span>
         </a>
         <div class="sidebar">
             {{--Sidebar Menu--}}
             <nav class="mt-2">
-                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                    data-accordion="false">
                     {{--Dash board--}}
                     <li class="nav-item">
                         <a href="{{route('dashboard')}}" class="nav-link @sideIsActive('dashboard','active')">
@@ -68,7 +70,7 @@
                         </a>
                     </li>
                     {{--Article--}}
-                    <li class="nav-item has-treeview @sideIsActive('article','menu-open')" >
+                    <li class="nav-item has-treeview @sideIsActive('article','menu-open')">
                         <a href="javascript:void(0);" class="nav-link @sideIsActive('article','active')">
                             <i class="nav-icon fas fa-book"></i>
                             <p>
@@ -78,13 +80,15 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="{{route('article.index')}}" class="nav-link @sideIsActive('article.index','active')">
+                                <a href="{{route('article.index')}}"
+                                   class="nav-link @sideIsActive('article.index','active')">
                                     <i class="fas fa-align-justify nav-icon"></i>
                                     <p>文章列表</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('article.create') }}" class="nav-link @sideIsActive('article.create','active')">
+                                <a href="{{ route('article.create') }}"
+                                   class="nav-link @sideIsActive('article.create','active')">
                                     <i class="nav-icon fas fa-pen"></i>
                                     <p>创建文章</p>
                                 </a>
@@ -102,13 +106,15 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="{{ route('category.index') }}" class="nav-link @sideIsActive('category.index','active')">
+                                <a href="{{ route('category.index') }}"
+                                   class="nav-link @sideIsActive('category.index','active')">
                                     <i class="fas fa-align-justify nav-icon"></i>
                                     <p>分类列表</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('category.create') }}" class="nav-link @sideIsActive('category.create','active')">
+                                <a href="{{ route('category.create') }}"
+                                   class="nav-link @sideIsActive('category.create','active')">
                                     <i class="nav-icon fas fa-plus-square"></i>
                                     <p>创建分类</p>
                                 </a>
@@ -132,9 +138,34 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('tag.create') }}" class="nav-link @sideIsActive('tag.create','active')">
+                                <a href="{{ route('tag.create') }}"
+                                   class="nav-link @sideIsActive('tag.create','active')">
                                     <i class="nav-icon fas fa-plus-square"></i>
                                     <p>创建标签</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    {{--System Config--}}
+                    <li class="nav-item has-treeview @sideIsActive('config','menu-open')">
+                        <a href="javascript:void(0);" class="nav-link @sideIsActive('config','active')">
+                            <i class="nav-icon fas fa-wrench"></i>
+                            <p>
+                                网站配置
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{ route('config.create') }}" class="nav-link @sideIsActive('config.create','active')">
+                                    <i class="fas fa-plus-square nav-icon"></i>
+                                    <p>创建配置</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('config.edit') }}" class="nav-link @sideIsActive('config.edit','active')">
+                                    <i class="nav-icon fas fa-pen"></i>
+                                    <p>编辑配置</p>
                                 </a>
                             </li>
                         </ul>

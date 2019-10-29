@@ -12,6 +12,9 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
+        // 清空
+        DB::table('users')->truncate();
+
         DB::table('users')->insert(
             [
                 'name' => 'liseen',
