@@ -43,7 +43,7 @@ class ConfigsTableSeeder extends Seeder
             [
                 'name' => '统计代码',
                 'title' => 'analysis',
-                'value' => '',
+                'value' => NULL,
                 'type' => 'textarea',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
@@ -51,13 +51,13 @@ class ConfigsTableSeeder extends Seeder
             [
                 'name' => '备案号',
                 'title' => 'ipc',
-                'value' => '',
+                'value' => NULL,
                 'type' => 'text',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
-                'name' => '文章启用url',
+                'name' => '启用slug',
                 'title' => 'slug',
                 'value' => '0',
                 'type' => 'radio',
