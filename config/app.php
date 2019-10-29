@@ -166,6 +166,11 @@ return [
          * Package Service Providers...
          */
 
+        /*
+         * 赋值全局数据
+         */
+
+        App\Providers\ComposerServiceProvider::class,
 
         /*
          * Application Service Providers...

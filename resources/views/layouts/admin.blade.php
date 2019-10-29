@@ -31,9 +31,20 @@
                 <a class="nav-link">@yield('bread-title')</a>
             </li>
         </ul>
+
         {{--Right navbar--}}
         <ul class="navbar-nav ml-auto">
-
+           <li class="nav-item dropdown">
+               <a href="#" class="nav-link" data-toggle="dropdown">{{ $user->name }}</a>
+               <div class="dropdown-menu dropdown-menu-right">
+                   <a href="#" class="dropdown-item text-right">
+                       <form action="{{ route('logout') }}" method="POST">
+                           {{ csrf_field() }}
+                           <button type="submit" class="btn btn-sm btn-block">登出</button>
+                       </form>
+                   </a>
+               </div>
+           </li>
         </ul>
     </div>
     {{--/.navbar--}}

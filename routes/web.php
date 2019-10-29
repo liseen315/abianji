@@ -26,7 +26,7 @@ Route::namespace('Admin')->prefix('admin')->group(function () {
 
 Route::namespace('Admin')->prefix('admin')->middleware('admin.auth')->group(function () {
     Route::get('/', 'AdminController@index')->name('dashboard');
-    Route::post('logout', '\AdminController@logout')->name('logout');
+    Route::post('logout', 'AdminController@logout')->name('logout');
 
     // 文章
     Route::prefix('article')->group(function () {
