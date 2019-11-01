@@ -4,7 +4,12 @@
 
 ```$xslt
 git clone xxxxx
+
+# composer install
+# 数据库填充 php artisan db:seed
 ```
+
+
 
 ## 安装Redis扩展
 
@@ -30,6 +35,12 @@ sudo vim /etc/redis/redis.conf
 # 将bind 127.0.0.1 改成 bind 0.0.0.0
 # 重启
 sudo /etc/init.d/redis-server restart
+```
+
+## 创建自定义Helper
+
+```
+https://laravel-news.com/creating-helpers
 ```
 
 

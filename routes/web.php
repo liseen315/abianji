@@ -15,7 +15,7 @@ Route::get('/info', function () {
     return phpinfo();
 });
 
-Route::namespace('App')->group(function () {
+Route::namespace('Home')->group(function () {
     Route::get('/','HomeController@index')->name('home.index');
 });
 

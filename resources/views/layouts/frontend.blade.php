@@ -5,21 +5,21 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="keywords" content="Abianji">
-    <meta name="description" content="Abianji">
-    <title>Abianji</title>
-    <link href="{{ mix('css/frontend/abianji.css') }}" rel="stylesheet">
+    <meta name="keywords" content="{{ blog_config('keywords') }}">
+    <meta name="description" content="{{ blog_config('description') }}">
+    <title>{{ blog_config('site_name') }}</title>
+    <link rel="stylesheet" href="{{ mix('css/home/home.css') }}">
 </head>
 <body>
 <main class="content">
-    @yield('content')
+    @yield('body')
     <footer class="footer">
         <div class="outer">
             <div class="float-right"></div>
             <ul class="list-inline">
-                <li>$copy;</li>
-                <li>Powered by</li>
-                <li>Theme Ocean</li>
+                <li>{{ blog_config('ipc') }}</li>
+                <li>Powered by <a href="https://github.com/liseen315/abianji" target="_blank">Abianji</a></li>
+                <li>Theme <a href="https://github.com/zhwangart/hexo-theme-ocean" target="_blank">Ocean</a></li>
             </ul>
         </div>
     </footer>

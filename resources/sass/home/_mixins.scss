@@ -1,0 +1,66 @@
+@mixin clearfix() {
+    &::before, &::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+@mixin hide-text() {
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+@mixin list-unstyled() {
+    list-style: none;
+    padding-left: 0;
+    margin-left: 0;
+}
+
+@mixin center() {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@mixin center-x() {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+@mixin center-y() {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+@mixin border-radius($n) {
+    -webkit-border-radius: $n;
+    -moz-border-radius: $n;
+    border-radius: $n;
+}
+
+@mixin border-top-radius($n) {
+    border-top-left-radius: $n;
+    border-top-right-radius: $n;
+}
+
+@mixin border-right-radius($n) {
+    border-top-right-radius: $n;
+    border-bottom-right-radius: $n;
+}
+
+@mixin border-bottom-radius($n) {
+    border-bottom-left-radius: $n;
+    border-bottom-right-radius: $n;
+}
+
+@mixin transition($transition) {
+    transition: $transition;
+}
+
+@mixin rounded-circle($size) {
+    width: $size;
+    height: $size;
+    border-radius: $size/2;
+}

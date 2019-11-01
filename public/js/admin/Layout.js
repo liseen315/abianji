@@ -294,15 +294,27 @@ var Layout = function ($) {
 
 /***/ }),
 
+/***/ "./resources/sass/home/home.scss":
+/*!***************************************!*\
+  !*** ./resources/sass/home/home.scss ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ 0:
-/*!******************************************************************************!*\
-  !*** multi ./resources/js/admin/Layout.js ./resources/sass/admin/admin.scss ***!
-  \******************************************************************************/
+/*!**************************************************************************************************************!*\
+  !*** multi ./resources/js/admin/Layout.js ./resources/sass/admin/admin.scss ./resources/sass/home/home.scss ***!
+  \**************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! /Users/admin/code/abianji/resources/js/admin/Layout.js */"./resources/js/admin/Layout.js");
-module.exports = __webpack_require__(/*! /Users/admin/code/abianji/resources/sass/admin/admin.scss */"./resources/sass/admin/admin.scss");
+__webpack_require__(/*! /Users/admin/code/abianji/resources/sass/admin/admin.scss */"./resources/sass/admin/admin.scss");
+module.exports = __webpack_require__(/*! /Users/admin/code/abianji/resources/sass/home/home.scss */"./resources/sass/home/home.scss");
 
 
 /***/ })
