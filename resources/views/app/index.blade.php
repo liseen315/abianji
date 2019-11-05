@@ -15,6 +15,13 @@
                 </video>
                 <div class="video-overlay"></div>
             </div>
+            <div class="video-inner text-center text-white">
+                <h1><a href="{{ route('home.index') }}">{{ blog_config('site_name') }}</a></h1>
+                <p>什么才是真理</p>
+            </div>
+            <div class="video-learn-more">
+                <a href="#landingpage" class="anchor"><i class="fe icon-mouse"></i></a>
+            </div>
         </div>
     </section>
     <div id="landingpage">

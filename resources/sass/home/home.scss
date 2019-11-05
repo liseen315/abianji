@@ -1,5 +1,6 @@
 @import "variables";
 @import "mixins";
+@import "feathericon";
 @import "~normalize.css/normalize.css";
 *,
 *::before
@@ -54,3 +55,4 @@ img {
 @import "partial/layout";
 @import "partial/lists";
 @import "partial/footer";
+@import "partial/ocean";
