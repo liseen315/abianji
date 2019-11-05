@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Config;
+use App\Services\RedisServices;
 use Illuminate\Http\Request;
 
 /**
@@ -34,6 +35,10 @@ class ConfigController extends Controller
         foreach ($requestData as $key => $value) {
             Config::where('title', $key)->update(['value' => $value]);
         }
+
+        // 更新缓存
+        app(RedisServices::class)->updateConfig();
+
         return redirect()->back()->with('success', '更新成功');
     }
 

@@ -25,6 +25,14 @@ class ConfigsTableSeeder extends Seeder
                 'updated_at' => Carbon::now()
             ],
             [
+                'name' => '网站子标题',
+                'title' => 'sub_title',
+                'value' => '世界让我遍体鳞伤|但伤口长出的却是翅膀',
+                'type' => 'text',
+                'create_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
                 'name' => '网站关键词',
                 'title' => 'keywords',
                 'value' => 'PHP Laravel Blog',
@@ -51,7 +59,7 @@ class ConfigsTableSeeder extends Seeder
             [
                 'name' => '备案号',
                 'title' => 'ipc',
-                'value' => NULL,
+                'value' => '© ' . Carbon::now()->year . ' Abianji.com',
                 'type' => 'text',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
