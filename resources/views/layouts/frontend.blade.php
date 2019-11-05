@@ -24,5 +24,18 @@
         </div>
     </footer>
 </main>
+<aside class="sidebar">
+    <button class="navbar-toggle"></button>
+    <nav class="navbar">
+        <div class="logo">
+            <a href="{{ route('home.index') }}"><img src="{{ $user->avatar }}" alt="{{ blog_config('site_name') }}"></a>
+        </div>
+        <ul class="nav nav-main">
+            <li class="nav-item">
+                <a href="{{ route('home.index') }}" class="nav-item-link"><i class="fe icon-home"></i>首页</a>
+            </li>
+        </ul>
+    </nav>
+</aside>
 </body>
 </html>

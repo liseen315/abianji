@@ -49,10 +49,11 @@
     border-radius: .4rem;
     background-color: rgba($sea, .25);
     color: $white;
-    //&::before {
-    //    content: '\f105';
-    //    font-family: ;
-    //}
+    &::before {
+        content: '\f105';
+        font-family: feathericon;
+        font-size: large;
+    }
 }
 
 .wrap, .outer {

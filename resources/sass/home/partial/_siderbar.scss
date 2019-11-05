@@ -1,0 +1,31 @@
+.navbar {
+    position: relative;
+    padding-top: 3rem;
+    text-align: center;
+    .nav {
+        @include list-unstyled();
+        .nav-item-link {
+            display: block;
+            padding: 1rem;
+            color: $sea-dark;
+            text-decoration: none;
+            text-align: center;
+            cursor: pointer;
+            .fe {
+                display: block;
+            }
+            &:hover {
+                color: $link-hover-color;
+            }
+        }
+
+    }
+}
+
+.logo {
+    text-align: center;
+    img {
+        width: $brand-size;
+        border-radius: 50%;
+    }
+}

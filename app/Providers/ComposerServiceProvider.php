@@ -31,5 +31,14 @@ class ComposerServiceProvider extends ServiceProvider
            $user = User::find(1);
            $view->with(compact('user'));
         });
+
+        /**
+         * 给前端Layout绑定全局变量
+         */
+
+        view()->composer(['layouts.frontend'],function ($view) {
+            $user = User::find(1);
+            $view->with(compact('user'));
+        });
     }
 }

@@ -1585,6 +1585,12 @@ img {
   color: #ffffff;
 }
 
+.navbar-toggle::before {
+  content: "\F105";
+  font-family: feathericon;
+  font-size: large;
+}
+
 .wrap,
 .outer {
   width: 100%;
@@ -1735,5 +1741,43 @@ img {
 
 .video-learn-more a > .fe:hover {
   color: #1e3e3f;
+}
+
+.navbar {
+  position: relative;
+  padding-top: 3rem;
+  text-align: center;
+}
+
+.navbar .nav {
+  list-style: none;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+.navbar .nav .nav-item-link {
+  display: block;
+  padding: 1rem;
+  color: #172d3e;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+}
+
+.navbar .nav .nav-item-link .fe {
+  display: block;
+}
+
+.navbar .nav .nav-item-link:hover {
+  color: #17a0d7;
+}
+
+.logo {
+  text-align: center;
+}
+
+.logo img {
+  width: 4.2rem;
+  border-radius: 50%;
 }
 

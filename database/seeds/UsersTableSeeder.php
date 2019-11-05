@@ -18,6 +18,7 @@ class UsersTableSeeder extends Seeder
         DB::table('users')->insert(
             [
                 'name' => 'liseen',
+                'avatar' => 'https://res.cloudinary.com/dnakxpzhj/image/upload/v1572931080/blog/role.jpg',
                 'email' => '5482611@qq.com',
                 'email_verified_at' => Carbon::now(),
                 'password' => bcrypt('liu315song'),
