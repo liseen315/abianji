@@ -20,6 +20,7 @@ class CreateArticlesTable extends Migration
             $table->string('slug')->default('')->comment('slug');
             $table->bigInteger('author_id')->default('1')->comment('作者id默认就是Liseen了');
             $table->text('markdown')->comment('markdown');
+            $table->text('content')->comment('编码过的内容');
             $table->integer('views')->default(0)->comment('浏览数');
             $table->string('cover')->default('')->comment('封面图');
             $table->boolean('is_top')->default(0)->comment('是否置顶 0 不置顶 1置顶');

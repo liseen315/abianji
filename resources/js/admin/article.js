@@ -1,3 +1,5 @@
+import SimpleMDE from 'simplemde'
+
 class Article {
 
     constructor() {
@@ -34,6 +36,7 @@ class Article {
     }
 
     initMarkDown() {
+        // new SimpleMDE({element: $(".J_articleContent")[0]});
         editormd.urls.atLinkBase = "https://github.com/";
 
         editormd("J_articleContent", {
@@ -53,7 +56,7 @@ class Article {
     }
 
     initCover() {
-        this.J_ImgFile.on('change',(event) => {
+        this.J_ImgFile.on('change', (event) => {
             this.J_previewText.hide()
             this.upLoadFile = event.target.files[0]
             this.showPreview(this.upLoadFile)
@@ -63,7 +66,7 @@ class Article {
             this.J_optionBox.addClass('d-flex').show()
         })
 
-        this.J_delBtn.on('click',() => {
+        this.J_delBtn.on('click', () => {
             this.upLoadFile = null
             this.J_previewText.show()
             this.J_previewContent.remove()
@@ -73,9 +76,9 @@ class Article {
             this.J_browseBox.show()
         })
 
-        this.J_uploadBtn.on('click',() => {
+        this.J_uploadBtn.on('click', () => {
             let formData = new FormData()
-            formData.append('cover_img',this.upLoadFile)
+            formData.append('cover_img', this.upLoadFile)
             this.loadingModal.modal({backdrop: 'static', keyboard: false})
             $.ajax({
                 type: 'POST',
@@ -89,7 +92,7 @@ class Article {
                     if (response.status == 0) {
                         this.J_inputCover.val(response.body.imgURL)
                         toastr.success(response.msg);
-                    }else {
+                    } else {
                         toastr.error(response.msg);
                     }
                 }

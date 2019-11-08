@@ -26,6 +26,43 @@
         </div>
     </section>
     <div id="landingpage">
+        <section class="outer">
+            <article class="articles">
+                @foreach($articles as $article)
+                    <article class="article" itemscope itemprop="blog" data-scroll-reveal>
+                        <div class="article-inner">
+                            <header class="article-header">
+                                <h2 itemprop="name">
+                                    <a href="#" class="article-title">{{ $article->title }}</a>
+                                </h2>
+                                @if($article->is_top === 1)
+                                    <div class="article-topping">
+                                        <i class="fe icon-umbrella"></i>
+                                    </div>
+                                @endif
+                            </header>
+                            <div class="article-meta">
+                                <div class="article-date">{{ $article->created_at->format('Y-m-d') }}</div>
+                                <div class="article-category">{{ $article->category->name }}</div>
+                            </div>
+                            <div class="article-entry" itemprop="articleBody">
+                                <p>
+                                    {!! get_description($article->content) !!}<br>
+                                    <a class="article-more-link" href="#">阅读更多 →</a>
+                                </p>
 
+                            </div>
+                            <div class="article-footer">
+                                <ul class="article-tag-list">
+                                    @foreach($article->tags as $tagItem)
+                                        <li class="article-tag-list-item">{{ $tagItem->name }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </div>
+                    </article>
+                @endforeach
+            </article>
+        </section>
     </div>
 @endsection

@@ -4,5 +4,6 @@
     "/css/home/home.css": "/css/home/home.css",
     "/js/admin/Treeview.js": "/js/admin/Treeview.js",
     "/js/admin/admin.js": "/js/admin/admin.js",
-    "/js/admin/article.js": "/js/admin/article.js"
+    "/js/admin/article.js": "/js/admin/article.js",
+    "/js/home/home.js": "/js/home/home.js"
 }

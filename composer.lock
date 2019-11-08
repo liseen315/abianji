@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b7a2a0893bf6483bb4443971aaee02b2",
+    "content-hash": "50f1925ea13b33a8b9cc0e79c96ac291",
     "packages": [
         {
             "name": "cloudinary/cloudinary_php",

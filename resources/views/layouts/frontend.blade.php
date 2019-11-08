@@ -37,5 +37,6 @@
         </ul>
     </nav>
 </aside>
+<script type="text/javascript" src="{{ mix('js/home/home.js') }}"></script>
 </body>
 </html>

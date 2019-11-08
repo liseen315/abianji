@@ -10,14 +10,13 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Validator;
 use Cloudder;
-use Str;
 
 class ArticleController extends Controller
 {
 
     public function index()
     {
-        $articles = Article::orderBy('created_at', 'desc')->simplePaginate(15);
+        $articles = Article::orderBy('is_top','desc')->orderBy('created_at', 'desc')->simplePaginate(15);
 
         return view('admin.article.index', compact('articles'));
     }
@@ -38,7 +37,8 @@ class ArticleController extends Controller
             $articleData['cover'] = '';
         }
 
-        // $articleData['slug'] = Str::slug($articleData['title'],'-'); 框架自带的slug还不支持中文😭
+        $articleData['author_id'] = auth()->id();
+        $articleData['content'] = (new \Parsedown())->text($request->markdown);
         $article = Article::create($articleData);
 
         // 给文章插入Tag
@@ -60,10 +60,17 @@ class ArticleController extends Controller
 
     public function update(Article $article, ArticleStoreRequest $request)
     {
-        $article->update($request->all());
+        $articleData = $request->except('_token');
 
-        $this->syncTags($article, $request->input('tag_list'));
+        if (is_null($request->input('cover'))) {
+            $articleData['cover'] = '';
+        }
 
+        $article->update($articleData);
+
+        if (!is_null($request->input('tag_list'))) {
+            $this->syncTags($article, $request->input('tag_list'));
+        }
         return redirect()->route('article.index')->with('success', '更新文章成功');
     }
 
