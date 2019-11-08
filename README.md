@@ -43,4 +43,10 @@ sudo /etc/init.d/redis-server restart
 https://laravel-news.com/creating-helpers
 ```
 
+## 开发中bug记录
+
+```
+- 文章编辑时无法取消选择Tag标签
+```
+
 
