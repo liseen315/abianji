@@ -2,9 +2,11 @@
 @import "mixins";
 @import "feathericon";
 @import "~normalize.css/normalize.css";
+@import "~prismjs/themes/prism.css";
+@import "~prismjs/plugins/line-numbers/prism-line-numbers.css";
 *,
-*::before
-*::after {
+*::before,
+*::after{
     box-sizing: border-box;
 }
 
@@ -58,3 +60,4 @@ img {
 @import "partial/ocean";
 @import "partial/siderbar";
 @import "partial/article";
+@import "partial/highlight";

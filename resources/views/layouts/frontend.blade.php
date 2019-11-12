@@ -9,6 +9,7 @@
     <meta name="description" content="{{ blog_config('description') }}">
     <title>{{ blog_config('site_name') }}</title>
     <link rel="stylesheet" href="{{ mix('css/home/home.css') }}">
+    @yield('style')
 </head>
 <body>
 <main class="content">

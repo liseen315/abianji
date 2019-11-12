@@ -33,7 +33,7 @@
                         <div class="article-inner">
                             <header class="article-header">
                                 <h2 itemprop="name">
-                                    <a href="#" class="article-title">{{ $article->title }}</a>
+                                    <a href="{{ $article->url }}" class="article-title">{{ $article->title }}</a>
                                 </h2>
                                 @if($article->is_top === 1)
                                     <div class="article-topping">
@@ -48,16 +48,18 @@
                             <div class="article-entry" itemprop="articleBody">
                                 <p>
                                     {!! get_description($article->content) !!}<br>
-                                    <a class="article-more-link" href="#">阅读更多 →</a>
+                                    <a class="article-more-link" href="{{ $article->url }}">阅读更多 →</a>
                                 </p>
 
                             </div>
                             <div class="article-footer">
-                                <ul class="article-tag-list">
-                                    @foreach($article->tags as $tagItem)
-                                        <li class="article-tag-list-item">{{ $tagItem->name }}</li>
-                                    @endforeach
-                                </ul>
+                                @if(count($article->tags))
+                                    <ul class="article-tag-list">
+                                        @foreach($article->tags as $tagItem)
+                                            <li class="article-tag-list-item">{{ $tagItem->name }}</li>
+                                        @endforeach
+                                    </ul>
+                                @endif
                             </div>
                         </div>
                     </article>

@@ -1,0 +1,40 @@
+$highlight-background: #f6f8fa;
+$highlight-current-line: #efefef;
+$highlight-selection: #d6d6d6;
+$highlight-foreground: #4d4d4c;
+$highlight-comment: #8e908c;
+$highlight-red: #f2777a;
+$highlight-orange: #f99157;
+$highlight-yellow: #ffcc66;
+$highlight-green: #99cc99;
+$highlight-aqua: #66cccc;
+$highlight-blue: #6699cc;
+$highlight-purple: #cc99cc;
+
+.code-block {
+    background: $highlight-background;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: .4rem;
+    overflow: auto;
+    color: $highlight-foreground;
+}
+
+.line-numbers {
+    color: $highlight-comment;
+}
+
+.article-entry {
+    pre,code {
+        font-family: inherit;
+        text-shadow: none;
+    }
+    code {
+        background: $highlight-background;
+        padding: .25rem;
+        border-radius: .4rem;
+    }
+    pre {
+        @extend .code-block;
+    }
+}

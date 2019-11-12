@@ -11,7 +11,11 @@ class HomeController extends Controller
     public function index()
     {
         $articles = Article::orderBy('is_top', 'desc')->orderBy('created_at', 'desc')->paginate(15);
-
         return view('app.index', compact('articles'));
+    }
+
+    public function article(Article $article) {
+
+        return view('app.article',compact('article'));
     }
 }

@@ -10,13 +10,13 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Validator;
 use Cloudder;
-
+use Markdown;
 class ArticleController extends Controller
 {
 
     public function index()
     {
-        $articles = Article::orderBy('is_top','desc')->orderBy('created_at', 'desc')->simplePaginate(15);
+        $articles = Article::orderBy('is_top', 'desc')->orderBy('created_at', 'desc')->simplePaginate(15);
 
         return view('admin.article.index', compact('articles'));
     }
@@ -38,7 +38,7 @@ class ArticleController extends Controller
         }
 
         $articleData['author_id'] = auth()->id();
-        $articleData['content'] = (new \Parsedown())->text($request->markdown);
+        $articleData['content'] =  Markdown::convertToHtml($request->markdown);
         $article = Article::create($articleData);
 
         // 给文章插入Tag
@@ -66,11 +66,14 @@ class ArticleController extends Controller
             $articleData['cover'] = '';
         }
 
+        $articleData['content'] =  Markdown::convertToHtml($request->markdown);
         $article->update($articleData);
-
+        $tagList = [];
         if (!is_null($request->input('tag_list'))) {
-            $this->syncTags($article, $request->input('tag_list'));
+            $tagList = $request->input('tag_list');
         }
+        $this->syncTags($article, $tagList);
+
         return redirect()->route('article.index')->with('success', '更新文章成功');
     }
 
@@ -122,7 +125,6 @@ class ArticleController extends Controller
             }
             $allTagIds[] = $tagId;
         }
-
         $article->tags()->sync($allTagIds);
     }
 

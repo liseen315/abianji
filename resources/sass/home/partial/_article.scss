@@ -1,15 +1,13 @@
-.articles {
-    .article {
-        padding: 3rem 0;
-        &:not(:last-child) {
-            border-bottom: $border-width $border-color solid;
-        }
-    }
-    .article-footer {
-        margin-top: 0;
-    }
+.article {
+    padding: 3rem 0;
 }
 
+.article-entry {
+    margin-top: 3rem;
+    @include clearfix();
+    @extend .base-style;
+    color: $body-color;
+}
 
 .article-topping {
     position: absolute;
@@ -57,12 +55,6 @@
     }
 }
 
-.article-entry {
-    @include clearfix();
-    @extend .base-style;
-    color: $body-color;
-}
-
 .article-tag-list{
     @include list-unstyled();
     margin: 0;
@@ -74,5 +66,25 @@
     }
     .article-tag-list-item {
         padding-right: 1rem;
+    }
+}
+
+.article-footer {
+    @include clearfix();
+    margin-top: 3rem;
+}
+
+.articles {
+    .article {
+        padding: 3rem 0;
+        &:not(:last-child) {
+            border-bottom: $border-width $border-color solid;
+        }
+    }
+    .article-footer {
+        margin-top: 0;
+    }
+    .article-entry {
+        margin-top: 0;
     }
 }

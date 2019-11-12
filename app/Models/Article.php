@@ -28,4 +28,15 @@ class Article extends Model
         return $this->tags->pluck('id')->toArray();
     }
 
+    public function getUrlAttribute()
+    {
+        $parameters = [$this->id];
+        // 如果启用了slug则文章的url 采用slug返回
+//        if (blog_config('slug')) {
+//            $parameters[] = $this->slug;
+//        }
+
+        return url('article', $parameters);
+    }
+
 }
