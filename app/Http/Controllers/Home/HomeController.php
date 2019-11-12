@@ -14,8 +14,12 @@ class HomeController extends Controller
         return view('app.index', compact('articles'));
     }
 
-    public function article(Article $article) {
+    public function article(Article $article)
+    {
 
-        return view('app.article',compact('article'));
+        $prev = Article::where('id', '<', $article->id)->limit(1)->first();
+        $next = Article::where('id', '>', $article->id)->limit(1)->first();
+
+        return view('app.article', compact('article', 'prev', 'next'));
     }
 }

@@ -98,11 +98,11 @@
         padding: 0 1.5rem;
         width: 100%;
         overflow: auto;
-        border-left: .3rem sand-light solid;
+        border-left: .3rem $sand-light solid;
         color: $sea-lighter;
 
         > :first-child {
-            maring-top: 0;
+            margin-top: 0;
         }
 
         > :last-child {

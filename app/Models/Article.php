@@ -32,9 +32,9 @@ class Article extends Model
     {
         $parameters = [$this->id];
         // 如果启用了slug则文章的url 采用slug返回
-//        if (blog_config('slug')) {
-//            $parameters[] = $this->slug;
-//        }
+        if (blog_config('slug')) {
+            $parameters[] = $this->slug;
+        }
 
         return url('article', $parameters);
     }

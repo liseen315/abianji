@@ -1729,13 +1729,13 @@ img {
   padding: 0 1.5rem;
   width: 100%;
   overflow: auto;
-  border-left: 0.3rem sand-light solid;
+  border-left: 0.3rem #9c8079 solid;
   color: #5c6b72;
 }
 
 .base-style blockquote > :first-child,
 .article-entry blockquote > :first-child {
-  maring-top: 0;
+  margin-top: 0;
 }
 
 .base-style blockquote > :last-child,
@@ -2115,6 +2115,42 @@ img {
   margin-top: 0;
 }
 
+.article-nav {
+  position: relative;
+  padding-top: 3rem;
+  margin-top: 5rem;
+  border-top: 0.1rem #e6e6e6 solid;
+}
+
+.article-nav::before,
+.article-nav::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.article-nav-link {
+  display: block;
+  text-decoration: none;
+}
+
+.article-nav-link:first-child {
+  float: left;
+}
+
+.article-nav-link:last-child {
+  float: right;
+  text-align: right;
+}
+
+.article-nav-caption {
+  color: #5c6b72;
+}
+
+.article-nav-title {
+  font-size: inherit;
+}
+
 .code-block,
 .article-entry pre {
   background: #f6f8fa;
@@ -2138,5 +2174,60 @@ img {
 .article-entry code {
   background: #f6f8fa;
   border-radius: 0.4rem;
+}
+
+.tocbot {
+  position: absolute;
+  top: 14rem;
+  left: calc((100vw - 70rem) / 2 + 70rem);
+  font-size: 80%;
+  opacity: 0.8;
+}
+
+.tocbot > .toc-list {
+  position: relative;
+  overflow: hidden;
+}
+
+.toc-list {
+  list-style: none;
+  padding-left: 0;
+  margin-left: 0;
+  padding-left: 1rem;
+}
+
+a.toc-link {
+  height: 100%;
+  color: #172d3e;
+  text-decoration: none;
+}
+
+.is-collapsible {
+  max-height: 1000px;
+}
+
+.is-position-fixed {
+  position: fixed !important;
+  top: 0;
+  right: 10rem;
+}
+
+.is-active-link {
+  font-weight: 700;
+}
+
+.toc-link::before {
+  background-color: #e6e6e6;
+  content: "";
+  display: inline-block;
+  height: inherit;
+  left: 0;
+  margin-top: -1px;
+  position: absolute;
+  width: 2px;
+}
+
+.is-active-link::before {
+  background-color: #127ea9;
 }
 

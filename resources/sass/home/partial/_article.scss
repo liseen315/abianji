@@ -7,6 +7,7 @@
     @include clearfix();
     @extend .base-style;
     color: $body-color;
+
 }
 
 .article-topping {
@@ -87,4 +88,30 @@
     .article-entry {
         margin-top: 0;
     }
+}
+
+.article-nav {
+    @include clearfix();
+    position: relative;
+    padding-top: 3rem;
+    margin-top: 5rem;
+    border-top: $border-width $border-color solid;
+}
+
+.article-nav-link {
+    display: block;
+    text-decoration: none;
+    &:first-child {
+        float: left;
+    }
+    &:last-child {
+        float: right;
+        text-align: right;
+    }
+}
+.article-nav-caption {
+    color: $sea-lighter;
+}
+.article-nav-title {
+    font-size: inherit;
 }

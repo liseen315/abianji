@@ -8,8 +8,8 @@
     <meta name="keywords" content="{{ blog_config('keywords') }}">
     <meta name="description" content="{{ blog_config('description') }}">
     <title>{{ blog_config('site_name') }}</title>
-    <link rel="stylesheet" href="{{ mix('css/home/home.css') }}">
     @yield('style')
+    <link rel="stylesheet" href="{{ mix('css/home/home.css') }}">
 </head>
 <body>
 <main class="content">
@@ -38,6 +38,7 @@
         </ul>
     </nav>
 </aside>
+@yield('scripts')
 <script type="text/javascript" src="{{ mix('js/home/home.js') }}"></script>
 </body>
 </html>

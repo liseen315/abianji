@@ -1,4 +1,7 @@
 @extends('layouts.frontend')
+@section('style')
+    <link rel="stylesheet" href="{{ asset('assets/toastr/toastr.css') }}">
+@endsection
 @section('body')
     <section class="outer">
         <article class="article" itemscope itemprop="blog" data-scroll-reveal>
@@ -25,8 +28,35 @@
                 </div>
             </div>
             <div class="article-nav">
-
+                @if(!is_null($prev))
+                    <a href="{{ $prev->url }}" class="article-nav-link">
+                        <strong class="article-nav-caption">前一篇</strong>
+                        <div class="article-nav-title">{{ $prev->title }}</div>
+                    </a>
+                @endif
+                @if(!is_null($next))
+                    <a href="{{ $next->url }}" class="article-nav-link">
+                        <strong class="article-nav-caption">后一篇</strong>
+                        <div class="article-nav-title">{{ $next->title }}</div>
+                    </a>
+                @endif
             </div>
         </article>
     </section>
+@endsection
+
+@section('scripts')
+    <script type="text/javascript" src="{{ asset('assets/tocbot/tocbot.js') }}"></script>
+    <script>
+        tocbot.init({
+            tocSelector: '.tocbot',
+            contentSelector: '.article-entry',
+            headingSelector: 'h1, h2, h3, h4, h5, h6',
+            hasInnerContainers: true,
+            scrollSmooth: true,
+            positionFixedSelector: '.tocbot',
+            positionFixedClass: 'is-position-fixed',
+            fixedSidebarOffset: 'auto',
+        });
+    </script>
 @endsection
