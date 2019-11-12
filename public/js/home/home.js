@@ -11916,6 +11916,7 @@ function () {
     _classCallCheck(this, Home);
 
     this.initAmchor();
+    this.initLineNumber();
   }
 
   _createClass(Home, [{
@@ -11927,6 +11928,12 @@ function () {
           scrollTop: jquery__WEBPACK_IMPORTED_MODULE_0___default()(event.currentTarget.hash).offset().top
         }, 'smooth');
       });
+    }
+  }, {
+    key: "initLineNumber",
+    value: function initLineNumber() {
+      // 这个坑折腾我一下午
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()('pre').addClass('line-numbers');
     }
   }]);
 
