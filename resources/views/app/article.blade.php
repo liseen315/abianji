@@ -47,16 +47,5 @@
 
 @section('scripts')
     <script type="text/javascript" src="{{ asset('assets/tocbot/tocbot.js') }}"></script>
-    <script>
-        tocbot.init({
-            tocSelector: '.tocbot',
-            contentSelector: '.article-entry',
-            headingSelector: 'h1, h2, h3, h4, h5, h6',
-            hasInnerContainers: true,
-            scrollSmooth: true,
-            positionFixedSelector: '.tocbot',
-            positionFixedClass: 'is-position-fixed',
-            fixedSidebarOffset: 'auto',
-        });
-    </script>
+    <script type="text/javascript" src="{{mix('js/home/article.js')}}"></script>
 @endsection

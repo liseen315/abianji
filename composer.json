@@ -15,7 +15,8 @@
         "jrm2k6/cloudder": "^0.6.0",
         "laravel/framework": "^6.0",
         "laravel/tinker": "^1.0",
-        "league/commonmark-ext-table": "^2.1"
+        "league/commonmark-ext-table": "^2.1",
+        "webuni/commonmark-attributes-extension": "^1.0"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.6",

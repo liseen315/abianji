@@ -42,7 +42,9 @@ return [
     */
 
     'extensions' => [
-        League\CommonMark\Ext\Table\TableExtension::class
+        League\CommonMark\Ext\Table\TableExtension::class,
+        App\Extensions\Markdown\TocbotTitleExtension::class
+//        Webuni\CommonMark\AttributesExtension\AttributesExtension::class
     ],
 
     /*
