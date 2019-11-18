@@ -192,7 +192,8 @@ return [
         /**
          * Markdown
          */
-        GrahamCampbell\Markdown\MarkdownServiceProvider::class
+        GrahamCampbell\Markdown\MarkdownServiceProvider::class,
+        Jourdon\Slug\SlugServiceProvider::class,
 
     ],
 
@@ -245,7 +246,9 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Cloudder' => JD\Cloudder\Facades\Cloudder::class,
-        'Markdown' => GrahamCampbell\Markdown\Facades\Markdown::class
+        'Markdown' => GrahamCampbell\Markdown\Facades\Markdown::class,
+        'Image' => Intervention\Image\Facades\Image::class,
+        'Slug'  => Jourdon\Slug\Slug::class,
     ],
 
 ];

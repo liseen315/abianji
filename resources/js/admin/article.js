@@ -1,5 +1,3 @@
-import SimpleMDE from 'simplemde'
-
 class Article {
 
     constructor() {
@@ -35,7 +33,6 @@ class Article {
     }
 
     initMarkDown() {
-        // new SimpleMDE({element: $(".J_articleContent")[0]});
         editormd.urls.atLinkBase = "https://abianji.com";
 
         editormd("J_articleContent", {

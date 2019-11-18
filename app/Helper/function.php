@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Redis;
+use Intervention\Image\Facades\Image;
 
 /**
  * 从redis内获取网站基础配置
@@ -58,5 +59,15 @@ if (!function_exists("get_description")) {
         }
         $description = msubstr(strip_tags($content), 0, $word);
         return $description;
+    }
+}
+
+/**
+ * 为系统上传的图片添加水印.暂时不做
+ */
+if (!function_exists('watermark')) {
+    function watermark($cover)
+    {
+
     }
 }

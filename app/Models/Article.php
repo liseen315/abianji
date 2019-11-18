@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Article extends Model
 {
-    protected $fillable = ['category_id', 'title','description', 'slug', 'author_id', 'markdown', 'content', 'cover', 'is_top'];
+    protected $fillable = ['category_id', 'title', 'description', 'slug', 'author_id', 'markdown', 'content', 'cover', 'is_top'];
 
     public function user()
     {
@@ -29,8 +29,9 @@ class Article extends Model
         return $this->tags->pluck('id')->toArray();
     }
 
-    public function getDesAttribute()  {
-        $des =  $this->description;
+    public function getDesAttribute()
+    {
+        $des = $this->description . '...';
         if (is_null($this->description)) {
             $des = get_description($this->content);
         }

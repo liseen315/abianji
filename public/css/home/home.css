@@ -2115,10 +2115,15 @@ img {
   margin-top: 0;
 }
 
+.articles .article-gallery {
+  position: relative;
+  margin-top: 1.5rem;
+}
+
 .article-nav {
   position: relative;
   padding-top: 3rem;
-  margin-top: 5rem;
+  margin-top: 2rem;
   border-top: 0.1rem #e6e6e6 solid;
 }
 
@@ -2149,6 +2154,17 @@ img {
 
 .article-nav-title {
   font-size: inherit;
+}
+
+.article-more-link {
+  display: inline-block;
+  line-height: 1em;
+  padding: 6px 15px;
+  border-radius: 15px;
+  background: #eee;
+  color: #999;
+  text-shadow: 0 1px #fff;
+  text-decoration: none;
 }
 
 .code-block,

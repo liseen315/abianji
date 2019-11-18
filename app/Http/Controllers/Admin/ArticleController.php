@@ -11,6 +11,8 @@ use Illuminate\Http\Request;
 use Validator;
 use Cloudder;
 use Markdown;
+use Slug;
+
 class ArticleController extends Controller
 {
 
@@ -33,12 +35,9 @@ class ArticleController extends Controller
     {
         $articleData = $request->except('_token');
 
-//        if (is_null($request->input('cover'))) {
-//            $articleData['cover'] = '';
-//        }
-
         $articleData['author_id'] = auth()->id();
-        $articleData['content'] =  Markdown::convertToHtml($request->markdown);
+        $articleData['content'] = Markdown::convertToHtml($request->markdown);
+        $articleData['slug'] = Slug::translate($request->title);
         $article = Article::create($articleData);
 
         // 给文章插入Tag
@@ -62,10 +61,9 @@ class ArticleController extends Controller
     {
         $articleData = $request->except('_token');
 
-//        if (is_null($request->input('cover'))) {
-//            $articleData['cover'] = '';
-//        }
-        $articleData['content'] =  Markdown::convertToHtml($request->markdown);
+        $articleData['content'] = Markdown::convertToHtml($request->markdown);
+        $articleData['slug'] = Slug::translate($request->title);
+
         $article->update($articleData);
         $tagList = [];
         if (!is_null($request->input('tag_list'))) {

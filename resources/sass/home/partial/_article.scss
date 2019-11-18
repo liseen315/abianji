@@ -7,7 +7,6 @@
     @include clearfix();
     @extend .base-style;
     color: $body-color;
-
 }
 
 .article-topping {
@@ -88,13 +87,17 @@
     .article-entry {
         margin-top: 0;
     }
+    .article-gallery {
+        position: relative;
+        margin-top: 1.5rem;
+    }
 }
 
 .article-nav {
     @include clearfix();
     position: relative;
     padding-top: 3rem;
-    margin-top: 5rem;
+    margin-top: 2rem;
     border-top: $border-width $border-color solid;
 }
 
@@ -114,4 +117,15 @@
 }
 .article-nav-title {
     font-size: inherit;
+}
+
+.article-more-link {
+    display: inline-block;
+    line-height: 1em;
+    padding: 6px 15px;
+    border-radius: 15px;
+    background: #eee;
+    color: #999;
+    text-shadow: 0 1px #fff;
+    text-decoration: none;
 }

@@ -46,9 +46,20 @@
                                 <div class="article-category">{{ $article->category->name }}</div>
                             </div>
                             <div class="article-entry" itemprop="articleBody">
+                                @if(!is_null($article->cover))
+                                    <div class="article-gallery">
+                                        <div class="article-gallery-photos">
+                                            <a href="{{ $article->url }}">
+                                                <img src="{{ $article->cover }}" alt="{{$article->title}}">
+                                            </a>
+                                        </div>
+                                    </div>
+                                @endif
                                 <p>
-                                    {!! $article->des !!}<br>
-                                    <a class="article-more-link" href="{{ $article->url }}">阅读更多 →</a>
+                                    {!! $article->des !!}
+                                </p>
+                                <p>
+                                    <a class="article-more-link" href="{{ $article->url }}">Read More</a>
                                 </p>
 
                             </div>
