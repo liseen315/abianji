@@ -12191,6 +12191,10 @@ body,
   padding: 0;
 }
 
+.nav-sidebar .nav-treeview > .nav-item > .nav-link {
+  padding-left: 30px;
+}
+
 .nav-sidebar .nav-treeview > .nav-item > .nav-link > .nav-icon {
   width: 1.6rem;
 }
@@ -22831,6 +22835,10 @@ html.maximized-card {
   height: auto;
   max-width: 100%;
   max-height: 100%;
+}
+
+.des-textarea {
+  resize: none;
 }
 
 .fc-button {

@@ -26,6 +26,16 @@
     </div>
 
     <div class="form-group">
+        <label>描述</label>
+        @if(Route::currentRouteName() == 'article.create')
+            <textarea name="description" class="form-control des-textarea" rows="4">{{old('description')}}</textarea>
+        @else
+            <textarea name="description" class="form-control des-textarea" rows="4">{{ $article->description }}</textarea>
+
+        @endif
+    </div>
+
+    <div class="form-group">
         <label>标签</label>
         <select class="form-group select2" style="width: 100%;" multiple="multiple" name="tag_list[]">
             @foreach($tags as $tag)
@@ -46,8 +56,10 @@
             <div class="preview-text J_previewText">文件预览窗口</div>
         </div>
         <div class="input-group cover-group">
-            <input type="text" class="form-control cover-input J_coverLabel" disabled value="@if(Route::currentRouteName() == 'article.edit')  {{ $article->cover }} @endif">
-            <input type="hidden" name="cover" class="J_inputCover" value="@if(Route::currentRouteName() == 'article.edit') {{ $article->cover }} @endif">
+            <input type="text" class="form-control cover-input J_coverLabel" disabled
+                   value="@if(Route::currentRouteName() == 'article.edit')  {{ trim($article->cover) }} @endif">
+            <input type="hidden" name="cover" class="J_inputCover"
+                   value="@if(Route::currentRouteName() == 'article.edit') {{ trim($article->cover) }} @endif">
             <div class="btn btn-primary btn-file J_browseBox">
                 <i class="fas fa-folder"></i>
                 <span>浏览文件</span>

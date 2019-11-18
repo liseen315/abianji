@@ -65,6 +65,14 @@ class ConfigsTableSeeder extends Seeder
                 'updated_at' => Carbon::now()
             ],
             [
+                'name' => '封面水印',
+                'title' => 'water',
+                'value' => 'Abianji Blog System',
+                'type' => 'text',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
                 'name' => '启用slug',
                 'title' => 'slug',
                 'value' => '0',

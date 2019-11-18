@@ -47,7 +47,7 @@
                             </div>
                             <div class="article-entry" itemprop="articleBody">
                                 <p>
-                                    {!! get_description($article->content) !!}<br>
+                                    {!! $article->des !!}<br>
                                     <a class="article-more-link" href="{{ $article->url }}">阅读更多 →</a>
                                 </p>
 

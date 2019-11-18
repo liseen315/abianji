@@ -33,9 +33,9 @@ class ArticleController extends Controller
     {
         $articleData = $request->except('_token');
 
-        if (is_null($request->input('cover'))) {
-            $articleData['cover'] = '';
-        }
+//        if (is_null($request->input('cover'))) {
+//            $articleData['cover'] = '';
+//        }
 
         $articleData['author_id'] = auth()->id();
         $articleData['content'] =  Markdown::convertToHtml($request->markdown);
@@ -62,10 +62,9 @@ class ArticleController extends Controller
     {
         $articleData = $request->except('_token');
 
-        if (is_null($request->input('cover'))) {
-            $articleData['cover'] = '';
-        }
-
+//        if (is_null($request->input('cover'))) {
+//            $articleData['cover'] = '';
+//        }
         $articleData['content'] =  Markdown::convertToHtml($request->markdown);
         $article->update($articleData);
         $tagList = [];

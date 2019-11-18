@@ -1,6 +1,10 @@
 <?php
+
 use Illuminate\Support\Facades\Redis;
 
+/**
+ * 从redis内获取网站基础配置
+ */
 if (!function_exists('blog_config')) {
     function blog_config($key, $clear = false)
     {
@@ -41,9 +45,13 @@ if (!function_exists('msubstr')) {
     }
 }
 
+/**
+ * 截取文章描述
+ */
+
 if (!function_exists("get_description")) {
 
-    function get_description($content, $word = 210)
+    function get_description($content, $word = 200)
     {
         if (empty($content)) {
             return '...';
