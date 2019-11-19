@@ -11,13 +11,14 @@
         "php": "^7.2",
         "fideloper/proxy": "^4.0",
         "graham-campbell/markdown": "^11.1",
+        "guzzlehttp/guzzle": "^6.4",
         "intervention/image": "^2.5",
         "itsgoingd/clockwork": "^4.0",
-        "jourdon/slug": "^1.0",
         "jrm2k6/cloudder": "^0.6.0",
         "laravel/framework": "^6.0",
         "laravel/tinker": "^1.0",
         "league/commonmark-ext-table": "^2.1",
+        "overtrue/pinyin": "^4.0",
         "webuni/commonmark-attributes-extension": "^1.0"
     },
     "require-dev": {

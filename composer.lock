@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f345306a2d724479e015fd991669ae5a",
+    "content-hash": "a67cc2cee60a0a6d7b637af73b054d8d",
     "packages": [
         {
             "name": "cloudinary/cloudinary_php",
@@ -905,53 +905,6 @@
             "time": "2018-09-29T18:48:56+00:00"
         },
         {
-            "name": "jourdon/slug",
-            "version": "1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/jourdon/slug.git",
-                "reference": "554c8d00a0ef40f4468ca114e852a789b332d8cd"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/jourdon/slug/zipball/554c8d00a0ef40f4468ca114e852a789b332d8cd",
-                "reference": "554c8d00a0ef40f4468ca114e852a789b332d8cd",
-                "shasum": ""
-            },
-            "require": {
-                "guzzlehttp/guzzle": "~6.3",
-                "overtrue/pinyin": "^3.0"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Jourdon\\Slug\\SlugServiceProvider"
-                    ],
-                    "aliases": {
-                        "Slug": "Jourdon\\Slug\\Slug"
-                    }
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Jourdon\\Slug\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "jourdon",
-                    "email": "admin@qiehe.net"
-                }
-            ],
-            "description": "Chinese to Slug",
-            "time": "2018-04-20T17:32:26+00:00"
-        },
-        {
             "name": "jrm2k6/cloudder",
             "version": "0.6.0",
             "source": {
@@ -1703,29 +1656,32 @@
         },
         {
             "name": "overtrue/pinyin",
-            "version": "3.0.6",
+            "version": "4.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/overtrue/pinyin.git",
-                "reference": "3b781d267197b74752daa32814d3a2cf5d140779"
+                "reference": "94fdb3ea6eca5677afd9548111d95bedcd5a4086"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/overtrue/pinyin/zipball/3b781d267197b74752daa32814d3a2cf5d140779",
-                "reference": "3b781d267197b74752daa32814d3a2cf5d140779",
+                "url": "https://api.github.com/repos/overtrue/pinyin/zipball/94fdb3ea6eca5677afd9548111d95bedcd5a4086",
+                "reference": "94fdb3ea6eca5677afd9548111d95bedcd5a4086",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3"
+                "php": ">=5.5"
             },
             "require-dev": {
-                "phpunit/phpunit": "~4.8"
+                "phpunit/phpunit": "~7.5"
             },
             "type": "library",
             "autoload": {
                 "psr-4": {
                     "Overtrue\\Pinyin\\": "src/"
-                }
+                },
+                "files": [
+                    "src/const.php"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -1744,7 +1700,7 @@
                 "Pinyin",
                 "cn2pinyin"
             ],
-            "time": "2017-07-10T07:20:01+00:00"
+            "time": "2019-09-20T12:43:45+00:00"
         },
         {
             "name": "paragonie/random_compat",

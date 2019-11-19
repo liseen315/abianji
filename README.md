@@ -43,6 +43,15 @@ sudo /etc/init.d/redis-server restart
 https://laravel-news.com/creating-helpers
 ```
 
+## slug
+
+```
+采用有道翻译接口
+https://ai.youdao.com/fanyi-chart.s
+
+Services Provider 使用jourdon/slug 自己改造去掉了百度,修复了Laravel 6.0兼容问题
+```
+
 ## 开发中bug记录
 
 ```

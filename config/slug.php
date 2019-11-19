@@ -1,14 +1,8 @@
 <?php
 
 return [
-    //type of translation
-    // Supported: "baidu", "youdao"
-
-    'type'  =>  env('TRANSLATE_TYPE','youdao'),
-
     //Translate API HTTPS address
     'api' => [
-        'baidu' =>  'http://api.fanyi.baidu.com/api/trans/vip/translate?',
         'youdao'=>  'https://openapi.youdao.com/api?'
     ],
 

@@ -193,7 +193,10 @@ return [
          * Markdown
          */
         GrahamCampbell\Markdown\MarkdownServiceProvider::class,
-        Jourdon\Slug\SlugServiceProvider::class,
+        /**
+         * Slug
+         */
+        App\Providers\SlugServiceProvider::class
 
     ],
 
@@ -248,7 +251,7 @@ return [
         'Cloudder' => JD\Cloudder\Facades\Cloudder::class,
         'Markdown' => GrahamCampbell\Markdown\Facades\Markdown::class,
         'Image' => Intervention\Image\Facades\Image::class,
-        'Slug'  => Jourdon\Slug\Slug::class,
+        'Slug' => App\Facades\Slug::class
     ],
 
 ];
