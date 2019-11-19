@@ -1552,7 +1552,7 @@ html {
 body {
   position: relative;
   background-color: #ffffff;
-  font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "\5FAE\8F6F\96C5\9ED1", Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   font-size: 1.4rem;
   line-height: 1.7;
   color: #1e3e3f;
@@ -2088,6 +2088,10 @@ img {
   padding-right: 1rem;
 }
 
+.article-tag-list .article-tag-list-link {
+  text-decoration: none;
+}
+
 .article-footer {
   margin-top: 3rem;
 }
@@ -2245,5 +2249,48 @@ a.toc-link {
 
 .is-active-link::before {
   background-color: #127ea9;
+}
+
+.page-nav {
+  margin: 3rem auto;
+  text-align: center;
+  overflow: hidden;
+}
+
+.page-nav::before,
+.page-nav::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.page-nav a,
+.page-nav span {
+  padding: 1rem 1.5rem;
+  line-height: 1;
+}
+
+.page-nav a {
+  text-decoration: none;
+}
+
+.page-nav .prev {
+  float: left;
+}
+
+.page-nav .next {
+  float: right;
+}
+
+.page-nav .page-number {
+  display: inline-block;
+}
+
+.page-nav .current {
+  font-weight: bold;
+}
+
+.page-nav .space {
+  color: #e6e6e6;
 }
 

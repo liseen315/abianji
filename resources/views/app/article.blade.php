@@ -21,7 +21,9 @@
                     @if(count($article->tags))
                         <ul class="article-tag-list">
                             @foreach($article->tags as $tagItem)
-                                <li class="article-tag-list-item">{{ $tagItem->name }}</li>
+                                <li class="article-tag-list-item">
+                                    <a href="" class="article-tag-list-link">{{ $tagItem->name }}</a>
+                                </li>
                             @endforeach
                         </ul>
                     @endif

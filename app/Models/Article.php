@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Route;
 
 class Article extends Model
 {
@@ -41,9 +42,10 @@ class Article extends Model
     public function getRouteKeyName()
     {
         $name = '';
-        if (blog_config('slug')) {
+
+        if (blog_config('slug') && (Route::getCurrentRoute()->getName() == 'home.index' || Route::getCurrentRoute()->getName() === 'home.article')) {
             $name = 'slug';
-        }else {
+        } else {
             $name = 'id';
         }
 
@@ -56,7 +58,7 @@ class Article extends Model
         // 如果启用了slug则文章的url 采用slug返回
         if (blog_config('slug')) {
             $parameters[] = $this->slug;
-        }else {
+        } else {
             $parameters = [$this->id];
         }
 

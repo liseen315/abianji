@@ -73,7 +73,7 @@ class ConfigsTableSeeder extends Seeder
                 'updated_at' => Carbon::now()
             ],
             [
-                'name' => '启用slug',
+                'name' => '文章启用slug URL',
                 'title' => 'slug',
                 'value' => '0',
                 'type' => 'radio',
