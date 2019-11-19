@@ -1,4 +1,8 @@
 @extends('layouts.frontend')
+@section('title')
+    {{ $article->title }}
+@endsection
+
 @section('style')
     <link rel="stylesheet" href="{{ asset('assets/toastr/toastr.css') }}">
 @endsection
@@ -22,7 +26,7 @@
                         <ul class="article-tag-list">
                             @foreach($article->tags as $tagItem)
                                 <li class="article-tag-list-item">
-                                    <a href="" class="article-tag-list-link">{{ $tagItem->name }}</a>
+                                    <a href="#" class="article-tag-list-link">{{ $tagItem->name }}</a>
                                 </li>
                             @endforeach
                         </ul>

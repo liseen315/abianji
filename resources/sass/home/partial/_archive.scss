@@ -1,0 +1,70 @@
+.archives-wrap {
+    position: relative;
+    @include clearfix();
+
+    &:first-child {
+        margin-top: 3rem;
+    }
+
+    &:last-child {
+        margin-bottom: 3rem;
+    }
+}
+
+.archive-year-wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: $years-width;
+
+    .archive-year {
+        position: relative;
+        display: inline-block;
+        @extend .block-caption;
+
+        &::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: .15rem;
+            background-color: $sea-lighter;
+            width: 100%;
+        }
+    }
+}
+
+.archives {
+    margin-left: $years-width;
+    border-left: $border-width $border-color dashed;
+    padding-left: 3rem;
+    @include clearfix();
+}
+
+.archive-article-inner {
+    @extend .block;
+    margin-bottom: 1.5rem;
+}
+
+.archive-article-header {
+    display: table-row;
+
+    > a, > h2 {
+        display: table-cell;
+    }
+
+    h2 {
+        margin: 0;
+        padding-left: 3rem;
+
+        .archive-article-title {
+            text-decoration: none;
+            font-size: 1.5rem;
+        }
+    }
+}
+
+.page-type-title {
+    margin: 0;
+    padding: 3rem 0;
+}

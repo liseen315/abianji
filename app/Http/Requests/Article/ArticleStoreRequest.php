@@ -27,6 +27,7 @@ class ArticleStoreRequest extends FormRequest
             'category_id' => 'required',
             'title' => 'required|min:2|max:255',
             'markdown' => 'required',
+            'tag_list' => 'required',
         ];
     }
 
@@ -36,6 +37,7 @@ class ArticleStoreRequest extends FormRequest
             'category_id' => '分类',
             'title' => '标题',
             'markdown' => '文章内容',
+            'tag_list' => '标签'
         ];
     }
 
@@ -47,6 +49,7 @@ class ArticleStoreRequest extends FormRequest
             'title.min' => '标题不能少于2个字符',
             'title:max' => '标题过长',
             'markdown.required' => '内容必填',
+            'tag_list.required' => '至少填加一个标签'
         ];
     }
 }

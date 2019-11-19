@@ -65,6 +65,7 @@ class ArticleController extends Controller
         $articleData['slug'] = Slug::translate($request->title);
 
         $article->update($articleData);
+
         $tagList = [];
         if (!is_null($request->input('tag_list'))) {
             $tagList = $request->input('tag_list');

@@ -5,21 +5,21 @@
         @endif
 
         {{-- Pagination Elements --}}
-        @foreach($elements as $element)
-            @if(is_string($element))
-                <span class="page-number current">{{$element}}</span>
-            @endif
-            {{-- Array Of Links --}}
-            @if (is_array($element))
-                @foreach ($element as $page => $url)
-                    @if ($page == $paginator->currentPage())
-                        <span class="page-number current">{{$page}}</span>
-                    @else
-                        <a href="{{ $url }}" class="page-number">{{ $page }}</a>
-                    @endif
-                @endforeach
-            @endif
-        @endforeach
+{{--        @foreach($elements as $element)--}}
+{{--            @if(is_string($element))--}}
+{{--                <span class="page-number current">{{$element}}</span>--}}
+{{--            @endif--}}
+{{--            --}}{{-- Array Of Links --}}
+{{--            @if (is_array($element))--}}
+{{--                @foreach ($element as $page => $url)--}}
+{{--                    @if ($page == $paginator->currentPage())--}}
+{{--                        <span class="page-number current">{{$page}}</span>--}}
+{{--                    @else--}}
+{{--                        <a href="{{ $url }}" class="page-number">{{ $page }}</a>--}}
+{{--                    @endif--}}
+{{--                @endforeach--}}
+{{--            @endif--}}
+{{--        @endforeach--}}
 
         {{-- Next Page Link --}}
         @if ($paginator->hasMorePages())

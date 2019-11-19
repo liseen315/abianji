@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="keywords" content="{{ blog_config('keywords') }}">
     <meta name="description" content="{{ blog_config('description') }}">
-    <title>{{ blog_config('site_name') }}</title>
+    <title>@yield('title') @if(request()->path() !== '/') - {{ blog_config('site_name') }} @endif</title>
     @yield('style')
     <link rel="stylesheet" href="{{ mix('css/home/home.css') }}">
 </head>
@@ -34,6 +34,9 @@
         <ul class="nav nav-main">
             <li class="nav-item">
                 <a href="{{ route('home.index') }}" class="nav-item-link"><i class="fe icon-home"></i>首页</a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route('home.archives') }}" class="nav-item-link"><i class="fe icon-folder"></i>归档</a>
             </li>
         </ul>
     </nav>

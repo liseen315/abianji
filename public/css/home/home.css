@@ -1584,6 +1584,7 @@ img {
 }
 
 .block-caption,
+.archive-year-wrap .archive-year,
 .article-category,
 .article-date {
   text-decoration: none;
@@ -1591,12 +1592,14 @@ img {
 }
 
 .block-caption:hover,
+.archive-year-wrap .archive-year:hover,
 .article-category:hover,
 .article-date:hover {
   color: #5c6b72;
 }
 
-.block {
+.block,
+.archive-article-inner {
   border-radius: 4px;
 }
 
@@ -2292,5 +2295,87 @@ a.toc-link {
 
 .page-nav .space {
   color: #e6e6e6;
+}
+
+.archives-wrap {
+  position: relative;
+}
+
+.archives-wrap::before,
+.archives-wrap::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.archives-wrap:first-child {
+  margin-top: 3rem;
+}
+
+.archives-wrap:last-child {
+  margin-bottom: 3rem;
+}
+
+.archive-year-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 6rem;
+}
+
+.archive-year-wrap .archive-year {
+  position: relative;
+  display: inline-block;
+}
+
+.archive-year-wrap .archive-year::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 0.15rem;
+  background-color: #5c6b72;
+  width: 100%;
+}
+
+.archives {
+  margin-left: 6rem;
+  border-left: 0.1rem #e6e6e6 dashed;
+  padding-left: 3rem;
+}
+
+.archives::before,
+.archives::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.archive-article-inner {
+  margin-bottom: 1.5rem;
+}
+
+.archive-article-header {
+  display: table-row;
+}
+
+.archive-article-header > a,
+.archive-article-header > h2 {
+  display: table-cell;
+}
+
+.archive-article-header h2 {
+  margin: 0;
+  padding-left: 3rem;
+}
+
+.archive-article-header h2 .archive-article-title {
+  text-decoration: none;
+  font-size: 1.5rem;
+}
+
+.page-type-title {
+  margin: 0;
+  padding: 3rem 0;
 }
 

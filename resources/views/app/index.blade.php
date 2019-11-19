@@ -1,5 +1,7 @@
 @extends('layouts.frontend')
-
+@section('title')
+    {{ blog_config('site_name') }}
+@endsection
 @section('body')
     <section class="jumbotron">
         <div class="video">
