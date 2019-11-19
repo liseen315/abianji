@@ -16,7 +16,6 @@ class HomeController extends Controller
 
     public function article(Article $article)
     {
-
         $prev = Article::where('id', '<', $article->id)->limit(1)->first();
         $next = Article::where('id', '>', $article->id)->limit(1)->first();
 

@@ -28,12 +28,12 @@
                                 <div class="row">
                                     <div class="form-check col-auto">
                                         <input class="form-check-input" type="radio" name="{{$config->title}}" value="1"
-                                               id="radio">
+                                               id="radio" @if($config->value == 1) checked @endif>
                                         <label class="form-check-label" for="radio">是</label>
                                     </div>
                                     <div class="form-check col-auto">
                                         <input class="form-check-input" type="radio" name="{{$config->title}}" value="0"
-                                               id="radio" checked>
+                                               id="radio" @if($config->value == 0) checked @endif>
                                         <label class="form-check-label" for="radio">否</label>
                                     </div>
                                 </div>

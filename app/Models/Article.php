@@ -38,12 +38,26 @@ class Article extends Model
         return $des;
     }
 
+    public function getRouteKeyName()
+    {
+        $name = '';
+        if (blog_config('slug')) {
+            $name = 'slug';
+        }else {
+            $name = 'id';
+        }
+
+        return $name;
+    }
+
     public function getUrlAttribute()
     {
-        $parameters = [$this->id];
+
         // 如果启用了slug则文章的url 采用slug返回
         if (blog_config('slug')) {
             $parameters[] = $this->slug;
+        }else {
+            $parameters = [$this->id];
         }
 
         return url('article', $parameters);
