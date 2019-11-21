@@ -19,6 +19,7 @@ Route::namespace('Home')->group(function () {
     Route::get('/','HomeController@index')->name('home.index');
     Route::get('article/{article}/{slug?}','HomeController@article')->name('home.article');
     Route::get('archives','HomeController@archives')->name('home.archives');
+    Route::get('archives/{year}','HomeController@archiveByYear')->name('home.archives.year');
 });
 
 Route::namespace('Admin')->prefix('admin')->group(function () {

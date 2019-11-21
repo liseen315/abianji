@@ -64,6 +64,25 @@
     }
 }
 
+.archive-article-footer {
+    margin-top: 1.5rem;
+}
+
+.archive-article-date {
+    position: relative;
+    display: block;
+    @extend .block-caption;
+    &::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: -3.5rem;
+        margin-top: -.5rem;
+        @include rounded-circle(1rem);
+        background-color: $border-color;
+    }
+}
+
 .page-type-title {
     margin: 0;
     padding: 3rem 0;

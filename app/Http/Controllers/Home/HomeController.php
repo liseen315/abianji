@@ -39,10 +39,17 @@ class HomeController extends Controller
     public function archives()
     {
         $articles = Article::orderBy('created_at', 'desc')->paginate(20);
-        $archives = $articles->groupBy(function ($val) {
+        $iteration = $articles->groupBy(function ($val) {
             return Carbon::parse($val->created_at)->format('Y');
         });
 
-        return view('app.archives', compact('archives','articles'));
+        return view('app.archives', compact('iteration', 'articles'));
+    }
+
+    public function archiveByYear($year)
+    {
+        $articles = Article::whereYear('created_at', $year)->orderBy('created_at', 'desc')->paginate(20);
+        $iteration[$year] = $articles;
+        return view('app.archives', compact('iteration', 'articles'));
     }
 }

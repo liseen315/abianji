@@ -1584,6 +1584,7 @@ img {
 }
 
 .block-caption,
+.archive-article-date,
 .archive-year-wrap .archive-year,
 .article-category,
 .article-date {
@@ -1592,6 +1593,7 @@ img {
 }
 
 .block-caption:hover,
+.archive-article-date:hover,
 .archive-year-wrap .archive-year:hover,
 .article-category:hover,
 .article-date:hover {
@@ -2372,6 +2374,27 @@ a.toc-link {
 .archive-article-header h2 .archive-article-title {
   text-decoration: none;
   font-size: 1.5rem;
+}
+
+.archive-article-footer {
+  margin-top: 1.5rem;
+}
+
+.archive-article-date {
+  position: relative;
+  display: block;
+}
+
+.archive-article-date::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -3.5rem;
+  margin-top: -0.5rem;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 0.5rem;
+  background-color: #e6e6e6;
 }
 
 .page-type-title {
