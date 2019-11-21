@@ -8,7 +8,7 @@
                 <article class="archive-article">
                     <div class="archive-article-inner">
                         <header class="archive-article-header">
-                            <a href="javascript:void(0);"
+                            <a href="{{ $article->url }}"
                                class="archive-article-date">{{ $article->created_at->format('m/d') }}</a>
                             <h2>
                                 <a href="{{ $article->url }}" class="archive-article-title">{{ $article->title }}</a>

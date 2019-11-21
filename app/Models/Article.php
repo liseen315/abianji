@@ -41,8 +41,6 @@ class Article extends Model
 
     public function getRouteKeyName()
     {
-        $name = '';
-
         if (blog_config('slug') && (Route::getCurrentRoute()->getName() == 'home.index' || Route::getCurrentRoute()->getName() === 'home.article')) {
             $name = 'slug';
         } else {
@@ -54,7 +52,6 @@ class Article extends Model
 
     public function getUrlAttribute()
     {
-
         // 如果启用了slug则文章的url 采用slug返回
         if (blog_config('slug')) {
             $parameters[] = $this->slug;

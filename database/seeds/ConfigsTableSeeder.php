@@ -27,7 +27,7 @@ class ConfigsTableSeeder extends Seeder
             [
                 'name' => '网站子标题',
                 'title' => 'sub_title',
-                'value' => '世界让我遍体鳞伤|但伤口长出的却是翅膀',
+                'value' => '争取做一个有故事的人',
                 'type' => 'text',
                 'create_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
@@ -35,7 +35,7 @@ class ConfigsTableSeeder extends Seeder
             [
                 'name' => '网站关键词',
                 'title' => 'keywords',
-                'value' => 'PHP Laravel Blog',
+                'value' => 'PHP Laravel Blog 阿比安吉',
                 'type' => 'text',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
@@ -43,7 +43,7 @@ class ConfigsTableSeeder extends Seeder
             [
                 'name' => '网站描述',
                 'title' => 'description',
-                'value' => 'Abianji Blog System',
+                'value' => 'Abianji is a blog system by Laravel',
                 'type' => 'text',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
@@ -67,7 +67,7 @@ class ConfigsTableSeeder extends Seeder
             [
                 'name' => '封面水印',
                 'title' => 'water',
-                'value' => 'Abianji Blog System',
+                'value' => 'Abianji',
                 'type' => 'text',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
@@ -75,7 +75,7 @@ class ConfigsTableSeeder extends Seeder
             [
                 'name' => '是否启用Slug',
                 'title' => 'slug',
-                'value' => '0',
+                'value' => '1',
                 'type' => 'radio',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()

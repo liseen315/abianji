@@ -7,6 +7,7 @@ use App\Models\Article;
 use App\Models\Tag;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Slug;
 
 class TagController extends Controller
 {
@@ -29,10 +30,9 @@ class TagController extends Controller
      */
     public function store(TagStoreRequest $request)
     {
-        $data = $request->only('name');
-
-        Tag::create($data);
-
+        $tagData['name'] = $request->input('name');
+        $tagData['slug'] = Slug::translate($request->input('name'));
+        Tag::create($tagData);
 
         return redirect()->route('tag.index')->with('success', '创建标签成功');
     }
@@ -55,7 +55,10 @@ class TagController extends Controller
      */
     public function update(Tag $tag, Request $request)
     {
-        $tag->update(['name' => $request->input('name')]);
+        $tagData['name'] = $request->input('name');
+        $tagData['slug'] = Slug::translate($request->input('name'));
+
+        $tag->update($tagData);
         return redirect()->route('tag.index')->with('success', '更新标签成功');
     }
 

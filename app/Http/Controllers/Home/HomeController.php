@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Home;
 
 use App\Http\Controllers\Controller;
 use App\Models\Article;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 
@@ -49,7 +50,17 @@ class HomeController extends Controller
     public function archiveByYear($year)
     {
         $articles = Article::whereYear('created_at', $year)->orderBy('created_at', 'desc')->paginate(20);
+
         $iteration[$year] = $articles;
         return view('app.archives', compact('iteration', 'articles'));
+    }
+
+    public function tags(Tag $tag)
+    {
+        $articles = Article::whereIn('id',$tag->article_list)->orderBy('created_at', 'desc')->paginate(20);
+        $iteration = $articles->groupBy(function ($val) {
+            return Carbon::parse($val->created_at)->format('Y');
+        });
+        return view('app.tags',compact('iteration','articles','tag'));
     }
 }

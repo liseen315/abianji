@@ -26,7 +26,7 @@
                         <ul class="article-tag-list">
                             @foreach($article->tags as $tagItem)
                                 <li class="article-tag-list-item">
-                                    <a href="#" class="article-tag-list-link">{{ $tagItem->name }}</a>
+                                    <a href="{{ $tagItem->url }}" class="article-tag-list-link">{{ $tagItem->name }}</a>
                                 </li>
                             @endforeach
                         </ul>

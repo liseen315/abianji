@@ -20,6 +20,7 @@ Route::namespace('Home')->group(function () {
     Route::get('article/{article}/{slug?}','HomeController@article')->name('home.article');
     Route::get('archives','HomeController@archives')->name('home.archives');
     Route::get('archives/{year}','HomeController@archiveByYear')->name('home.archives.year');
+    Route::get('tags/{tag}/{slug?}','HomeController@tags')->name('home.tags');
 });
 
 Route::namespace('Admin')->prefix('admin')->group(function () {
