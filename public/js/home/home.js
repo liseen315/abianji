@@ -12301,12 +12301,59 @@ function () {
   function Home() {
     _classCallCheck(this, Home);
 
+    this.content = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.content');
+    this.sidebar = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.sidebar');
+    this.isMobileNavAnim = false;
+    this.mobileNavAnimDuration = 200;
+    this.initMobileSideBar();
     this.initAmchor();
     this.initLineNumber();
     this.initRocket();
   }
 
   _createClass(Home, [{
+    key: "initMobileSideBar",
+    value: function initMobileSideBar() {
+      var _this = this;
+
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()('.navbar-toggle').click(function (event) {
+        if (_this.isMobileNavAnim) {
+          return;
+        }
+
+        _this.startMobileNavAnim();
+
+        _this.content.toggleClass('on');
+
+        _this.sidebar.toggleClass('on');
+
+        _this.stopMobileNavAnim();
+      });
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()('.content').click(function (event) {
+        if (_this.isMobileNavAnim || !_this.content.hasClass('on')) {
+          return;
+        }
+
+        _this.content.removeClass('on');
+
+        _this.sidebar.removeClass('on');
+      });
+    }
+  }, {
+    key: "startMobileNavAnim",
+    value: function startMobileNavAnim() {
+      this.isMobileNavAnim = true;
+    }
+  }, {
+    key: "stopMobileNavAnim",
+    value: function stopMobileNavAnim() {
+      var _this2 = this;
+
+      setTimeout(function () {
+        _this2.isMobileNavAnim = false;
+      }, this.mobileNavAnimDuration);
+    }
+  }, {
     key: "initAmchor",
     value: function initAmchor() {
       jquery__WEBPACK_IMPORTED_MODULE_0___default()('.anchor').click(function (event) {

@@ -8,9 +8,45 @@ import 'prismjs/plugins/line-numbers/prism-line-numbers';
 
 class Home {
     constructor() {
+        this.content = $('.content')
+        this.sidebar = $('.sidebar')
+        this.isMobileNavAnim = false;
+        this.mobileNavAnimDuration = 200;
+
+        this.initMobileSideBar()
         this.initAmchor();
         this.initLineNumber();
         this.initRocket()
+    }
+
+    initMobileSideBar() {
+        $('.navbar-toggle').click(event => {
+            if (this.isMobileNavAnim) {
+                return
+            }
+            this.startMobileNavAnim();
+            this.content.toggleClass('on');
+            this.sidebar.toggleClass('on');
+            this.stopMobileNavAnim();
+        })
+
+        $('.content').click(event => {
+            if (this.isMobileNavAnim || !this.content.hasClass('on')) {
+                return
+            }
+            this.content.removeClass('on');
+            this.sidebar.removeClass('on');
+        })
+    }
+
+    startMobileNavAnim() {
+        this.isMobileNavAnim = true
+    }
+
+    stopMobileNavAnim() {
+        setTimeout(() => {
+            this.isMobileNavAnim = false;
+        },this.mobileNavAnimDuration)
     }
 
     initAmchor() {
