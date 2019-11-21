@@ -12,7 +12,7 @@
             <form action="{{ route('category.store') }}" method="post" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <div class="form-group">
-                    <label>父分类</label>
+                    <label>父分类|当前系统只支持2层分类,文章默认读取的是子分类</label>
                     <div class="container">
                         <div class="row">
                             <select name="parent_id" class="selectpicker" data-width="100%">

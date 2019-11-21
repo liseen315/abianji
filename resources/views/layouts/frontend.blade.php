@@ -10,6 +10,7 @@
     <title>@yield('title') @if(request()->path() !== '/') - {{ blog_config('site_name') }} @endif</title>
     @yield('style')
     <link rel="stylesheet" href="{{ mix('css/home/home.css') }}">
+    <script type="text/javascript" src="{{ asset('assets/pace/pace.min.js') }}"></script>
 </head>
 <body>
 <main class="content">
@@ -37,6 +38,15 @@
             </li>
             <li class="nav-item">
                 <a href="{{ route('home.archives') }}" class="nav-item-link"><i class="fe icon-folder"></i>归档</a>
+            </li>
+        </ul>
+    </nav>
+    <nav class="navbar navbar-bottom">
+        <ul class="nav">
+            <li class="nav-item">
+                <div class="totop" id="totop">
+                    <i class="fe icon-rocket"></i>
+                </div>
             </li>
         </ul>
     </nav>

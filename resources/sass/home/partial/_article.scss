@@ -53,6 +53,10 @@
         font-family: feathericon;
         margin-right: .5rem;
     }
+    a {
+        text-decoration: none;
+        color: #5c6b72;
+    }
 }
 
 .article-tag-list{
@@ -73,8 +77,22 @@
 }
 
 .article-footer {
-    @include clearfix();
     margin-top: 3rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.article-share-link {
+    cursor: pointer;
+    margin-left: 20px;
+    text-decoration: none;
+    &:before {
+        content: "\f14f";
+        font-family: feathericon;
+        padding-right: 6px;
+    }
 }
 
 .articles {

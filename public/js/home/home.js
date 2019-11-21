@@ -12303,7 +12303,7 @@ function () {
 
     this.initAmchor();
     this.initLineNumber();
-    this.initTocbot();
+    this.initRocket();
   }
 
   _createClass(Home, [{
@@ -12323,8 +12323,27 @@ function () {
       jquery__WEBPACK_IMPORTED_MODULE_0___default()('pre').addClass('line-numbers');
     }
   }, {
-    key: "initTocbot",
-    value: function initTocbot() {}
+    key: "initRocket",
+    value: function initRocket() {
+      var scroll = jquery__WEBPACK_IMPORTED_MODULE_0___default()('#totop');
+      var scrollSpeed = 1600;
+      scroll.hide();
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).scroll(function () {
+        var scrollTop = jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).scrollTop();
+
+        if (scrollTop > 1000) {
+          scroll.stop().fadeTo(300, 1);
+        } else {
+          scroll.stop().fadeTo(300, 0);
+        }
+      });
+      scroll.click(function () {
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()('html, body').animate({
+          scrollTop: 0
+        }, 1600);
+        return false;
+      });
+    }
   }]);
 
   return Home;

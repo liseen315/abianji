@@ -21,6 +21,7 @@ Route::namespace('Home')->group(function () {
     Route::get('archives','HomeController@archives')->name('home.archives');
     Route::get('archives/{year}','HomeController@archiveByYear')->name('home.archives.year');
     Route::get('tags/{tag}/{slug?}','HomeController@tags')->name('home.tags');
+    Route::get('category/{category}/{slug?}','HomeController@category')->name('home.category');
 });
 
 Route::namespace('Admin')->prefix('admin')->group(function () {

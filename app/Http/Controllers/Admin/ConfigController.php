@@ -36,7 +36,7 @@ class ConfigController extends Controller
             Config::where('title', $key)->update(['value' => $value]);
         }
 
-        // 更新缓存
+        // 用框架的反射生成实例后更新缓存
         app(RedisServices::class)->updateConfig();
 
         return redirect()->back()->with('success', '更新成功');

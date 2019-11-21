@@ -6,6 +6,7 @@ use App\Http\Requests\Category\CategoryStoreRequest;
 use App\Models\Category;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Slug;
 
 class CategoryController extends Controller
 {
@@ -31,7 +32,7 @@ class CategoryController extends Controller
     public function store(CategoryStoreRequest $request)
     {
         $data = $request->except('_token');
-
+        $data['slug'] = Slug::translate($request->input('name'));
         Category::create($data);
 
         return redirect()->route('category.index')->with('success', '创建分类成功');
@@ -55,7 +56,10 @@ class CategoryController extends Controller
      */
     public function update(Category $category, Request $request)
     {
-        $category->update(['name' => $request->input('name')]);
+        $data['name'] = $request->input('name');
+        $data['slug'] = Slug::translate($request->input('name'));
+
+        $category->update($data);
 
         return redirect()->route('category.index')->with('success', '更新分类成功');
     }

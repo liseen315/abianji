@@ -15,7 +15,10 @@
                 </header>
                 <div class="article-meta">
                     <div class="article-date">{{ $article->created_at->format('Y-m-d') }}</div>
-                    <div class="article-category">{{ $article->category->name }}</div>
+                    <div class="article-category">
+                        <a href="{{ $article->category->url }}">{{ $article->category->name }}
+                        </a>
+                    </div>
                 </div>
                 <div class="tocbot"></div>
                 <div class="article-entry">
@@ -31,6 +34,7 @@
                             @endforeach
                         </ul>
                     @endif
+                    <a href="javascript:void(0)" data-url="{{ $article->url }}" class="article-share-link">分享</a>
                 </div>
             </div>
             <div class="article-nav">

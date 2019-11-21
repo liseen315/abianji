@@ -9,8 +9,6 @@ git clone xxxxx
 # 数据库填充 php artisan db:seed
 ```
 
-
-
 ## 安装Redis扩展
 
 ```
@@ -46,16 +44,10 @@ https://laravel-news.com/creating-helpers
 ## slug
 
 ```
-采用有道翻译接口
+默认使用拼音来处理slug 如果在.env中配置了有道翻译接口则会采用有道翻译接口
 https://ai.youdao.com/fanyi-chart.s
 
 Services Provider 使用jourdon/slug 自己改造去掉了百度,修复了Laravel 6.0兼容问题
-```
-
-## 开发中bug记录
-
-```
-- 文章编辑时无法取消选择Tag标签
 ```
 
 

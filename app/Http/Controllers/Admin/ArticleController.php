@@ -117,7 +117,8 @@ class ArticleController extends Controller
         $allTagIds = array();
         foreach ($tags as $tagId) {
             if (substr($tagId, 0, 4) == 'new:') {
-                $newTag = Tag::create(['name' => substr($tagId, 4)]);
+
+                $newTag = Tag::create(['name' => substr($tagId, 4), 'slug' => Slug::translate(substr($tagId, 4))]);
                 $allTagIds[] = $newTag->id;
                 continue;
             }

@@ -45,7 +45,9 @@
                             </header>
                             <div class="article-meta">
                                 <div class="article-date">{{ $article->created_at->format('Y-m-d') }}</div>
-                                <div class="article-category">{{ $article->category->name }}</div>
+                                <div class="article-category">
+                                    <a href="{{$article->category->url}}">{{ $article->category->name }}</a>
+                                </div>
                             </div>
                             <div class="article-entry" itemprop="articleBody">
                                 @if(!is_null($article->cover))
@@ -70,11 +72,13 @@
                                     <ul class="article-tag-list">
                                         @foreach($article->tags as $tagItem)
                                             <li class="article-tag-list-item">
-                                                <a href="{{ $tagItem->url }}" class="article-tag-list-link">{{ $tagItem->name }}</a>
+                                                <a href="{{ $tagItem->url }}"
+                                                   class="article-tag-list-link">{{ $tagItem->name }}</a>
                                             </li>
                                         @endforeach
                                     </ul>
                                 @endif
+                                <div class="fe icon-smile-alt">{{ $article->views }}</div>
                             </div>
                         </div>
                     </article>

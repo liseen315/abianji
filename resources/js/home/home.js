@@ -10,7 +10,7 @@ class Home {
     constructor() {
         this.initAmchor();
         this.initLineNumber();
-        this.initTocbot()
+        this.initRocket()
     }
 
     initAmchor() {
@@ -25,8 +25,23 @@ class Home {
         $('pre').addClass('line-numbers');
     }
 
-    initTocbot() {
+    initRocket() {
+        let scroll = $('#totop');
+        let scrollSpeed = 1600;
+        scroll.hide();
+        $(window).scroll(() => {
+            let scrollTop = $(document).scrollTop();
+            if (scrollTop > 1000) {
+                scroll.stop().fadeTo(300, 1);
+            } else {
+                scroll.stop().fadeTo(300, 0);
+            }
+        })
 
+        scroll.click(() => {
+            $('html, body').animate({scrollTop: 0}, 1600);
+            return false;
+        })
     }
 }
 

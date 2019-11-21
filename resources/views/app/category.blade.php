@@ -1,10 +1,10 @@
 @extends('layouts.frontend')
 @section('title')
-    标签
+    分类
 @endsection
 @section('body')
     <section class="outer">
-        <h1 class="page-type-title">#{{ $tag->name }}</h1>
+        <h1 class="page-type-title">*{{ $category->name }}</h1>
         @component('.app.iteration',compact('iteration'))
         @endcomponent
         {{ $articles->links('app.pagination') }}
