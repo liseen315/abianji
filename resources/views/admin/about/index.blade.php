@@ -11,11 +11,29 @@
     @endcomponent
     <div class="card">
         <div class="card-body">
-            <form action="{{ route('about.store') }}" method="post" enctype="multipart/form-data">
+            <form action="@if(is_null($about)){{ route('about.store') }}@else{{ route('about.update') }} @endif"
+                  method="post" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <div class="form-group">
                     <div id="J_aboutContent">
-                        <textarea name="markdown">{{ old('markdown') }}</textarea>
+                        @if(is_null($about))
+                            <textarea name="markdown">{{ old('markdown') }}</textarea>
+                        @else
+                            <textarea name="markdown">{{ $about->markdown }}</textarea>
+                        @endif
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="container">
+                        <div class="row justify-content-end">
+                            <button type="submit" class="btn btn-primary">
+                                @if(is_null($about))
+                                    创建
+                                @else
+                                    编辑
+                                @endif
+                            </button>
+                        </div>
                     </div>
                 </div>
             </form>
