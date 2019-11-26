@@ -146,6 +146,13 @@
                             </li>
                         </ul>
                     </li>
+                    {{-- About me --}}
+                    <li class="nav-item">
+                        <a href="{{route('about.index')}}" class="nav-link @sideIsActive('about','active')">
+                            <i class="nav-icon fas fa-user-circle"></i>
+                            <p>关于我</p>
+                        </a>
+                    </li>
                     {{--System Config--}}
                     <li class="nav-item has-treeview @sideIsActive('config','menu-open')">
                         <a href="javascript:void(0);" class="nav-link @sideIsActive('config','active')">

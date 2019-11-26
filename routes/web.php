@@ -16,12 +16,13 @@ Route::get('/info', function () {
 });
 
 Route::namespace('Home')->group(function () {
-    Route::get('/','HomeController@index')->name('home.index');
-    Route::get('article/{article}/{slug?}','HomeController@article')->name('home.article');
-    Route::get('archives','HomeController@archives')->name('home.archives');
-    Route::get('archives/{year}','HomeController@archiveByYear')->name('home.archives.year');
-    Route::get('tags/{tag}/{slug?}','HomeController@tags')->name('home.tags');
-    Route::get('category/{category}/{slug?}','HomeController@category')->name('home.category');
+    Route::get('/', 'HomeController@index')->name('home.index');
+    Route::get('article/{article}/{slug?}', 'HomeController@article')->name('home.article');
+    Route::get('archives', 'HomeController@archives')->name('home.archives');
+    Route::get('archives/{year}', 'HomeController@archiveByYear')->name('home.archives.year');
+    Route::get('tags/{tag}/{slug?}', 'HomeController@tags')->name('home.tags');
+    Route::get('category/{category}/{slug?}', 'HomeController@category')->name('home.category');
+    Route::get('about', 'HomeController@about')->name('home.about');
 });
 
 Route::namespace('Admin')->prefix('admin')->group(function () {
@@ -66,9 +67,18 @@ Route::namespace('Admin')->prefix('admin')->middleware('admin.auth')->group(func
 
     // 基础配置
     Route::prefix('config')->group(function () {
-        Route::get('edit','ConfigController@edit')->name('config.edit');
-        Route::post('update','ConfigController@update')->name('config.update');
-        Route::get('create','ConfigController@create')->name('config.create');
-        Route::post('store','ConfigController@store')->name('config.store');
-    });;
+        Route::get('edit', 'ConfigController@edit')->name('config.edit');
+        Route::post('update', 'ConfigController@update')->name('config.update');
+        Route::get('create', 'ConfigController@create')->name('config.create');
+        Route::post('store', 'ConfigController@store')->name('config.store');
+    });
+
+    Route::prefix('about')->group(function () {
+        Route::get('/', 'AboutController@index')->name('about.index');
+        Route::post('store', 'AboutController@store')->name('about.store');
+        Route::get('edit', 'AboutController@edit')->name('about.edit');
+        Route::post('update', 'AboutController@update')->name('about.update');
+    });
+
+
 });

@@ -46,7 +46,7 @@ class Article {
             path: editormdPath,
             emoji: true,
             toolbarIcons: ['undo', 'redo', 'bold', 'del', 'italic', 'quote', 'uppercase', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'list-ul', 'list-ol', 'hr', 'link', 'reference-link', 'code', 'code-block', 'table', 'html-entities', 'watch', 'preview', 'search'],
-            imageUpload: true,
+            imageUpload: false,
             imageUploadURL: '',
         });
     }

@@ -9,6 +9,7 @@ use App\Models\Tag;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Cache;
+
 class HomeController extends Controller
 {
     /**
@@ -80,5 +81,9 @@ class HomeController extends Controller
             return Carbon::parse($val->created_at)->format('Y');
         });
         return view('app.category', compact('iteration', 'articles', 'category'));
+    }
+
+    public function about() {
+        return view('app.about');
     }
 }

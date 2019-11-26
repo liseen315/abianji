@@ -2280,6 +2280,10 @@ img {
   text-decoration: none;
 }
 
+.about .article-footer {
+  justify-content: flex-end;
+}
+
 .code-block,
 .article-entry pre {
   background: #f6f8fa;

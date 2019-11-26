@@ -39,6 +39,9 @@
             <li class="nav-item">
                 <a href="{{ route('home.archives') }}" class="nav-item-link"><i class="fe icon-folder"></i>归档</a>
             </li>
+            <li class="nav-item">
+                <a href="{{ route('home.about') }}" class="nav-item-link"><i class="fe icon-feather"></i>关于</a>
+            </li>
         </ul>
     </nav>
     <nav class="navbar navbar-bottom">

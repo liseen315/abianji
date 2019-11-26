@@ -150,3 +150,9 @@
     text-shadow: 0 1px #fff;
     text-decoration: none;
 }
+
+.about {
+    .article-footer {
+        justify-content: flex-end;
+    }
+}
