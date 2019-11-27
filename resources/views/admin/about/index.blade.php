@@ -9,6 +9,8 @@
 @section('content')
     @component('.admin.components.error')
     @endcomponent
+    @component('.admin.components.success')
+    @endcomponent
     <div class="card">
         <div class="card-body">
             <form action="@if(is_null($about)){{ route('about.store') }}@else{{ route('about.update') }} @endif"

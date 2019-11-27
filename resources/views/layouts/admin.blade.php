@@ -192,7 +192,7 @@
     </div>
     {{--footer--}}
     <footer class="main-footer">
-        <strong>Copyright &copy; 2014-2019 <a href="https://abianji.com"></a>Abianji</strong>
+        <strong>Copyright &copy; 2014-{{ Carbon\Carbon::now()->year }} <a href="https://abianji.com">Abianji</a></strong>
         All rights reserved.
         <div class="float-right d-none d-sm-inline-block">
             <b>Version</b> 0.0.1

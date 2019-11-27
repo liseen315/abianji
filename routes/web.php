@@ -76,7 +76,6 @@ Route::namespace('Admin')->prefix('admin')->middleware('admin.auth')->group(func
     Route::prefix('about')->group(function () {
         Route::get('/', 'AboutController@index')->name('about.index');
         Route::post('store', 'AboutController@store')->name('about.store');
-        Route::get('edit', 'AboutController@edit')->name('about.edit');
         Route::post('update', 'AboutController@update')->name('about.update');
     });
 
