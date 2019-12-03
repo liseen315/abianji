@@ -2521,6 +2521,20 @@ a.toc-link {
   font-size: 1.4rem;
 }
 
+.comments-box .option-btn {
+  padding: 0.75rem 1.25rem;
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  border: 1px solid #6190e8;
+  border-radius: 0.45rem;
+  background-color: #fff;
+  color: #6190e8;
+  outline: none;
+  font-size: 1.4rem;
+}
+
 .cm-container {
   box-sizing: border-box;
   font-size: 1.4rem;
@@ -2603,20 +2617,6 @@ a.toc-link {
   align-items: center;
 }
 
-.cm-header .header-comment .header-controls .option-btn {
-  padding: 0.75rem 1.25rem;
-  line-height: 1;
-  text-decoration: none;
-  white-space: nowrap;
-  cursor: pointer;
-  border: 1px solid #6190e8;
-  border-radius: 0.45rem;
-  background-color: #fff;
-  color: #6190e8;
-  outline: none;
-  font-size: 1.4rem;
-}
-
 .cm-header .header-comment .header-controls .login-btn {
   background-color: #6190e8;
   color: #FFFFFF;
@@ -2676,5 +2676,15 @@ a.toc-link {
 
 .cm-comments .cm-comment-list-item .comment-content .comment-body {
   color: #333;
+}
+
+.cm-comments .comments-controls {
+  margin: 1.25rem 0;
+  text-align: center;
+}
+
+.cm-comments .comments-controls .load-more {
+  background-color: #6190e8;
+  color: #FFFFFF;
 }
 

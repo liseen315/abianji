@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Socialite;
 use URL;
 
@@ -22,6 +23,7 @@ class SocialiteController extends Controller
     {
         $user = Socialite::driver($services)->user();
         // 定位到留言板块
+
     }
 
     public function logout()

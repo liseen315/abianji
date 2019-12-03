@@ -17,7 +17,7 @@ class AdminController extends Controller
      * @return \Illuminate\Http\RedirectResponse
      */
     public function logout() {
-        auth()->logout();
+        auth('admin')->logout();
         return redirect()->route('login');
     }
 }

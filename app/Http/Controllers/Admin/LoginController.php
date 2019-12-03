@@ -19,7 +19,7 @@ class LoginController extends Controller
     public function index()
     {
         // 如果用户被认证过,则直接跳转到dashboard
-        if (auth()->user()) {
+        if (auth('admin')->user()) {
             return redirect()->route('dashboard');
         }
 
@@ -35,7 +35,6 @@ class LoginController extends Controller
     public function login(AdminLoginRequest $request)
     {
         // 验证登录,默认email
-//        $this->validateLogin($request);
 
         if ($this->hasTooManyLoginAttempts($request)) {
             $this->fireLockoutEvent($request);
@@ -46,7 +45,7 @@ class LoginController extends Controller
         $credentials = $this->credentials($request);
 
 
-        if (auth()->attempt($credentials, $request->has('remember'))) {
+        if (auth('admin')->attempt($credentials, $request->has('remember'))) {
             return $this->sendLoginResponse($request);
         }
 

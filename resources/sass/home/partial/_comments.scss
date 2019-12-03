@@ -1,5 +1,19 @@
 .comments-box {
     font-size: 1.4rem;
+
+    .option-btn {
+        padding: 0.75rem 1.25rem;
+        line-height: 1;
+        text-decoration: none;
+        white-space: nowrap;
+        cursor: pointer;
+        border: 1px solid #6190e8;
+        border-radius: .45rem;
+        background-color: #fff;
+        color: #6190e8;
+        outline: none;
+        font-size: 1.4rem;
+    }
 }
 
 .cm-container {
@@ -62,37 +76,29 @@
             outline: none;
             transition: all 0.25s ease;
         }
+
         .header-preview {
             padding: 0.75rem;
             border-radius: 5px;
             background-color: #f6f6f6;
         }
+
         .header-controls {
             position: relative;
             margin: 0.75rem 0 0;
             display: flex;
             justify-content: space-between;
             align-items: center;
+
             .tip {
                 font-size: 1.4rem;
             }
+
             .btn-group {
                 display: flex;
                 align-items: center;
             }
-            .option-btn {
-                padding: 0.75rem 1.25rem;
-                line-height: 1;
-                text-decoration: none;
-                white-space: nowrap;
-                cursor: pointer;
-                border: 1px solid #6190e8;
-                border-radius: .45rem;
-                background-color: #fff;
-                color: #6190e8;
-                outline: none;
-                font-size: 1.4rem;
-            }
+
             .login-btn {
                 background-color: #6190e8;
                 color: #FFFFFF;
@@ -104,19 +110,23 @@
 
 .cm-comments {
     padding-top: 1.25rem;
+
     .cm-comment-list-item {
         position: relative;
         padding: 0.625rem 0;
         display: flex;
+
         .avatar {
             width: 3.125rem;
             height: 3.125rem;
+
             img {
                 width: 100%;
                 height: auto;
                 border-radius: 50%;
             }
         }
+
         .comment-content {
             flex: 1;
             margin-left: 1.25rem;
@@ -130,23 +140,37 @@
                 align-items: center;
                 justify-content: space-between;
             }
+
             .left-panel {
                 .comment-username {
                     font-weight: 500;
                     color: #6190e8;
                     text-decoration: none;
                 }
+
                 span {
                     margin-left: 0.5em;
                     color: #a1a1a1;
                 }
             }
+
             .replay-btn {
                 font-size: 1.6rem;
             }
+
             .comment-body {
                 color: #333;
             }
+        }
+    }
+
+    .comments-controls {
+        margin: 1.25rem 0;
+        text-align: center;
+
+        .load-more {
+            background-color: #6190e8;
+            color: #FFFFFF;
         }
     }
 }

@@ -101,6 +101,9 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="comments-controls">
+                            <button class="option-btn load-more" id="J_loadMoreBtn">加载更多</button>
+                        </div>
                     </div>
                 </div>
             </div>
