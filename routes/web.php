@@ -25,6 +25,12 @@ Route::namespace('Home')->group(function () {
     Route::get('about', 'HomeController@about')->name('home.about');
 });
 
+Route::namespace('Auth')->prefix('socialite')->group(function () {
+    Route::get('login/{service}', 'SocialiteController@redirectToProvider')->name('socialite.redirect');
+    Route::get('callback/{service}', 'SocialiteController@handleProviderCallback')->name('socialite.callback');
+    Route::get('logout', 'SocialiteController@logout')->name('socialite.logout');
+});
+
 Route::namespace('Admin')->prefix('admin')->group(function () {
     Route::get('login', 'LoginController@index')->name('login');
     Route::post('login', 'LoginController@login')->name('post.login');

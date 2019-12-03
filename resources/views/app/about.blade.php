@@ -11,7 +11,7 @@
                     <h1 class="article-title">关于</h1>
                 </header>
                 <div class="article-entry">
-
+                    {!! $about->content !!}
                 </div>
                 <div class="article-footer">
                     <a href="javascript:void(0);" data-url="" class="article-share-link">分享</a>

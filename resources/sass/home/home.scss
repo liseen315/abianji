@@ -53,6 +53,10 @@ img {
     max-width: 100%;
 }
 
+.hide {
+    display: none !important;
+}
+
 .pace {
     -webkit-pointer-events: none;
     pointer-events: none;
@@ -88,3 +92,4 @@ img {
 @import "partial/tocbot";
 @import "partial/page";
 @import "partial/archive";
+@import "partial/comments";

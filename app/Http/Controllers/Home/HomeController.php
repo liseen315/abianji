@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Home;
 
 use App\Http\Controllers\Controller;
+use App\Models\About;
 use App\Models\Article;
 use App\Models\Category;
 use App\Models\Tag;
@@ -83,7 +84,11 @@ class HomeController extends Controller
         return view('app.category', compact('iteration', 'articles', 'category'));
     }
 
-    public function about() {
-        return view('app.about');
+    public function about()
+    {
+
+        $about = About::findOrFail(1);
+
+        return view('app.about', compact('about'));
     }
 }
