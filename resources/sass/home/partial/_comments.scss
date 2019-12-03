@@ -49,7 +49,19 @@
     display: flex;
 
     .avatar {
-        font-size: 4rem;
+
+        width: 4rem;
+        height: 4rem;
+
+        img {
+            width: 100%;
+            height: auto;
+            border-radius: 3px;
+        }
+
+        i {
+            font-size: 4rem;
+        }
     }
 
     .header-comment {

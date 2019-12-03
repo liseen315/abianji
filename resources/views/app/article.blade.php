@@ -60,11 +60,24 @@
                             <span>159</span> 条评论
                         </div>
                         <div class="cm-user">
-                            <a class="login" href="{{ route('socialite.redirect',['github']) }}">登录</a>
+                            @if(!auth('socialite')->check())
+                                <a class="login" href="{{ route('socialite.redirect',['github']) }}">登录</a>
+                            @else
+                                {{ auth('socialite')->user()->name }}
+                            @endif
+
                         </div>
                     </div>
                     <div class="cm-header">
-                        <div class="icon-github avatar"></div>
+                        @if(!auth('socialite')->check())
+                            <div class="avatar">
+                                <i class="icon-github"></i>
+                            </div>
+                        @else
+                            <div class="avatar">
+                                <img src="{{  auth('socialite')->user()->avatar }}" alt="头像">
+                            </div>
+                        @endif
                         <div class="header-comment">
                             <textarea class="header-textarea" placeholder="Leave a comment"></textarea>
                             <div class="header-preview markdown-body hide" id="J_previewMarkdown"></div>

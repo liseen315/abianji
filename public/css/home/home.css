@@ -2565,6 +2565,17 @@ a.toc-link {
 }
 
 .cm-header .avatar {
+  width: 4rem;
+  height: 4rem;
+}
+
+.cm-header .avatar img {
+  width: 100%;
+  height: auto;
+  border-radius: 3px;
+}
+
+.cm-header .avatar i {
   font-size: 4rem;
 }
 
