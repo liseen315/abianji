@@ -7,6 +7,7 @@ use App\Models\SocialiteUser;
 use Illuminate\Http\Request;
 use Socialite;
 use URL;
+use Markdown;
 
 class SocialiteController extends Controller
 {
@@ -52,8 +53,15 @@ class SocialiteController extends Controller
         return redirect(session('preURL', '/'));
     }
 
+    public function previewMarkdown(Request $request)
+    {
+        $htmlContent = Markdown::convertToHtml($request->input('markdown'));
+        return response()->json(['status' => 0, 'body' => ['content' => $htmlContent], 'msg' => 'success']);
+    }
+
     public function logout()
     {
-
+        auth('socialite')->logout();
+        return redirect()->back();
     }
 }

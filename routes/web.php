@@ -29,6 +29,7 @@ Route::namespace('Auth')->prefix('socialite')->group(function () {
     Route::get('login/{service}', 'SocialiteController@redirectToProvider')->name('socialite.redirect');
     Route::get('callback/{service}', 'SocialiteController@handleProviderCallback')->name('socialite.callback');
     Route::get('logout', 'SocialiteController@logout')->name('socialite.logout');
+    Route::post('preview','SocialiteController@previewMarkdown')->name('socialite.preview');
 });
 
 Route::namespace('Admin')->prefix('admin')->group(function () {

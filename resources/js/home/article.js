@@ -1,5 +1,9 @@
 class Article {
     constructor() {
+        this.J_previewBtn = $('#J_previewBtn');
+        this.J_previewEditorBtn = $('#J_previewEditorBtn');
+        this.J_textArea = $('#J_textArea');
+        this.J_previewMarkdown = $('#J_previewMarkdown');
         tocbot.init({
             tocSelector: '.tocbot',
             contentSelector: '.article-entry',
@@ -10,6 +14,38 @@ class Article {
             positionFixedClass: 'is-position-fixed',
             fixedSidebarOffset: 'auto',
         });
+
+        this.initComments()
+    }
+
+    initComments() {
+        this.J_previewBtn.on('click', event => {
+
+            if (this.J_textArea.val() === '') {
+                return
+            }
+            $.ajax({
+                type: 'POST',
+                url: previewAPI,
+                cache: false,
+                dataType: 'json',
+                data: {markdown: this.J_textArea.val()},
+                success: (response) => {
+                    if (response.status === 0) {
+                        this.J_previewMarkdown.html(response.body.content);
+                        this.J_previewMarkdown.removeClass('hide');
+                        this.J_textArea.addClass('hide');
+                        this.J_previewEditorBtn.removeClass('hide');
+                        this.J_previewBtn.addClass('hide')
+                    }
+                }
+            })
+        })
+
+        this.J_previewEditorBtn.on('click', event => {
+            this.J_previewMarkdown.addClass('hide');
+            this.J_textArea.removeClass('hide');
+        })
     }
 }
 

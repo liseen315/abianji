@@ -95,20 +95,76 @@
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var Article = function Article() {
-  _classCallCheck(this, Article);
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
-  tocbot.init({
-    tocSelector: '.tocbot',
-    contentSelector: '.article-entry',
-    headingSelector: 'h1, h2, h3, h4, h5, h6',
-    hasInnerContainers: true,
-    scrollSmooth: true,
-    positionFixedSelector: '.tocbot',
-    positionFixedClass: 'is-position-fixed',
-    fixedSidebarOffset: 'auto'
-  });
-};
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var Article =
+/*#__PURE__*/
+function () {
+  function Article() {
+    _classCallCheck(this, Article);
+
+    this.J_previewBtn = $('#J_previewBtn');
+    this.J_previewEditorBtn = $('#J_previewEditorBtn');
+    this.J_textArea = $('#J_textArea');
+    this.J_previewMarkdown = $('#J_previewMarkdown');
+    tocbot.init({
+      tocSelector: '.tocbot',
+      contentSelector: '.article-entry',
+      headingSelector: 'h1, h2, h3, h4, h5, h6',
+      hasInnerContainers: true,
+      scrollSmooth: true,
+      positionFixedSelector: '.tocbot',
+      positionFixedClass: 'is-position-fixed',
+      fixedSidebarOffset: 'auto'
+    });
+    this.initComments();
+  }
+
+  _createClass(Article, [{
+    key: "initComments",
+    value: function initComments() {
+      var _this = this;
+
+      this.J_previewBtn.on('click', function (event) {
+        if (_this.J_textArea.val() === '') {
+          return;
+        }
+
+        $.ajax({
+          type: 'POST',
+          url: previewAPI,
+          cache: false,
+          dataType: 'json',
+          data: {
+            markdown: _this.J_textArea.val()
+          },
+          success: function success(response) {
+            if (response.status === 0) {
+              _this.J_previewMarkdown.html(response.body.content);
+
+              _this.J_previewMarkdown.removeClass('hide');
+
+              _this.J_textArea.addClass('hide');
+
+              _this.J_previewEditorBtn.removeClass('hide');
+
+              _this.J_previewBtn.addClass('hide');
+            }
+          }
+        });
+      });
+      this.J_previewEditorBtn.on('click', function (event) {
+        _this.J_previewMarkdown.addClass('hide');
+
+        _this.J_textArea.removeClass('hide');
+      });
+    }
+  }]);
+
+  return Article;
+}();
 
 new Article();
 

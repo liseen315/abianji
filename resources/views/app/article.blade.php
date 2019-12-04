@@ -63,7 +63,11 @@
                             @if(!auth('socialite')->check())
                                 <a class="login" href="{{ route('socialite.redirect',['github']) }}">登录</a>
                             @else
-                                {{ auth('socialite')->user()->name }}
+                                <div class="user-inner">
+                                    <div class="user-name"> {{ auth('socialite')->user()->name }}</div>
+                                    <a href="{{ route('socialite.logout') }}" class="logout">登出</a>
+                                </div>
+
                             @endif
 
                         </div>
@@ -79,12 +83,15 @@
                             </div>
                         @endif
                         <div class="header-comment">
-                            <textarea class="header-textarea" placeholder="Leave a comment"></textarea>
+                            <textarea class="header-textarea" placeholder="Leave a comment" id="J_textArea"></textarea>
                             <div class="header-preview markdown-body hide" id="J_previewMarkdown"></div>
                             <div class="header-controls">
                                 <div class="tip"><i class="icon-warning"></i>推荐使用Markdown编写</div>
                                 <div class="btn-group">
-                                    <a href="{{ route('socialite.redirect',['github']) }}" class="option-btn login-btn">登录GitHub</a>
+                                    @if(!auth('socialite')->check())
+                                        <a href="{{ route('socialite.redirect',['github']) }}"
+                                           class="option-btn login-btn">登录GitHub</a>
+                                    @endif
                                     <div class="option-btn" id="J_previewBtn">预览</div>
                                     <div class="option-btn hide" id="J_previewEditorBtn">编辑</div>
                                 </div>
@@ -125,6 +132,9 @@
 @endsection
 
 @section('scripts')
+    <script>
+        const previewAPI = '{{ route('socialite.preview') }}';
+    </script>
     <script type="text/javascript" src="{{ asset('assets/tocbot/tocbot.js') }}"></script>
     <script type="text/javascript" src="{{mix('js/home/article.js')}}"></script>
 @endsection

@@ -12267,27 +12267,25 @@ module.exports = g;
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var prismjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prismjs */ "./node_modules/prismjs/prism.js");
-/* harmony import */ var prismjs__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prismjs__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var prismjs_components_prism_markup_templating__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! prismjs/components/prism-markup-templating */ "./node_modules/prismjs/components/prism-markup-templating.js");
-/* harmony import */ var prismjs_components_prism_markup_templating__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_markup_templating__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var prismjs_components_prism_php__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! prismjs/components/prism-php */ "./node_modules/prismjs/components/prism-php.js");
-/* harmony import */ var prismjs_components_prism_php__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_php__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var prismjs_components_prism_python__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! prismjs/components/prism-python */ "./node_modules/prismjs/components/prism-python.js");
-/* harmony import */ var prismjs_components_prism_python__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_python__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var prismjs_components_prism_go__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! prismjs/components/prism-go */ "./node_modules/prismjs/components/prism-go.js");
-/* harmony import */ var prismjs_components_prism_go__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_go__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var prismjs_plugins_line_numbers_prism_line_numbers__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! prismjs/plugins/line-numbers/prism-line-numbers */ "./node_modules/prismjs/plugins/line-numbers/prism-line-numbers.js");
-/* harmony import */ var prismjs_plugins_line_numbers_prism_line_numbers__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(prismjs_plugins_line_numbers_prism_line_numbers__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var prismjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! prismjs */ "./node_modules/prismjs/prism.js");
+/* harmony import */ var prismjs__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(prismjs__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var prismjs_components_prism_markup_templating__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prismjs/components/prism-markup-templating */ "./node_modules/prismjs/components/prism-markup-templating.js");
+/* harmony import */ var prismjs_components_prism_markup_templating__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_markup_templating__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var prismjs_components_prism_php__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! prismjs/components/prism-php */ "./node_modules/prismjs/components/prism-php.js");
+/* harmony import */ var prismjs_components_prism_php__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_php__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var prismjs_components_prism_python__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! prismjs/components/prism-python */ "./node_modules/prismjs/components/prism-python.js");
+/* harmony import */ var prismjs_components_prism_python__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_python__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var prismjs_components_prism_go__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! prismjs/components/prism-go */ "./node_modules/prismjs/components/prism-go.js");
+/* harmony import */ var prismjs_components_prism_go__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_go__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var prismjs_plugins_line_numbers_prism_line_numbers__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! prismjs/plugins/line-numbers/prism-line-numbers */ "./node_modules/prismjs/plugins/line-numbers/prism-line-numbers.js");
+/* harmony import */ var prismjs_plugins_line_numbers_prism_line_numbers__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(prismjs_plugins_line_numbers_prism_line_numbers__WEBPACK_IMPORTED_MODULE_5__);
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-
+window.$ = window.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 
 
 
@@ -12301,8 +12299,8 @@ function () {
   function Home() {
     _classCallCheck(this, Home);
 
-    this.content = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.content');
-    this.sidebar = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.sidebar');
+    this.content = $('.content');
+    this.sidebar = $('.sidebar');
     this.isMobileNavAnim = false;
     this.mobileNavAnimDuration = 200;
     this.initMobileSideBar();
@@ -12316,7 +12314,7 @@ function () {
     value: function initMobileSideBar() {
       var _this = this;
 
-      jquery__WEBPACK_IMPORTED_MODULE_0___default()('.navbar-toggle').click(function (event) {
+      $('.navbar-toggle').click(function (event) {
         if (_this.isMobileNavAnim) {
           return;
         }
@@ -12329,7 +12327,7 @@ function () {
 
         _this.stopMobileNavAnim();
       });
-      jquery__WEBPACK_IMPORTED_MODULE_0___default()('.content').click(function (event) {
+      $('.content').click(function (event) {
         if (_this.isMobileNavAnim || !_this.content.hasClass('on')) {
           return;
         }
@@ -12356,10 +12354,10 @@ function () {
   }, {
     key: "initAmchor",
     value: function initAmchor() {
-      jquery__WEBPACK_IMPORTED_MODULE_0___default()('.anchor').click(function (event) {
+      $('.anchor').click(function (event) {
         event.preventDefault();
-        jquery__WEBPACK_IMPORTED_MODULE_0___default()('html,body').animate({
-          scrollTop: jquery__WEBPACK_IMPORTED_MODULE_0___default()(event.currentTarget.hash).offset().top
+        $('html,body').animate({
+          scrollTop: $(event.currentTarget.hash).offset().top
         }, 'smooth');
       });
     }
@@ -12367,16 +12365,16 @@ function () {
     key: "initLineNumber",
     value: function initLineNumber() {
       // 这个坑折腾我一下午
-      jquery__WEBPACK_IMPORTED_MODULE_0___default()('pre').addClass('line-numbers');
+      $('pre').addClass('line-numbers');
     }
   }, {
     key: "initRocket",
     value: function initRocket() {
-      var scroll = jquery__WEBPACK_IMPORTED_MODULE_0___default()('#totop');
+      var scroll = $('#totop');
       var scrollSpeed = 1600;
       scroll.hide();
-      jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).scroll(function () {
-        var scrollTop = jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).scrollTop();
+      $(window).scroll(function () {
+        var scrollTop = $(document).scrollTop();
 
         if (scrollTop > 1000) {
           scroll.stop().fadeTo(300, 1);
@@ -12385,7 +12383,7 @@ function () {
         }
       });
       scroll.click(function () {
-        jquery__WEBPACK_IMPORTED_MODULE_0___default()('html, body').animate({
+        $('html, body').animate({
           scrollTop: 0
         }, 1600);
         return false;

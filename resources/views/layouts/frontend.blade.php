@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="keywords" content="{{ blog_config('keywords') }}">
     <meta name="description" content="{{ blog_config('description') }}">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title') @if(request()->path() !== '/') - {{ blog_config('site_name') }} @endif</title>
     @yield('style')
     <link rel="stylesheet" href="{{ mix('css/home/home.css') }}">
@@ -54,7 +55,16 @@
         </ul>
     </nav>
 </aside>
-@yield('scripts')
 <script type="text/javascript" src="{{ mix('js/home/home.js') }}"></script>
+<script type="text/javascript">
+    $(function () {
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+    })
+</script>
+@yield('scripts')
 </body>
 </html>

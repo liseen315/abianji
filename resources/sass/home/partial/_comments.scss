@@ -1,3 +1,4 @@
+@import "~github-markdown-css";
 .comments-box {
     font-size: 1.4rem;
 
@@ -40,6 +41,16 @@
 
     .cm-user {
         .login {
+            text-decoration: none;
+        }
+        .user-inner {
+            display: flex;
+            align-items: center;
+        }
+        .user-name {
+            margin-right: 1rem;
+        }
+        .logout {
             text-decoration: none;
         }
     }
