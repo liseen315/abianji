@@ -92,8 +92,9 @@
                                         <a href="{{ route('socialite.redirect',['github']) }}"
                                            class="option-btn login-btn">登录GitHub</a>
                                     @endif
-                                    <div class="option-btn" id="J_previewBtn">预览</div>
-                                    <div class="option-btn hide" id="J_previewEditorBtn">编辑</div>
+                                    <div class="option-btn pre-btn" id="J_previewBtn">预览</div>
+                                    <div class="option-btn editor-btn hide" id="J_previewEditorBtn">编辑</div>
+                                    <div class="option-btn comment-btn" id="J_commentBtn">发表</div>
                                 </div>
                             </div>
                         </div>

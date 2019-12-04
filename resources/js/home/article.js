@@ -45,6 +45,8 @@ class Article {
         this.J_previewEditorBtn.on('click', event => {
             this.J_previewMarkdown.addClass('hide');
             this.J_textArea.removeClass('hide');
+            this.J_previewEditorBtn.addClass('hide');
+            this.J_previewBtn.removeClass('hide');
         })
     }
 }

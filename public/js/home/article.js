@@ -159,6 +159,10 @@ function () {
         _this.J_previewMarkdown.addClass('hide');
 
         _this.J_textArea.removeClass('hide');
+
+        _this.J_previewEditorBtn.addClass('hide');
+
+        _this.J_previewBtn.removeClass('hide');
       });
     }
   }]);
