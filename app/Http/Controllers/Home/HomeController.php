@@ -6,10 +6,12 @@ use App\Http\Controllers\Controller;
 use App\Models\About;
 use App\Models\Article;
 use App\Models\Category;
+use App\Models\Comment;
 use App\Models\Tag;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Cache;
+use Markdown;
 
 class HomeController extends Controller
 {
@@ -90,5 +92,36 @@ class HomeController extends Controller
         $about = About::findOrFail(1);
 
         return view('app.about', compact('about'));
+    }
+
+    /**
+     * 预览markdown
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function previewMarkdown(Request $request)
+    {
+        $htmlContent = Markdown::convertToHtml($request->input('markdown'));
+        return response()->json(['status' => 0, 'body' => ['content' => $htmlContent], 'msg' => 'success']);
+    }
+
+    public function comment(Request $request)
+    {
+        $socialiteUser = auth('socialite')->user();
+        $socialiteUserId = $socialiteUser->id;
+        $article_id = $request->input('article_id');
+        $parent_id = $request->input('parent_id');
+        $content = $request->input('content');
+        $markdown = Markdown::convertToHtml($content);
+
+        $comment = Comment::create([
+            'parent_id' => $parent_id,
+            'socialite_user_id' => $socialiteUserId,
+            'article_id' => $article_id,
+            'markdown' => $markdown,
+            'content' => $content
+        ]);
+
+        return response()->json(['status' => 0, 'body' => ['markdown' => $markdown, 'isAdmin' => false, 'user' => ['id' => $socialiteUserId, 'avatar' => $socialiteUser->avatar, 'name' => $socialiteUser->name], 'time' => $comment->created_at], 'msg' => 'success']);
     }
 }

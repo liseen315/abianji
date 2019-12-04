@@ -4538,7 +4538,7 @@ a.toc-link {
 }
 
 .cm-header .header-comment .header-textarea {
-  overflow: hidden;
+  overflow: hidden scroll;
   overflow-wrap: break-word;
   resize: none;
   height: 6rem;
@@ -4562,6 +4562,8 @@ a.toc-link {
   padding: 0.75rem;
   border-radius: 5px;
   background-color: #f6f6f6;
+  height: 6rem;
+  overflow: hidden scroll;
 }
 
 .cm-header .header-comment .header-controls {
@@ -4592,10 +4594,7 @@ a.toc-link {
   color: #FFFFFF;
 }
 
-.cm-header .header-comment .header-controls .pre-btn {
-  margin-right: 1rem;
-}
-
+.cm-header .header-comment .header-controls .pre-btn,
 .cm-header .header-comment .header-controls .editor-btn {
   margin-right: 1rem;
 }

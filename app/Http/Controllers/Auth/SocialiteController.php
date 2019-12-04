@@ -11,6 +11,12 @@ use Markdown;
 
 class SocialiteController extends Controller
 {
+    /**
+     * 对接社交驱动
+     * @param Request $request
+     * @param $services 预留拓展用于支持多个社交媒体,当前只支持github
+     * @return mixed
+     */
     public function redirectToProvider(Request $request, $services)
     {
         $preURL = [
@@ -20,6 +26,12 @@ class SocialiteController extends Controller
         return Socialite::driver($services)->redirect();
     }
 
+    /**
+     * 驱动返回数据用于在系统内验证登录
+     * @param Request $request
+     * @param $services
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function handleProviderCallback(Request $request, $services)
     {
         $socialData = Socialite::driver($services)->user();
@@ -53,12 +65,10 @@ class SocialiteController extends Controller
         return redirect(session('preURL', '/'));
     }
 
-    public function previewMarkdown(Request $request)
-    {
-        $htmlContent = Markdown::convertToHtml($request->input('markdown'));
-        return response()->json(['status' => 0, 'body' => ['content' => $htmlContent], 'msg' => 'success']);
-    }
-
+    /**
+     * 社交登出
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function logout()
     {
         auth('socialite')->logout();

@@ -4,6 +4,9 @@ class Article {
         this.J_previewEditorBtn = $('#J_previewEditorBtn');
         this.J_textArea = $('#J_textArea');
         this.J_previewMarkdown = $('#J_previewMarkdown');
+        this.J_commentBtn = $('#J_commentBtn');
+        this.J_commentList = $('#J_commentList');
+
         tocbot.init({
             tocSelector: '.tocbot',
             contentSelector: '.article-entry',
@@ -47,6 +50,30 @@ class Article {
             this.J_textArea.removeClass('hide');
             this.J_previewEditorBtn.addClass('hide');
             this.J_previewBtn.removeClass('hide');
+        })
+
+        this.J_commentBtn.on('click', event => {
+            if (this.J_textArea.val() === '') {
+                return
+            }
+
+            $.ajax({
+                type: 'POST',
+                url: commentAPI,
+                cache: false,
+                dataType: 'json',
+                data: {
+                    article_id: this.J_textArea.data('article'),
+                    parent_id: this.J_textArea.data('parentid'),
+                    content: this.J_textArea.val()
+                },
+                success: (response) => {
+                    console.log(response)
+                    if (response.status === 0) {
+
+                    }
+                }
+            })
         })
     }
 }

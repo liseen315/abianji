@@ -109,6 +109,8 @@ function () {
     this.J_previewEditorBtn = $('#J_previewEditorBtn');
     this.J_textArea = $('#J_textArea');
     this.J_previewMarkdown = $('#J_previewMarkdown');
+    this.J_commentBtn = $('#J_commentBtn');
+    this.J_commentList = $('#J_commentList');
     tocbot.init({
       tocSelector: '.tocbot',
       contentSelector: '.article-entry',
@@ -163,6 +165,28 @@ function () {
         _this.J_previewEditorBtn.addClass('hide');
 
         _this.J_previewBtn.removeClass('hide');
+      });
+      this.J_commentBtn.on('click', function (event) {
+        if (_this.J_textArea.val() === '') {
+          return;
+        }
+
+        $.ajax({
+          type: 'POST',
+          url: commentAPI,
+          cache: false,
+          dataType: 'json',
+          data: {
+            article_id: _this.J_textArea.data('article'),
+            parent_id: _this.J_textArea.data('parentid'),
+            content: _this.J_textArea.val()
+          },
+          success: function success(response) {
+            console.log(response);
+
+            if (response.status === 0) {}
+          }
+        });
       });
     }
   }]);

@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 use Blade;
+use Carbon\Carbon;
 use Route;
 use Illuminate\Support\ServiceProvider;
 
@@ -34,5 +35,9 @@ class AppServiceProvider extends ServiceProvider
 
             return "<?php if (strpos(Route::currentRouteName(),{$targetName}) === 0) { echo {$activeStr}; } else { echo '' ;}  ?>";
         });
+
+        // 设置时区
+
+        Carbon::setLocale('zh');
     }
 }

@@ -23,13 +23,14 @@ Route::namespace('Home')->group(function () {
     Route::get('tags/{tag}/{slug?}', 'HomeController@tags')->name('home.tags');
     Route::get('category/{category}/{slug?}', 'HomeController@category')->name('home.category');
     Route::get('about', 'HomeController@about')->name('home.about');
+    Route::post('preview','HomeController@previewMarkdown')->name('home.preview');
+    Route::post('comment','HomeController@comment')->name('home.comment')->middleware('socialite.auth');
 });
 
 Route::namespace('Auth')->prefix('socialite')->group(function () {
     Route::get('login/{service}', 'SocialiteController@redirectToProvider')->name('socialite.redirect');
     Route::get('callback/{service}', 'SocialiteController@handleProviderCallback')->name('socialite.callback');
     Route::get('logout', 'SocialiteController@logout')->name('socialite.logout');
-    Route::post('preview','SocialiteController@previewMarkdown')->name('socialite.preview');
 });
 
 Route::namespace('Admin')->prefix('admin')->group(function () {

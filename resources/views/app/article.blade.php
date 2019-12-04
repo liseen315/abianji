@@ -83,7 +83,7 @@
                             </div>
                         @endif
                         <div class="header-comment">
-                            <textarea class="header-textarea" placeholder="Leave a comment" id="J_textArea"></textarea>
+                            <textarea class="header-textarea" placeholder="Leave a comment" id="J_textArea" data-article="{{ $article->id }}" data-parentid="0"></textarea>
                             <div class="header-preview markdown-body hide" id="J_previewMarkdown"></div>
                             <div class="header-controls">
                                 <div class="tip"><i class="icon-warning"></i>推荐使用Markdown编写</div>
@@ -94,37 +94,37 @@
                                     @endif
                                     <div class="option-btn pre-btn" id="J_previewBtn">预览</div>
                                     <div class="option-btn editor-btn hide" id="J_previewEditorBtn">编辑</div>
-                                    <div class="option-btn comment-btn" id="J_commentBtn">发表</div>
+                                    <div class="option-btn comment-btn  @if(!auth('socialite')->check()) hide @endif" id="J_commentBtn">发表</div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="cm-comments">
-                        <div class="cm-comment-list">
-                            <div class="cm-comment-list-item">
-                                <div class="avatar">
-                                    <img src="https://avatars1.githubusercontent.com/u/15714090?v=4" alt="">
-                                </div>
-                                <div class="comment-content">
-                                    <div class="comment-header">
-                                        <div class="left-panel">
-                                            <a href="javascript:void(0);" class="comment-username">Abianji</a>
-                                            <span class="comment-text">发表于</span>
-                                            <span class="comment-date">2019-10-10</span>
-                                        </div>
-                                        <div class="reply-panel">
-                                            <div class="icon-comments replay-btn"></div>
-                                        </div>
-                                    </div>
-                                    <div class="comment-body markdown-body">
-                                        <p>支持一下!</p>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="cm-comment-list" id="J_commentList">
+{{--                            <div class="cm-comment-list-item">--}}
+{{--                                <div class="avatar">--}}
+{{--                                    <img src="https://avatars1.githubusercontent.com/u/15714090?v=4" alt="头像">--}}
+{{--                                </div>--}}
+{{--                                <div class="comment-content">--}}
+{{--                                    <div class="comment-header">--}}
+{{--                                        <div class="left-panel">--}}
+{{--                                            <a href="javascript:void(0);" class="comment-username">Abianji</a>--}}
+{{--                                            <span class="comment-text">发表于</span>--}}
+{{--                                            <span class="comment-date">2019-10-10</span>--}}
+{{--                                        </div>--}}
+{{--                                        <div class="reply-panel">--}}
+{{--                                            <div class="icon-comments replay-btn"></div>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="comment-body markdown-body">--}}
+{{--                                        <p>支持一下!</p>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
                         </div>
-                        <div class="comments-controls">
-                            <button class="option-btn load-more" id="J_loadMoreBtn">加载更多</button>
-                        </div>
+{{--                        <div class="comments-controls">--}}
+{{--                            <button class="option-btn load-more" id="J_loadMoreBtn">加载更多</button>--}}
+{{--                        </div>--}}
                     </div>
                 </div>
             </div>
@@ -134,7 +134,8 @@
 
 @section('scripts')
     <script>
-        const previewAPI = '{{ route('socialite.preview') }}';
+        const previewAPI = '{{ route('home.preview') }}';
+        const commentAPI = '{{ route('home.comment') }}';
     </script>
     <script type="text/javascript" src="{{ asset('assets/tocbot/tocbot.js') }}"></script>
     <script type="text/javascript" src="{{mix('js/home/article.js')}}"></script>
