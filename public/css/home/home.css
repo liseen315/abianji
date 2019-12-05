@@ -4653,6 +4653,7 @@ a.toc-link {
 
 .cm-comments .cm-comment-list-item .comment-content .comment-body {
   color: #333;
+  font-size: 1.4rem;
 }
 
 .cm-comments .comments-controls {
@@ -4669,6 +4670,6 @@ a.toc-link {
   font-weight: 500;
   color: #6190e8;
   text-decoration: none;
-  font-size: 1rem;
+  font-size: 1.2rem;
 }
 
