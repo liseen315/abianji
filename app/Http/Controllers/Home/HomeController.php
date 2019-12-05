@@ -7,6 +7,7 @@ use App\Models\About;
 use App\Models\Article;
 use App\Models\Category;
 use App\Models\Comment;
+use App\Models\SocialiteUser;
 use App\Models\Tag;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -105,14 +106,14 @@ class HomeController extends Controller
         return response()->json(['status' => 0, 'body' => ['content' => $htmlContent], 'msg' => 'success']);
     }
 
-    public function comment(Request $request)
+    public function postComment(Request $request)
     {
         $socialiteUser = auth('socialite')->user();
-        $socialiteUserId = $socialiteUser->id;
+        $socialiteUserId = $socialiteUser->openid;
         $article_id = $request->input('article_id');
         $parent_id = $request->input('parent_id');
-        $content = $request->input('content');
-        $markdown = Markdown::convertToHtml($content);
+        $markdown = $request->input('markdown');
+        $content = Markdown::convertToHtml($markdown);
 
         $comment = Comment::create([
             'parent_id' => $parent_id,
@@ -122,6 +123,50 @@ class HomeController extends Controller
             'content' => $content
         ]);
 
-        return response()->json(['status' => 0, 'body' => ['markdown' => $markdown, 'isAdmin' => false, 'user' => ['id' => $socialiteUserId, 'avatar' => $socialiteUser->avatar, 'name' => $socialiteUser->name], 'time' => $comment->created_at], 'msg' => 'success']);
+        return response()->json([
+            'status' => 0,
+            'body' => [
+                'id' => $comment->id,
+                'markdown' => $markdown,
+                'content' => $content,
+                'isAdmin' => false,
+                'user' => ['id' => $socialiteUserId, 'avatar' => $socialiteUser->avatar, 'nick_name' => $socialiteUser->nick_name],
+                'time' => $comment->created_at],
+            'msg' => 'success']);
+    }
+
+    public function comments(Request $request, Article $article)
+    {
+
+        $comments = Comment::where('article_id', $article->id)->orderBy('created_at', 'desc')->paginate(10, ['*'], 'page', $request->get('current_page'));
+        $converItem = [];
+
+        foreach ($comments->items() as $item) {
+            $socialiteUser = SocialiteUser::where('openid', $item->socialite_user_id)->first();
+
+            $converItem[] = [
+                'id' => $item->id,
+                'content' => $item->content,
+                'isAdmin' => false,
+                'user' => ['id' => $item->socialite_user_id, 'avatar' => $socialiteUser->avatar, 'nick_name' => $socialiteUser->nick_name],
+                'time' => $item->created_at
+            ];
+
+        }
+        $response = [
+            'pagination' => [
+                'total' => $comments->total(),
+                'currentPage' => $comments->currentPage(),
+                'perPage' => $comments->perPage(),
+                'lastPage' => $comments->lastPage(),
+            ],
+            'list' => $converItem
+        ];
+        return response()->json(['status' => 0, 'body' => $response, 'msg' => 'success']);
+    }
+
+    public function currentComment(Comment $comment) {
+
+        return response()->json(['status' => 0,'body' => $comment,'msg' => 'success']);
     }
 }

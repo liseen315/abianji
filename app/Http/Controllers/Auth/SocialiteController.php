@@ -35,20 +35,19 @@ class SocialiteController extends Controller
     public function handleProviderCallback(Request $request, $services)
     {
         $socialData = Socialite::driver($services)->user();
-
         $user = SocialiteUser::where('openid', $socialData->id)->first();
 
         if ($user) {
             // 更新
             $user->update([
-                'name' => $socialData->name,
+                'name' => $socialData->name ?? '',
                 'access_token' => $socialData->token,
                 'last_login_ip' => $request->getClientIp(),
                 'login_times' => $user->login_times + 1,
             ]);
         } else {
             $user = SocialiteUser::create([
-                'name' => $socialData->name,
+                'name' => $socialData->name ?? '',
                 'nick_name' => $socialData->nickname,
                 'avatar' => $socialData->avatar,
                 'email' => $socialData->email,

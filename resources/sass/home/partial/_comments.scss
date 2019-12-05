@@ -177,6 +177,7 @@
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
+                margin-bottom: 1rem;
             }
 
             .left-panel {
@@ -209,6 +210,17 @@
         .load-more {
             background-color: #6190e8;
             color: #FFFFFF;
+        }
+    }
+}
+
+.markdown-body {
+    blockquote {
+        a {
+            font-weight: 500;
+            color: #6190e8;
+            text-decoration: none;
+            font-size: 1rem;
         }
     }
 }

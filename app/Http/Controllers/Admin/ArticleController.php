@@ -35,7 +35,7 @@ class ArticleController extends Controller
     {
         $articleData = $request->except('_token');
 
-        $articleData['author_id'] = auth()->id();
+        $articleData['author_id'] = auth('admin')->id();
         $articleData['content'] = Markdown::convertToHtml($request->markdown);
         $articleData['slug'] = Slug::translate($request->title);
         $article = Article::create($articleData);

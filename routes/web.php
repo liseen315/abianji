@@ -24,7 +24,9 @@ Route::namespace('Home')->group(function () {
     Route::get('category/{category}/{slug?}', 'HomeController@category')->name('home.category');
     Route::get('about', 'HomeController@about')->name('home.about');
     Route::post('preview','HomeController@previewMarkdown')->name('home.preview');
-    Route::post('comment','HomeController@comment')->name('home.comment')->middleware('socialite.auth');
+    Route::post('postcomment','HomeController@postcomment')->name('home.postcomment')->middleware('socialite.auth');
+    Route::get('post/{article}/comments','HomeController@comments')->name('home.article.comments');
+    Route::get('comments/{comment}','HomeController@currentComment')->name('home.currentComments');
 });
 
 Route::namespace('Auth')->prefix('socialite')->group(function () {

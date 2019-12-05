@@ -64,7 +64,7 @@
                                 <a class="login" href="{{ route('socialite.redirect',['github']) }}">登录</a>
                             @else
                                 <div class="user-inner">
-                                    <div class="user-name"> {{ auth('socialite')->user()->name }}</div>
+                                    <div class="user-name"> {{ auth('socialite')->user()->nick_name }}</div>
                                     <a href="{{ route('socialite.logout') }}" class="logout">登出</a>
                                 </div>
 
@@ -79,11 +79,11 @@
                             </div>
                         @else
                             <div class="avatar">
-                                <img src="{{  auth('socialite')->user()->avatar }}" alt="头像">
+                                <img src="{{ auth('socialite')->user()->avatar }}" alt="头像">
                             </div>
                         @endif
                         <div class="header-comment">
-                            <textarea class="header-textarea" placeholder="Leave a comment" id="J_textArea" data-article="{{ $article->id }}" data-parentid="0"></textarea>
+                            <textarea class="header-textarea" placeholder="Leave a comment" id="J_textArea" data-userid="@if(auth('socialite')->check()){{  auth('socialite')->user()->openid }}@endif" data-article="{{ $article->id }}" data-parentid="0"></textarea>
                             <div class="header-preview markdown-body hide" id="J_previewMarkdown"></div>
                             <div class="header-controls">
                                 <div class="tip"><i class="icon-warning"></i>推荐使用Markdown编写</div>
@@ -101,26 +101,7 @@
                     </div>
                     <div class="cm-comments">
                         <div class="cm-comment-list" id="J_commentList">
-{{--                            <div class="cm-comment-list-item">--}}
-{{--                                <div class="avatar">--}}
-{{--                                    <img src="https://avatars1.githubusercontent.com/u/15714090?v=4" alt="头像">--}}
-{{--                                </div>--}}
-{{--                                <div class="comment-content">--}}
-{{--                                    <div class="comment-header">--}}
-{{--                                        <div class="left-panel">--}}
-{{--                                            <a href="javascript:void(0);" class="comment-username">Abianji</a>--}}
-{{--                                            <span class="comment-text">发表于</span>--}}
-{{--                                            <span class="comment-date">2019-10-10</span>--}}
-{{--                                        </div>--}}
-{{--                                        <div class="reply-panel">--}}
-{{--                                            <div class="icon-comments replay-btn"></div>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                    <div class="comment-body markdown-body">--}}
-{{--                                        <p>支持一下!</p>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
+
                         </div>
 {{--                        <div class="comments-controls">--}}
 {{--                            <button class="option-btn load-more" id="J_loadMoreBtn">加载更多</button>--}}
@@ -135,7 +116,7 @@
 @section('scripts')
     <script>
         const previewAPI = '{{ route('home.preview') }}';
-        const commentAPI = '{{ route('home.comment') }}';
+        const postCommentAPI = '{{ route('home.postcomment') }}';
     </script>
     <script type="text/javascript" src="{{ asset('assets/tocbot/tocbot.js') }}"></script>
     <script type="text/javascript" src="{{mix('js/home/article.js')}}"></script>

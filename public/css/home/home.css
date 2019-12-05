@@ -4633,6 +4633,7 @@ a.toc-link {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 1rem;
 }
 
 .cm-comments .cm-comment-list-item .comment-content .left-panel .comment-username {
@@ -4662,5 +4663,12 @@ a.toc-link {
 .cm-comments .comments-controls .load-more {
   background-color: #6190e8;
   color: #FFFFFF;
+}
+
+.markdown-body blockquote a {
+  font-weight: 500;
+  color: #6190e8;
+  text-decoration: none;
+  font-size: 1rem;
 }
 
