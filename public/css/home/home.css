@@ -4548,19 +4548,16 @@ a.toc-link {
   border: 1px solid rgba(0, 0, 0, 0.1);
   font-size: 1.4rem;
   word-wrap: break-word;
+  resize: vertical;
   background-color: #f6f6f6;
   outline: none;
   transition: all 0.25s ease;
-  resize: none;
-  overflow-wrap: break-word;
 }
 
 .cm-header .header-comment .header-preview {
   padding: 0.75rem;
   border-radius: 5px;
   background-color: #f6f6f6;
-  height: 6rem;
-  overflow: hidden scroll;
   font-size: 1.4rem;
 }
 
@@ -4587,7 +4584,8 @@ a.toc-link {
   margin-right: 1rem;
 }
 
-.cm-header .header-comment .header-controls .comment-btn {
+.cm-header .header-comment .header-controls .comment-btn,
+.cm-header .header-comment .header-controls .update-btn {
   background-color: #6190e8;
   color: #FFFFFF;
   margin-left: 1rem;
@@ -4643,6 +4641,7 @@ a.toc-link {
 
 .cm-comments .cm-comment-list-item .comment-content .replay-btn {
   font-size: 1.6rem;
+  cursor: pointer;
 }
 
 .cm-comments .cm-comment-list-item .comment-content .comment-body {

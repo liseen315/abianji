@@ -27,6 +27,7 @@ Route::namespace('Home')->group(function () {
     Route::post('postcomment','HomeController@postcomment')->name('home.postcomment')->middleware('socialite.auth');
     Route::get('post/{article}/comments','HomeController@comments')->name('home.article.comments');
     Route::get('comments/{comment}','HomeController@currentComment')->name('home.currentComments');
+    Route::post('comments/update/{comment}','HomeController@updateComment')->name('home.comment.update')->middleware('socialite.auth');;
 });
 
 Route::namespace('Auth')->prefix('socialite')->group(function () {

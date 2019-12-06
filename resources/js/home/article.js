@@ -1,3 +1,4 @@
+import autosize from 'autosize';
 class Article {
     constructor() {
         this.J_previewBtn = $('#J_previewBtn');
@@ -5,15 +6,25 @@ class Article {
         this.J_textArea = $('#J_textArea');
         this.J_previewMarkdown = $('#J_previewMarkdown');
         this.J_commentBtn = $('#J_commentBtn');
+        this.J_updateCommentBtn = $('#J_updateCommentBtn');
         this.J_commentList = $('#J_commentList');
+        this.J_commentNumber = $('#J_commentNumber');
+        this.J_loadMoreBtn = $('#J_loadMoreBtn');
         // 文章id
         this._id = this.J_textArea.data('article');
+        // 当前评论数
+        this._currentCommentNum = Number(this.J_commentNumber.text());
         // 当前登录的社交账号的userid
         this._socialiteUserID = this.J_textArea.data('userid') || '';
         this._currentPage = 1;
         this._totalPage = 0;
-        this._commentsAPI = `/post/${this._id}/comments?current_page=${this._currentPage}`
+        // 获取评论接口
+        this._commentsAPI = `/post/${this._id}/comments`
+        // 获取当前评论接口
         this._currentCommentAPI = '/comments/';
+        // 编辑评论接口
+        this._editCommentsAPI = '/comments/update/';
+
 
         tocbot.init({
             tocSelector: '.tocbot',
@@ -32,7 +43,7 @@ class Article {
     fetchComments() {
         $.ajax({
             type: 'GET',
-            url: this._commentsAPI,
+            url: this._commentsAPI + `?current_page=${this._currentPage}`,
             cache: false,
             dataType: 'json',
             success: (response) => {
@@ -49,12 +60,21 @@ class Article {
                             content: value.content
                         }))
                     })
+
+                    if (this._totalPage > 1 && this._currentPage < this._totalPage) {
+                        // 显示加载更多
+                        this.J_loadMoreBtn.removeClass('hide');
+                    } else if (this._totalPage == 1 || this._currentPage >= this._totalPage) {
+                        //隐藏加载更多
+                        this.J_loadMoreBtn.addClass('hide');
+                    }
                 }
             }
         })
     }
 
     initComments() {
+        autosize(this.J_textArea);
         // 预览markdown
         this.J_previewBtn.on('click', event => {
 
@@ -98,7 +118,6 @@ class Article {
                 dataType: 'json',
                 data: {
                     article_id: this.J_textArea.data('article'),
-                    // parent_id: this.J_textArea.data('parentid'),
                     markdown: this.J_textArea.val()
                 },
                 success: response => {
@@ -113,12 +132,16 @@ class Article {
                         }));
                         // 清空textarea
                         this.J_textArea.val('');
+                        autosize.update(this.J_textArea);
+                        this.J_previewMarkdown.html('');
+                        this.J_previewEditorBtn.click();
+                        this.J_commentNumber.text(this._currentCommentNum + 1);
                     }
                 }
             })
         })
         // 回复某人评论
-        this.J_commentList.on('click','.J_replaybtn',event => {
+        this.J_commentList.on('click', '.J_replaybtn', event => {
             event.preventDefault();
             let currentID = $(event.target).data('id');
             let replayUserName = $(event.target).data('username');
@@ -127,42 +150,102 @@ class Article {
                 type: 'GET',
                 dataType: 'json',
                 cache: false,
-                url: this._currentCommentAPI+currentID,
+                url: this._currentCommentAPI + currentID,
                 success: response => {
-                    if(response.status === 0) {
+                    if (response.status === 0) {
                         // 回滚到文本框区域待开发
                         $('html,body').animate({scrollTop: $(this.J_textArea).offset().top}, 'fast');
 
                         let markdown = response.body.markdown;
                         let converList = []
                         markdown.split('\n').map(item => {
-                            converList.push('> '+item);
+                            converList.push('> ' + item);
                         })
                         converList.push('\n');
-                        let replayHTML = `> [@${replayUserName}](https://github.com/${replayUserName})\n`+converList.join('\n');
+                        let replayHTML = `> [@${replayUserName}](https://github.com/${replayUserName})\n` + converList.join('\n');
 
                         this.J_textArea.val(replayHTML);
-                        // 改变parent_id
-                        // this.J_textArea.data('parentid',currentID);
+                        autosize.update(this.J_textArea);
+                        this.J_textArea.scrollTop($('#J_textArea')[0].scrollHeight);
                     }
                 }
             })
         })
 
-        this.J_textArea.bind('input propertychange',event=> {
-            // 一旦清空了输入框内的所有内容,就要去掉父级的id
+        this.J_textArea.bind('input propertychange', event => {
+            // 如果textArea的内容为空则进行一些重置
             if ($(event.target).val().length === 0) {
-                this.J_textArea.data('parentid',0);
+                this.J_updateCommentBtn.data('id', 0);
+                this.J_updateCommentBtn.addClass('hide');
+                this.J_commentBtn.removeClass('hide');
             }
+        })
+
+        // 加载更多
+        this.J_loadMoreBtn.on('click', event => {
+            this._currentPage++;
+            this.fetchComments();
+        })
+        // 编辑自己发过的评论
+        this.J_commentList.on('click', '.J_editbtn', event => {
+            event.preventDefault();
+            let currentID = $(event.target).data('id');
+            let replayUserName = $(event.target).data('username');
+
+            $.ajax({
+                type: 'GET',
+                dataType: 'json',
+                cache: false,
+                url: this._currentCommentAPI + currentID,
+                success: response => {
+                    if (response.status === 0) {
+                        // 回滚到文本框区域待开发
+                        $('html,body').animate({scrollTop: $(this.J_textArea).offset().top}, 'fast');
+                        let markdown = response.body.markdown;
+                        this.J_textArea.val(markdown);
+                        autosize.update(this.J_textArea);
+                        this.J_textArea.scrollTop($('#J_textArea')[0].scrollHeight);
+                        this.J_updateCommentBtn.data('id', currentID);
+                        this.J_updateCommentBtn.removeClass('hide');
+                        this.J_commentBtn.addClass('hide');
+                    }
+                }
+            })
+        })
+        // 更新自己发表过的评论
+        this.J_updateCommentBtn.on('click', event => {
+
+            $.ajax({
+                type: 'POST',
+                url: this._editCommentsAPI + this.J_updateCommentBtn.data('id'),
+                cache: false,
+                dataType: 'json',
+                data: {
+                    markdown: this.J_textArea.val()
+                },
+                success: response => {
+                    if (response.status === 0) {
+                        this.J_updateCommentBtn.data('id', 0);
+                        this.J_updateCommentBtn.addClass('hide');
+                        this.J_commentBtn.removeClass('hide');
+                        this.J_textArea.val('');
+                        autosize.update(this.J_textArea);
+                        // 更新对应dom的内容
+                        $(`.comment-item${response.body.id} .comment-body`).html(response.body.content);
+                        // 滚动到更新后的内容
+                        $('html,body').animate({scrollTop: $(`.comment-item${response.body.id}`).offset().top}, 'fast');
+                    }
+                }
+            })
         })
     }
 
     renderComment(itemData) {
         let replayHtml = `<div class="icon-comments replay-btn J_replaybtn" data-id="${itemData.id}"  data-username = ${itemData.nick_name}></div>`;
-        if(this._socialiteUserID == itemData.userId) {
-            replayHtml = '';
+        if (this._socialiteUserID == itemData.userId) {
+            replayHtml = `<div class="icon-edit edit-btn J_editbtn" data-id="${itemData.id}" data-username = ${itemData.nick_name}></div>`;
         }
-        let commentItemHtml = `<div class="cm-comment-list-item">
+        let commentItemHtml = `<div class="cm-comment-list-item comment-item${itemData.id}">
                                 <div class="avatar">
                                     <img src="${itemData.avatar}" alt="头像">
                                 </div>

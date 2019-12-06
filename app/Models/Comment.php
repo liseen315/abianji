@@ -22,4 +22,13 @@ class Comment extends Model
 
         return Carbon::parse($date)->diffForHumans();
     }
+
+    public function getUpdatedAtAttribute($date)
+    {
+        if (Carbon::now() > Carbon::parse($date)->addDays(15)) {
+            return Carbon::parse($date);
+        }
+
+        return Carbon::parse($date)->diffForHumans();
+    }
 }

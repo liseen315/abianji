@@ -13,6 +13,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Cache;
 use Markdown;
+use Mail;
 
 class HomeController extends Controller
 {
@@ -42,8 +43,9 @@ class HomeController extends Controller
         }
         $prev = Article::where('id', '<', $article->id)->limit(1)->first();
         $next = Article::where('id', '>', $article->id)->limit(1)->first();
+        $commentsNum = Comment::where('article_id', $article->id)->count();
 
-        return view('app.article', compact('article', 'prev', 'next'));
+        return view('app.article', compact('article', 'prev', 'next', 'commentsNum'));
     }
 
     /**
@@ -89,9 +91,7 @@ class HomeController extends Controller
 
     public function about()
     {
-
         $about = About::findOrFail(1);
-
         return view('app.about', compact('about'));
     }
 
@@ -106,35 +106,50 @@ class HomeController extends Controller
         return response()->json(['status' => 0, 'body' => ['content' => $htmlContent], 'msg' => 'success']);
     }
 
+    /**
+     * 发布评论
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function postComment(Request $request)
     {
         $socialiteUser = auth('socialite')->user();
         $socialiteUserId = $socialiteUser->openid;
         $article_id = $request->input('article_id');
-//        $parent_id = $request->input('parent_id');
         $markdown = $request->input('markdown');
         $content = Markdown::convertToHtml($markdown);
 
         $comment = Comment::create([
-//            'parent_id' => $parent_id,
             'socialite_user_id' => $socialiteUserId,
             'article_id' => $article_id,
             'markdown' => $markdown,
             'content' => $content
         ]);
 
-        return response()->json([
-            'status' => 0,
-            'body' => [
-                'id' => $comment->id,
-                'markdown' => $markdown,
-                'content' => $content,
-                'isAdmin' => false,
-                'user' => ['id' => $socialiteUserId, 'avatar' => $socialiteUser->avatar, 'nick_name' => $socialiteUser->nick_name],
-                'time' => $comment->created_at],
-            'msg' => 'success']);
+        if ($comment) {
+            $this->sendEmail($socialiteUser, $content);
+            return response()->json([
+                'status' => 0,
+                'body' => [
+                    'id' => $comment->id,
+                    'markdown' => $markdown,
+                    'content' => $content,
+                    'isAdmin' => false,
+                    'user' => ['id' => $socialiteUserId, 'avatar' => $socialiteUser->avatar, 'nick_name' => $socialiteUser->nick_name],
+                    'time' => $comment->created_at],
+                'msg' => 'success']);
+        } else {
+            return response()->json(['status' => -1, 'body' => [], 'msg' => '创建评论失败']);
+        }
+
     }
 
+    /**
+     * 获取评论分页列表
+     * @param Request $request
+     * @param Article $article
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function comments(Request $request, Article $article)
     {
 
@@ -165,8 +180,37 @@ class HomeController extends Controller
         return response()->json(['status' => 0, 'body' => $response, 'msg' => 'success']);
     }
 
-    public function currentComment(Comment $comment) {
+    /**
+     * 获取当前评论
+     * @param Comment $comment
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function currentComment(Comment $comment)
+    {
+        return response()->json(['status' => 0, 'body' => $comment, 'msg' => 'success']);
+    }
 
-        return response()->json(['status' => 0,'body' => $comment,'msg' => 'success']);
+    /**
+     * 更新评论
+     * @param Comment $comment
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function updateComment(Comment $comment, Request $request)
+    {
+        $markdown = $request->input('markdown');
+        $content = Markdown::convertToHtml($markdown);
+
+        $comment->update(['markdown' => $markdown, 'content' => $content]);
+
+        return response()->json(['status' => 0, 'body' => ['id' => $comment->id, 'content' => $content], 'msg' => 'success']);
+    }
+
+    private function sendEmail(SocialiteUser $targetUser, $content)
+    {
+        Mail::send('app.email', ['content' => $content], function ($email) use ($targetUser) {
+            $email->subject('来自' . $targetUser->nick_name . '回复');
+            $email->to(env('MAIL_USERNAME'));
+        });
     }
 }

@@ -57,7 +57,7 @@
                 <div class="cm-container">
                     <div class="cm-meta">
                         <div class="cm-counts">
-                            <span>159</span> 条评论
+                            <span id="J_commentNumber">{{ $commentsNum }}</span> 条评论
                         </div>
                         <div class="cm-user">
                             @if(!auth('socialite')->check())
@@ -95,6 +95,7 @@
                                     <div class="option-btn pre-btn" id="J_previewBtn">预览</div>
                                     <div class="option-btn editor-btn hide" id="J_previewEditorBtn">编辑</div>
                                     <div class="option-btn comment-btn  @if(!auth('socialite')->check()) hide @endif" id="J_commentBtn">发表</div>
+                                    <div class="option-btn update-btn hide" id="J_updateCommentBtn">更新</div>
                                 </div>
                             </div>
                         </div>
@@ -103,9 +104,9 @@
                         <div class="cm-comment-list" id="J_commentList">
 
                         </div>
-{{--                        <div class="comments-controls">--}}
-{{--                            <button class="option-btn load-more" id="J_loadMoreBtn">加载更多</button>--}}
-{{--                        </div>--}}
+                        <div class="comments-controls">
+                            <button class="option-btn load-more hide" id="J_loadMoreBtn">加载更多</button>
+                        </div>
                     </div>
                 </div>
             </div>
