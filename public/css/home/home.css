@@ -4538,24 +4538,21 @@ a.toc-link {
 }
 
 .cm-header .header-comment .header-textarea {
-  overflow: hidden scroll;
-  overflow-wrap: break-word;
-  resize: none;
-  height: 6rem;
   padding: 0.75rem;
   display: block;
   box-sizing: border-box;
   width: 100%;
   min-height: 5.125rem;
   max-height: 15rem;
-  border-radius: 0.4rem;
+  border-radius: 5px;
   border: 1px solid rgba(0, 0, 0, 0.1);
   font-size: 1.4rem;
   word-wrap: break-word;
-  resize: none;
   background-color: #f6f6f6;
   outline: none;
   transition: all 0.25s ease;
+  resize: none;
+  overflow-wrap: break-word;
 }
 
 .cm-header .header-comment .header-preview {
@@ -4564,6 +4561,7 @@ a.toc-link {
   background-color: #f6f6f6;
   height: 6rem;
   overflow: hidden scroll;
+  font-size: 1.4rem;
 }
 
 .cm-header .header-comment .header-controls {
@@ -4592,11 +4590,7 @@ a.toc-link {
 .cm-header .header-comment .header-controls .comment-btn {
   background-color: #6190e8;
   color: #FFFFFF;
-}
-
-.cm-header .header-comment .header-controls .pre-btn,
-.cm-header .header-comment .header-controls .editor-btn {
-  margin-right: 1rem;
+  margin-left: 1rem;
 }
 
 .cm-comments {

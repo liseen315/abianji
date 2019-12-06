@@ -217,7 +217,7 @@ function () {
           dataType: 'json',
           data: {
             article_id: _this2.J_textArea.data('article'),
-            parent_id: _this2.J_textArea.data('parentid'),
+            // parent_id: this.J_textArea.data('parentid'),
             markdown: _this2.J_textArea.val()
           },
           success: function success(response) {
@@ -254,24 +254,22 @@ function () {
                 scrollTop: $(_this2.J_textArea).offset().top
               }, 'fast');
               var markdown = response.body.markdown;
-              console.log(markdown);
               var converList = [];
               markdown.split('\n').map(function (item) {
                 converList.push('> ' + item);
               });
+              converList.push('\n');
               var replayHTML = "> [@".concat(replayUserName, "](https://github.com/").concat(replayUserName, ")\n") + converList.join('\n');
 
               _this2.J_textArea.val(replayHTML); // 改变parent_id
+              // this.J_textArea.data('parentid',currentID);
 
-
-              _this2.J_textArea.data('parentid', currentID);
             }
           }
         });
       });
       this.J_textArea.bind('input propertychange', function (event) {
-        console.log('textArea value----', $(event.target).val().length); // 一旦清空了输入框内的所有内容,就要去掉父级的id
-
+        // 一旦清空了输入框内的所有内容,就要去掉父级的id
         if ($(event.target).val().length === 0) {
           _this2.J_textArea.data('parentid', 0);
         }

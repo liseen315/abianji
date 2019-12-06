@@ -98,7 +98,7 @@ class Article {
                 dataType: 'json',
                 data: {
                     article_id: this.J_textArea.data('article'),
-                    parent_id: this.J_textArea.data('parentid'),
+                    // parent_id: this.J_textArea.data('parentid'),
                     markdown: this.J_textArea.val()
                 },
                 success: response => {
@@ -134,23 +134,22 @@ class Article {
                         $('html,body').animate({scrollTop: $(this.J_textArea).offset().top}, 'fast');
 
                         let markdown = response.body.markdown;
-                        console.log(markdown)
                         let converList = []
                         markdown.split('\n').map(item => {
                             converList.push('> '+item);
                         })
+                        converList.push('\n');
                         let replayHTML = `> [@${replayUserName}](https://github.com/${replayUserName})\n`+converList.join('\n');
 
                         this.J_textArea.val(replayHTML);
                         // 改变parent_id
-                        this.J_textArea.data('parentid',currentID);
+                        // this.J_textArea.data('parentid',currentID);
                     }
                 }
             })
         })
 
         this.J_textArea.bind('input propertychange',event=> {
-            console.log('textArea value----',$(event.target).val().length);
             // 一旦清空了输入框内的所有内容,就要去掉父级的id
             if ($(event.target).val().length === 0) {
                 this.J_textArea.data('parentid',0);

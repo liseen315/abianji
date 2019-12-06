@@ -111,12 +111,12 @@ class HomeController extends Controller
         $socialiteUser = auth('socialite')->user();
         $socialiteUserId = $socialiteUser->openid;
         $article_id = $request->input('article_id');
-        $parent_id = $request->input('parent_id');
+//        $parent_id = $request->input('parent_id');
         $markdown = $request->input('markdown');
         $content = Markdown::convertToHtml($markdown);
 
         $comment = Comment::create([
-            'parent_id' => $parent_id,
+//            'parent_id' => $parent_id,
             'socialite_user_id' => $socialiteUserId,
             'article_id' => $article_id,
             'markdown' => $markdown,

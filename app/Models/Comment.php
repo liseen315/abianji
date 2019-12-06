@@ -7,7 +7,7 @@ use Carbon\Carbon;
 
 class Comment extends Model
 {
-    protected $fillable = ['parent_id', 'socialite_user_id', 'article_id', 'markdown', 'content'];
+    protected $fillable = ['socialite_user_id', 'article_id', 'markdown', 'content'];
 
     public function socialiteUser()
     {

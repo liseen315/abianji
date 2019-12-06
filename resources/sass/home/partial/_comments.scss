@@ -84,24 +84,22 @@
         margin-left: 1.25rem;
 
         .header-textarea {
-            overflow: hidden scroll;
-            overflow-wrap: break-word;
-            resize: none;
-            height: 6rem;
             padding: 0.75rem;
             display: block;
+            -webkit-box-sizing: border-box;
             box-sizing: border-box;
             width: 100%;
             min-height: 5.125rem;
             max-height: 15rem;
-            border-radius: .4rem;
-            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            border: 1px solid rgba(0,0,0,0.1);
             font-size: 1.4rem;
             word-wrap: break-word;
-            resize: none;
             background-color: #f6f6f6;
             outline: none;
             transition: all 0.25s ease;
+            resize: none;
+            overflow-wrap: break-word;
         }
 
         .header-preview {
@@ -110,6 +108,7 @@
             background-color: #f6f6f6;
             height: 6rem;
             overflow: hidden scroll;
+            font-size: 1.4rem;
         }
 
         .header-controls {
@@ -137,10 +136,7 @@
             .comment-btn {
                 background-color: #6190e8;
                 color: #FFFFFF;
-            }
-
-            .pre-btn, .editor-btn {
-                margin-right: 1rem;
+                margin-left: 1rem;
             }
         }
     }

@@ -15,7 +15,7 @@ class CreateCommentsTable extends Migration
     {
         Schema::create('comments', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('parent_id')->unsigned()->default(0)->comment('父级id');
+//            $table->integer('parent_id')->unsigned()->default(0)->comment('父级id');
             $table->integer('socialite_user_id')->unsigned()->default(0)->comment('关联socialite_user表的id');
             $table->integer('article_id')->unsigned()->comment('文章id');
             $table->text('markdown')->comment('markdown');
