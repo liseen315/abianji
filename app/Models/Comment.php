@@ -9,9 +9,8 @@ class Comment extends Model
 {
     protected $fillable = ['socialite_user_id', 'article_id', 'markdown', 'content'];
 
-    public function socialiteUser()
-    {
-        return $this->belongsTo(SocialiteUser::class);
+    public function article() {
+        return $this->belongsTo(Article::class);
     }
 
     public function getCreatedAtAttribute($date)

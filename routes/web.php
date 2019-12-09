@@ -23,11 +23,11 @@ Route::namespace('Home')->group(function () {
     Route::get('tags/{tag}/{slug?}', 'HomeController@tags')->name('home.tags');
     Route::get('category/{category}/{slug?}', 'HomeController@category')->name('home.category');
     Route::get('about', 'HomeController@about')->name('home.about');
-    Route::post('preview','HomeController@previewMarkdown')->name('home.preview');
-    Route::post('postcomment','HomeController@postcomment')->name('home.postcomment')->middleware('socialite.auth');
-    Route::get('post/{article}/comments','HomeController@comments')->name('home.article.comments');
-    Route::get('comments/{comment}','HomeController@currentComment')->name('home.currentComments');
-    Route::post('comments/update/{comment}','HomeController@updateComment')->name('home.comment.update')->middleware('socialite.auth');;
+    Route::post('preview', 'HomeController@previewMarkdown')->name('home.preview');
+    Route::post('postcomment', 'HomeController@postcomment')->name('home.postcomment')->middleware('socialite.auth');
+    Route::get('post/{article}/comments', 'HomeController@comments')->name('home.article.comments');
+    Route::get('comments/{comment}', 'HomeController@currentComment')->name('home.currentComments');
+    Route::post('comments/update/{comment}', 'HomeController@updateComment')->name('home.comment.update')->middleware('socialite.auth');;
 });
 
 Route::namespace('Auth')->prefix('socialite')->group(function () {
@@ -90,5 +90,9 @@ Route::namespace('Admin')->prefix('admin')->middleware('admin.auth')->group(func
         Route::post('update', 'AboutController@update')->name('about.update');
     });
 
-
+    Route::prefix('comment')->group(function () {
+        Route::get('/', 'CommentController@index')->name('comment.index');
+        Route::get('/users','CommentController@users')->name('comment.users');
+        Route::post('delete/{comment}', 'CommentController@delete')->name('comment.delete');
+    });
 });

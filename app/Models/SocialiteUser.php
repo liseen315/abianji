@@ -10,4 +10,5 @@ class SocialiteUser extends Authenticatable
     use Notifiable;
 
     protected $fillable = ['name', 'nick_name', 'avatar', 'email', 'openid', 'access_token', 'login_ip', 'login_times'];
+
 }

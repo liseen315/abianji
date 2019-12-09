@@ -596,7 +596,7 @@ function () {
       });
       this.J_textArea.bind('input propertychange', function (event) {
         // 如果textArea的内容为空则进行一些重置
-        if ($(event.target).val().length === 0) {
+        if ($(event.target).val().length === 0 && _this2._socialiteUserID != '') {
           _this2.J_updateCommentBtn.data('id', 0);
 
           _this2.J_updateCommentBtn.addClass('hide');

@@ -127,7 +127,7 @@ class HomeController extends Controller
         ]);
 
         if ($comment) {
-            $this->sendEmail($socialiteUser, $content);
+//            $this->sendEmail($socialiteUser, $content);
             return response()->json([
                 'status' => 0,
                 'body' => [

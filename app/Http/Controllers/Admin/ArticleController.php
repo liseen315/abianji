@@ -82,6 +82,10 @@ class ArticleController extends Controller
             $tag->pivot->delete();
         }
 
+        foreach ($article->comments as $comment) {
+            $comment->delete();
+        }
+
         $article->delete();
 
         return redirect()->route('article.index')->with('success', '删除文章成功');

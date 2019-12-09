@@ -35,6 +35,25 @@
         {{--Right navbar--}}
         <ul class="navbar-nav ml-auto">
             <li class="nav-item dropdown">
+                <a class="nav-link" data-toggle="dropdown" href="#">
+                    <i class="far fa-comments"></i>
+                    <span class="badge badge-danger navbar-badge">3</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                    <a href="#" class="dropdown-item">
+                        <div class="media">
+                            <div class="media-body">
+                                <h3 class="dropdown-item-title">
+                                    Brad Diesel
+                                </h3>
+                                <p class="text-sm">Call me whenever you can...</p>
+                                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
                 <a href="#" class="nav-link" data-toggle="dropdown">{{ $user->name }}</a>
                 <div class="dropdown-menu dropdown-menu-right">
                     <a href="#" class="dropdown-item text-right">
@@ -146,13 +165,6 @@
                             </li>
                         </ul>
                     </li>
-                    {{-- About me --}}
-                    <li class="nav-item">
-                        <a href="{{route('about.index')}}" class="nav-link @sideIsActive('about','active')">
-                            <i class="nav-icon fas fa-user-circle"></i>
-                            <p>关于我</p>
-                        </a>
-                    </li>
                     {{--System Config--}}
                     <li class="nav-item has-treeview @sideIsActive('config','menu-open')">
                         <a href="javascript:void(0);" class="nav-link @sideIsActive('config','active')">
@@ -176,6 +188,37 @@
                                 </a>
                             </li>
                         </ul>
+                    </li>
+                    {{-- 评论管理 --}}
+                    <li class="nav-item has-treeview @sideIsActive('comment','menu-open')">
+                        <a href="javascript:void(0);" class="nav-link @sideIsActive('comment','active')">
+                            <i class="nav-icon fas fa-comments"></i>
+                            <p>
+                                社交管理
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{ route('comment.index') }}" class="nav-link @sideIsActive('comment.index','active')">
+                                    <i class="fas fa-align-justify nav-icon"></i>
+                                    <p>留言列表</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('comment.users') }}" class="nav-link @sideIsActive('comment.users','active')">
+                                    <i class="fas fa-users nav-icon"></i>
+                                    <p>社交用户</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    {{-- About me --}}
+                    <li class="nav-item">
+                        <a href="{{route('about.index')}}" class="nav-link @sideIsActive('about','active')">
+                            <i class="nav-icon fas fa-user-circle"></i>
+                            <p>关于我</p>
+                        </a>
                     </li>
                 </ul>
             </nav>

@@ -174,7 +174,7 @@ class Article {
 
         this.J_textArea.bind('input propertychange', event => {
             // 如果textArea的内容为空则进行一些重置
-            if ($(event.target).val().length === 0) {
+            if ($(event.target).val().length === 0 && this._socialiteUserID != '') {
                 this.J_updateCommentBtn.data('id', 0);
                 this.J_updateCommentBtn.addClass('hide');
                 this.J_commentBtn.removeClass('hide');
