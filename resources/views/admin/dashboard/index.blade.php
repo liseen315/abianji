@@ -49,15 +49,50 @@
             <!-- small box -->
             <div class="small-box bg-danger">
                 <div class="inner">
-                    <h3>65</h3>
+                    <h3>{{ $category }}</h3>
 
-                    <p>Unique Visitors</p>
+                    <p>Category</p>
                 </div>
                 <div class="icon">
-                    <i class="fas fa-chart-pie"></i>
+                    <i class="fas fa-th"></i>
                 </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="{{ route('category.index') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
         </div>
     </div>
+{{--    <div class="col-md-4">--}}
+{{--        <div class="x_panel">--}}
+{{--            <div class="x_title">--}}
+{{--                <p>系统环境:</p>--}}
+{{--            </div>--}}
+{{--            <div class="x_content bjy-content">--}}
+{{--                <ul class="list-inline widget_tally">--}}
+{{--                    <li>--}}
+{{--                        <p>--}}
+{{--                            <span class="month">系统: </span>--}}
+{{--                            <span class="count">{{ $version['system'] }}</span>--}}
+{{--                        </p>--}}
+{{--                    </li>--}}
+{{--                    <li>--}}
+{{--                        <p>--}}
+{{--                            <span class="month">Web服务器: </span>--}}
+{{--                            <span class="count">{{ $version['webServer'] }}</span>--}}
+{{--                        </p>--}}
+{{--                    </li>--}}
+{{--                    <li>--}}
+{{--                        <p>--}}
+{{--                            <span class="month">PHP: </span>--}}
+{{--                            <span class="count">{{ $version['php'] }}</span>--}}
+{{--                        </p>--}}
+{{--                    </li>--}}
+{{--                    <li>--}}
+{{--                        <p>--}}
+{{--                            <span class="month">MySQL: </span>--}}
+{{--                            <span class="count">{{ $version['mysql'] }}</span>--}}
+{{--                        </p>--}}
+{{--                    </li>--}}
+{{--                </ul>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
 @endsection

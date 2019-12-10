@@ -15,6 +15,12 @@ Route::get('/info', function () {
     return phpinfo();
 });
 
+Route::get('mailable',function () {
+    $comment = App\Models\Comment::find(5);
+
+    return new App\Mail\SocialComment($comment);
+});
+
 Route::namespace('Home')->group(function () {
     Route::get('/', 'HomeController@index')->name('home.index');
     Route::get('article/{article}/{slug?}', 'HomeController@article')->name('home.article');
