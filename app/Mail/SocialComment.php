@@ -2,7 +2,9 @@
 
 namespace App\Mail;
 
+use App\Models\Article;
 use App\Models\Comment;
+use App\Models\SocialiteUser;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
@@ -13,15 +15,20 @@ class SocialComment extends Mailable
     use Queueable, SerializesModels;
 
     protected $comment;
-    protected $theme;
+    protected $socialUser;
+    protected $articleURL;
+
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct(Comment $comment)
+    public function __construct(Comment $comment, $subject)
     {
+        $this->subject('Hi '.$subject);
         $this->comment = $comment;
+        $this->socialUser = SocialiteUser::where('openid', $this->comment->socialite_user_id)->first();
+        $this->articleURL = $this->comment->article->url;
     }
 
     /**
@@ -32,7 +39,9 @@ class SocialComment extends Mailable
     public function build()
     {
         return $this->markdown('emails.social.comment')->with([
-            'content' => $this->comment->content,
+            'markdown' => $this->comment->markdown,
+            'user' => $this->socialUser->nick_name,
+            'articleURL' => $this->articleURL
         ]);
     }
 }

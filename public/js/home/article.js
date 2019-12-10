@@ -420,7 +420,8 @@ function () {
 
     this._socialiteUserID = this.J_textArea.data('userid') || '';
     this._currentPage = 1;
-    this._totalPage = 0; // 获取评论接口
+    this._totalPage = 0;
+    this._replyUserID = 0; // 获取评论接口
 
     this._commentsAPI = "/post/".concat(this._id, "/comments"); // 获取当前评论接口
 
@@ -534,7 +535,8 @@ function () {
           dataType: 'json',
           data: {
             article_id: _this2.J_textArea.data('article'),
-            markdown: _this2.J_textArea.val()
+            markdown: _this2.J_textArea.val(),
+            replyId: _this2._replyUserID
           },
           success: function success(response) {
             if (response.status === 0) {
@@ -554,6 +556,8 @@ function () {
 
               _this2.J_previewMarkdown.html('');
 
+              _this2._replyUserID = 0;
+
               _this2.J_previewEditorBtn.click();
 
               _this2.J_commentNumber.text(_this2._currentCommentNum + 1);
@@ -566,6 +570,7 @@ function () {
         event.preventDefault();
         var currentID = $(event.target).data('id');
         var replayUserName = $(event.target).data('username');
+        _this2._replyUserID = $(event.target).data('userid');
         $.ajax({
           type: 'GET',
           dataType: 'json',
@@ -602,6 +607,8 @@ function () {
           _this2.J_updateCommentBtn.addClass('hide');
 
           _this2.J_commentBtn.removeClass('hide');
+
+          _this2._replyUserID = 0;
         }
       }); // 加载更多
 
@@ -678,10 +685,10 @@ function () {
   }, {
     key: "renderComment",
     value: function renderComment(itemData) {
-      var replayHtml = "<div class=\"icon-comments replay-btn J_replaybtn\" data-id=\"".concat(itemData.id, "\"  data-username = ").concat(itemData.nick_name, "></div>");
+      var replayHtml = "<div class=\"icon-comments replay-btn J_replaybtn\" data-id=\"".concat(itemData.id, "\" data-userid=\"").concat(itemData.userId, "\"  data-username = ").concat(itemData.nick_name, "></div>");
 
       if (this._socialiteUserID == itemData.userId) {
-        replayHtml = "<div class=\"icon-edit edit-btn J_editbtn\" data-id=\"".concat(itemData.id, "\" data-username = ").concat(itemData.nick_name, "></div>");
+        replayHtml = "<div class=\"icon-edit edit-btn J_editbtn\" data-id=\"".concat(itemData.id, "\" data-userid=\"").concat(itemData.userId, "\" data-username = ").concat(itemData.nick_name, "></div>");
       }
 
       var commentItemHtml = "<div class=\"cm-comment-list-item comment-item".concat(itemData.id, "\">\n                                <div class=\"avatar\">\n                                    <img src=\"").concat(itemData.avatar, "\" alt=\"\u5934\u50CF\">\n                                </div>\n                                <div class=\"comment-content\">\n                                    <div class=\"comment-header\">\n                                        <div class=\"left-panel\">\n                                            <a href=\"https://github.com/").concat(itemData.nick_name, "\" class=\"comment-username\">").concat(itemData.nick_name, "</a>\n                                            <span class=\"comment-text\">\u53D1\u8868\u4E8E</span>\n                                            <span class=\"comment-date\">").concat(itemData.time, "</span>\n                                        </div>\n                                        <div class=\"reply-panel\">\n                                            ").concat(replayHtml, "\n                                        </div>\n                                    </div>\n                                    <div class=\"comment-body markdown-body\">\n                                        ").concat(itemData.content, "\n                                    </div>\n                                </div>\n                            </div>");

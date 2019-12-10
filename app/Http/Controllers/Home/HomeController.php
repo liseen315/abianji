@@ -3,12 +3,14 @@
 namespace App\Http\Controllers\Home;
 
 use App\Http\Controllers\Controller;
+use App\Mail\SocialComment;
 use App\Models\About;
 use App\Models\Article;
 use App\Models\Category;
 use App\Models\Comment;
 use App\Models\SocialiteUser;
 use App\Models\Tag;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Cache;
@@ -113,10 +115,14 @@ class HomeController extends Controller
      */
     public function postComment(Request $request)
     {
+        // 当前登录留言系统的社交账户
         $socialiteUser = auth('socialite')->user();
         $socialiteUserId = $socialiteUser->openid;
+
         $article_id = $request->input('article_id');
         $markdown = $request->input('markdown');
+        $replyId = $request->input('replyId');
+
         $content = Markdown::convertToHtml($markdown);
 
         $comment = Comment::create([
@@ -127,7 +133,21 @@ class HomeController extends Controller
         ]);
 
         if ($comment) {
-//            $this->sendEmail($socialiteUser, $content);
+
+            // 如果有人给文章留言了给Blog作者发送邮件
+            $admin = User::where('email',env('ADMIN_NAME'))->first();
+
+            // 如果有人给文章留言了给博主发邮件,自己留言不算
+            if ($socialiteUser->email != $admin->email) {
+                Mail::to($admin->email)->queue(new SocialComment($comment,$admin->name));
+            }
+
+            $replyUser = SocialiteUser::where('openid',$replyId)->first();
+
+            if(!is_null($replyUser)) {
+                Mail::to($replyUser->email)->queue(new SocialComment($comment,$replyUser->nick_name));
+            }
+
             return response()->json([
                 'status' => 0,
                 'body' => [
@@ -204,13 +224,5 @@ class HomeController extends Controller
         $comment->update(['markdown' => $markdown, 'content' => $content]);
 
         return response()->json(['status' => 0, 'body' => ['id' => $comment->id, 'content' => $content], 'msg' => 'success']);
-    }
-
-    private function sendEmail(SocialiteUser $targetUser, $content)
-    {
-        Mail::send('app.email', ['content' => $content], function ($email) use ($targetUser) {
-            $email->subject('来自' . $targetUser->nick_name . '回复');
-            $email->to(env('MAIL_USERNAME'));
-        });
     }
 }

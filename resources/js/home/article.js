@@ -18,6 +18,7 @@ class Article {
         this._socialiteUserID = this.J_textArea.data('userid') || '';
         this._currentPage = 1;
         this._totalPage = 0;
+        this._replyUserID = 0;
         // 获取评论接口
         this._commentsAPI = `/post/${this._id}/comments`
         // 获取当前评论接口
@@ -118,7 +119,8 @@ class Article {
                 dataType: 'json',
                 data: {
                     article_id: this.J_textArea.data('article'),
-                    markdown: this.J_textArea.val()
+                    markdown: this.J_textArea.val(),
+                    replyId: this._replyUserID,
                 },
                 success: response => {
                     if (response.status === 0) {
@@ -134,6 +136,7 @@ class Article {
                         this.J_textArea.val('');
                         autosize.update(this.J_textArea);
                         this.J_previewMarkdown.html('');
+                        this._replyUserID = 0;
                         this.J_previewEditorBtn.click();
                         this.J_commentNumber.text(this._currentCommentNum + 1);
                     }
@@ -145,7 +148,7 @@ class Article {
             event.preventDefault();
             let currentID = $(event.target).data('id');
             let replayUserName = $(event.target).data('username');
-
+            this._replyUserID = $(event.target).data('userid');
             $.ajax({
                 type: 'GET',
                 dataType: 'json',
@@ -178,6 +181,7 @@ class Article {
                 this.J_updateCommentBtn.data('id', 0);
                 this.J_updateCommentBtn.addClass('hide');
                 this.J_commentBtn.removeClass('hide');
+                this._replyUserID = 0;
             }
         })
 
@@ -241,9 +245,9 @@ class Article {
     }
 
     renderComment(itemData) {
-        let replayHtml = `<div class="icon-comments replay-btn J_replaybtn" data-id="${itemData.id}"  data-username = ${itemData.nick_name}></div>`;
+        let replayHtml = `<div class="icon-comments replay-btn J_replaybtn" data-id="${itemData.id}" data-userid="${itemData.userId}"  data-username = ${itemData.nick_name}></div>`;
         if (this._socialiteUserID == itemData.userId) {
-            replayHtml = `<div class="icon-edit edit-btn J_editbtn" data-id="${itemData.id}" data-username = ${itemData.nick_name}></div>`;
+            replayHtml = `<div class="icon-edit edit-btn J_editbtn" data-id="${itemData.id}" data-userid="${itemData.userId}" data-username = ${itemData.nick_name}></div>`;
         }
         let commentItemHtml = `<div class="cm-comment-list-item comment-item${itemData.id}">
                                 <div class="avatar">

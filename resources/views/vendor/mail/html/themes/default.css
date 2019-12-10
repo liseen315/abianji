@@ -106,6 +106,13 @@ img {
     border-left: 4px solid #dfe2e5;
     color: #6a737d;
     padding: 0 10px;
+    margin: 0;
+}
+
+.content blockquote a {
+    font-weight: 500;
+    color: #6190e8;
+    text-decoration: none;
 }
 
 /* Header */
