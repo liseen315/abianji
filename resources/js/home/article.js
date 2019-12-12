@@ -1,4 +1,5 @@
 import autosize from 'autosize';
+
 class Article {
     constructor() {
         this.J_previewBtn = $('#J_previewBtn');
@@ -139,6 +140,14 @@ class Article {
                         this._replyUserID = 0;
                         this.J_previewEditorBtn.click();
                         this.J_commentNumber.text(this._currentCommentNum + 1);
+                    } else if (response.status === 4001) {
+                        layer.msg(response.msg, {time: 1000});
+                    } else if (response.status === 1001) {
+                        layer.msg(response.msg, {time: 1000});
+                        setTimeout(() => {
+                            window.location.reload();
+                        }, 1000)
+
                     }
                 }
             })

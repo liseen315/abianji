@@ -108,10 +108,10 @@ class ArticleController extends Controller
             $upload = Cloudder::upload($image, null, ['folder' => env('CLOUDINARY_FLODER_NAME')]);
             if ($upload) {
                 $image_url = $upload->getResult()['url'];
-                return response()->json(['status' => 0, 'body' => ['imgURL' => $image_url], 'msg' => '上传图片成功']);
+                return response()->json(['status' => 0, 'body' => ['imgURL' => $image_url], 'msg' => config('statuscode.0')]);
             }
         } else {
-            return response()->json(['status' => 3001, 'msg' => config('errCode')[3001]]);
+            return response()->json(['status' => 3001, 'msg' => config('statuscode.3001')]);
         }
     }
 

@@ -2,11 +2,9 @@
 
 namespace App\Mail;
 
-use App\Models\Article;
 use App\Models\Comment;
 use App\Models\SocialiteUser;
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
@@ -29,6 +27,7 @@ class SocialComment extends Mailable
         $this->comment = $comment;
         $this->socialUser = SocialiteUser::where('openid', $this->comment->socialite_user_id)->first();
         $this->articleURL = $this->comment->article->url;
+        $this->queue = 'email';
     }
 
     /**

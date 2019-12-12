@@ -119,6 +119,7 @@
         const previewAPI = '{{ route('home.preview') }}';
         const postCommentAPI = '{{ route('home.postcomment') }}';
     </script>
+    <script type="text/javascript" src="{{ asset('assets/layer/layer.js') }}"></script>
     <script type="text/javascript" src="{{ asset('assets/tocbot/tocbot.js') }}"></script>
     <script type="text/javascript" src="{{mix('js/home/article.js')}}"></script>
 @endsection

@@ -50,4 +50,10 @@ https://ai.youdao.com/fanyi-chart.s
 Services Provider 使用jourdon/slug 自己改造去掉了百度,修复了Laravel 6.0兼容问题
 ```
 
+## 邮件队列
+
+```
+php artisan queue:work --queue=email --tries=3
+```
+
 

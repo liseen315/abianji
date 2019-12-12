@@ -105,7 +105,7 @@ class HomeController extends Controller
     public function previewMarkdown(Request $request)
     {
         $htmlContent = Markdown::convertToHtml($request->input('markdown'));
-        return response()->json(['status' => 0, 'body' => ['content' => $htmlContent], 'msg' => 'success']);
+        return response()->json(['status' => 0, 'body' => ['content' => $htmlContent], 'msg' => config('statuscode.0')]);
     }
 
     /**
@@ -135,17 +135,17 @@ class HomeController extends Controller
         if ($comment) {
 
             // 如果有人给文章留言了给Blog作者发送邮件
-            $admin = User::where('email',env('ADMIN_NAME'))->first();
+            $admin = User::where('email', env('ADMIN_NAME'))->first();
 
             // 如果有人给文章留言了给博主发邮件,自己留言不算
             if ($socialiteUser->email != $admin->email) {
-                Mail::to($admin->email)->queue(new SocialComment($comment,$admin->name));
+                Mail::to($admin->email)->queue(new SocialComment($comment, $admin->name));
             }
 
-            $replyUser = SocialiteUser::where('openid',$replyId)->first();
+            $replyUser = SocialiteUser::where('openid', $replyId)->first();
 
-            if(!is_null($replyUser)) {
-                Mail::to($replyUser->email)->queue(new SocialComment($comment,$replyUser->nick_name));
+            if (!is_null($replyUser)) {
+                Mail::to($replyUser->email)->queue(new SocialComment($comment, $replyUser->nick_name));
             }
 
             return response()->json([
@@ -157,9 +157,9 @@ class HomeController extends Controller
                     'isAdmin' => false,
                     'user' => ['id' => $socialiteUserId, 'avatar' => $socialiteUser->avatar, 'nick_name' => $socialiteUser->nick_name],
                     'time' => $comment->created_at],
-                'msg' => 'success']);
+                'msg' => config('statuscode.0')]);
         } else {
-            return response()->json(['status' => -1, 'body' => [], 'msg' => '创建评论失败']);
+            return response()->json(['status' => 4001, 'body' => [], 'msg' => config('statuscode.4001')]);
         }
 
     }

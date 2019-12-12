@@ -561,6 +561,17 @@ function () {
               _this2.J_previewEditorBtn.click();
 
               _this2.J_commentNumber.text(_this2._currentCommentNum + 1);
+            } else if (response.status === 4001) {
+              layer.msg(response.msg, {
+                time: 1000
+              });
+            } else if (response.status === 1001) {
+              layer.msg(response.msg, {
+                time: 1000
+              });
+              setTimeout(function () {
+                window.location.reload();
+              }, 1000);
             }
           }
         });
