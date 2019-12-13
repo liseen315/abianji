@@ -6,6 +6,7 @@
 git clone xxxxx
 
 # composer install
+# 清理配置缓存 php artisan config:clear
 # 数据库填充 php artisan db:seed
 ```
 

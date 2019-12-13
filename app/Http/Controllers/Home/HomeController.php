@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Home;
 
 use App\Http\Controllers\Controller;
+use App\Jobs\SendEmail;
 use App\Mail\SocialComment;
 use App\Models\About;
 use App\Models\Article;
@@ -139,13 +140,23 @@ class HomeController extends Controller
 
             // 如果有人给文章留言了给博主发邮件,自己留言不算
             if ($socialiteUser->email != $admin->email) {
-                Mail::to($admin->email)->queue(new SocialComment($comment, $admin->name));
+                $details = [
+                    'email' => $admin->email,
+                    'name' => $admin->name,
+                    'comment' => $comment
+                ];
+                SendEmail::dispatch($details)->delay(Carbon::now()->addSeconds(10))->onConnection('redis')->onQueue('email');
             }
 
             $replyUser = SocialiteUser::where('openid', $replyId)->first();
 
             if (!is_null($replyUser)) {
-                Mail::to($replyUser->email)->queue(new SocialComment($comment, $replyUser->nick_name));
+                $details = [
+                    'email' => $replyUser->email,
+                    'name' => $replyUser->nick_name,
+                    'comment' => $comment
+                ];
+                SendEmail::dispatch($details)->delay(Carbon::now()->addSeconds(10))->onConnection('redis')->onQueue('email');
             }
 
             return response()->json([

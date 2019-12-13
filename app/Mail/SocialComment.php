@@ -27,7 +27,6 @@ class SocialComment extends Mailable
         $this->comment = $comment;
         $this->socialUser = SocialiteUser::where('openid', $this->comment->socialite_user_id)->first();
         $this->articleURL = $this->comment->article->url;
-        $this->queue = 'email';
     }
 
     /**

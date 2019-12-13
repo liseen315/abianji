@@ -12,6 +12,7 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
+        var_dump(env('MAILGUN_DOMAIN'));
         // 清空
         DB::table('users')->truncate();
 
