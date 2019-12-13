@@ -3,6 +3,7 @@
 namespace App\Providers;
 use Blade;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Artisan;
 use Route;
 use Illuminate\Support\ServiceProvider;
 
