@@ -16,6 +16,7 @@
         "itsgoingd/clockwork": "^4.0",
         "jrm2k6/cloudder": "^0.6.0",
         "laravel/framework": "^6.0",
+        "laravel/horizon": "^3.4",
         "laravel/socialite": "^4.3",
         "laravel/tinker": "^1.0",
         "league/commonmark-ext-table": "^2.1",
