@@ -35,23 +35,10 @@
         {{--Right navbar--}}
         <ul class="navbar-nav ml-auto">
             <li class="nav-item dropdown">
-                <a class="nav-link" data-toggle="dropdown" href="#">
+                <a class="nav-link" href="{{ route('comment.index') }}">
                     <i class="far fa-comments"></i>
-                    <span class="badge badge-danger navbar-badge">3</span>
+                    <span class="badge badge-danger navbar-badge">{{ count($newComments) }}</span>
                 </a>
-                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                    <a href="#" class="dropdown-item">
-                        <div class="media">
-                            <div class="media-body">
-                                <h3 class="dropdown-item-title">
-                                    Brad Diesel
-                                </h3>
-                                <p class="text-sm">Call me whenever you can...</p>
-                                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
             </li>
             <li class="nav-item dropdown">
                 <a href="#" class="nav-link" data-toggle="dropdown">{{ $user->name }}</a>
@@ -176,13 +163,15 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="{{ route('config.create') }}" class="nav-link @sideIsActive('config.create','active')">
+                                <a href="{{ route('config.create') }}"
+                                   class="nav-link @sideIsActive('config.create','active')">
                                     <i class="fas fa-plus-square nav-icon"></i>
                                     <p>创建配置</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('config.edit') }}" class="nav-link @sideIsActive('config.edit','active')">
+                                <a href="{{ route('config.edit') }}"
+                                   class="nav-link @sideIsActive('config.edit','active')">
                                     <i class="nav-icon fas fa-pen"></i>
                                     <p>编辑配置</p>
                                 </a>
@@ -200,13 +189,15 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="{{ route('comment.index') }}" class="nav-link @sideIsActive('comment.index','active')">
+                                <a href="{{ route('comment.index') }}"
+                                   class="nav-link @sideIsActive('comment.index','active')">
                                     <i class="fas fa-align-justify nav-icon"></i>
                                     <p>留言列表</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('comment.users') }}" class="nav-link @sideIsActive('comment.users','active')">
+                                <a href="{{ route('comment.users') }}"
+                                   class="nav-link @sideIsActive('comment.users','active')">
                                     <i class="fas fa-users nav-icon"></i>
                                     <p>社交用户</p>
                                 </a>
@@ -235,7 +226,8 @@
     </div>
     {{--footer--}}
     <footer class="main-footer">
-        <strong>Copyright &copy; 2014-{{ Carbon\Carbon::now()->year }} <a href="https://abianji.com">Abianji</a></strong>
+        <strong>Copyright &copy; 2014-{{ Carbon\Carbon::now()->year }} <a
+                href="https://abianji.com">Abianji</a></strong>
         All rights reserved.
         <div class="float-right d-none d-sm-inline-block">
             <b>Version</b> 0.0.1
