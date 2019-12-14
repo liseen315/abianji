@@ -2,10 +2,12 @@
 
 
 namespace App\Services;
+
 use GuzzleHttp\Client;
 use Overtrue\Pinyin\Pinyin;
 use Str;
-class SlugTranslate
+
+class SlugServices
 {
     protected $config;
 
@@ -80,4 +82,5 @@ class SlugTranslate
     {
         return Str::slug(app(Pinyin::class)->permalink($text));
     }
+
 }

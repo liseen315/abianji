@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-use App\Services\SlugTranslate;
+use App\Services\SlugServices;
 use Illuminate\Support\ServiceProvider;
 
 class SlugServiceProvider extends ServiceProvider
@@ -15,7 +15,7 @@ class SlugServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->singleton('Slug',function ($app) {
-            return new SlugTranslate($app['config']['slug']);
+            return new SlugServices($app['config']['slug']);
         });
     }
 

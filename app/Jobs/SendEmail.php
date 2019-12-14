@@ -41,4 +41,9 @@ class SendEmail implements ShouldQueue
         $email = new SocialComment($this->details['comment'], $this->details['name']);
         Mail::to($this->details['email'])->sendNow($email);
     }
+
+    public function failed(Exception $exception)
+    {
+        dd($exception);
+    }
 }
