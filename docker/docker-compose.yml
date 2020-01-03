@@ -42,16 +42,15 @@ services:
     volumes:
       - ${APP_CODE_PATH_HOST}:${APP_CODE_PATH_CONTAINER}${APP_CODE_CONTAINER_FLAG}
       - ./php-worker/supervisord.d:/etc/supervisord.d
-    expose:
-      - "9000"
     extra_hosts:
       - "dockerhost:${DOCKER_HOST_IP}"
+    ports:
+      - "${WORKSPACE_SSH_PORT}:22"
+    tty: true
     environment:
       - DOCKER_HOST=tcp://docker-in-docker:2375
-      - FAKETIME=${PHP_FPM_FAKETIME}
-    depends_on:
-      - workspace
     networks:
+      - frontend
       - backend
     links:
       - docker-in-docker
