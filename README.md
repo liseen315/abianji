@@ -57,4 +57,6 @@ Services Provider 使用jourdon/slug 自己改造去掉了百度,修复了Larave
 php artisan queue:work --queue=email --tries=3
 ```
 
+## docker
 
+整体参考laradock,去掉了本站无用的镜像以及相关相关配置,保持精简并根据本站优化,具体可以查看docker文件夹
