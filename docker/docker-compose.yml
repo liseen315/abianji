@@ -39,6 +39,7 @@ services:
         - http_proxy
         - https_proxy
         - no_proxy
+    container_name: workspace
     volumes:
       - ${APP_CODE_PATH_HOST}:${APP_CODE_PATH_CONTAINER}${APP_CODE_CONTAINER_FLAG}
       - ./php-worker/supervisord.d:/etc/supervisord.d
@@ -74,6 +75,7 @@ services:
         - http_proxy
         - https_proxy
         - no_proxy
+    container_name: phpfpm
     volumes:
       - ./php-fpm/php${PHP_VERSION}.ini:/usr/local/etc/php/php.ini
       - ${APP_CODE_PATH_HOST}:${APP_CODE_PATH_CONTAINER}${APP_CODE_CONTAINER_FLAG}
@@ -114,6 +116,7 @@ services:
         - INSTALL_REDIS=${PHP_WORKER_INSTALL_REDIS}
         - PUID=${PHP_WORKER_PUID}
         - PGID=${PHP_WORKER_PGID}
+    container_name: phpworker
     volumes:
       - ${APP_CODE_PATH_HOST}:${APP_CODE_PATH_CONTAINER}${APP_CODE_CONTAINER_FLAG}
       - ./php-worker/supervisord.d:/etc/supervisord.d
@@ -134,6 +137,7 @@ services:
         - http_proxy
         - https_proxy
         - no_proxy
+    container_name: webserver
     volumes:
       - ${APP_CODE_PATH_HOST}:${APP_CODE_PATH_CONTAINER}${APP_CODE_CONTAINER_FLAG}
       - ${NGINX_HOST_LOG_PATH}:/var/log/nginx
@@ -159,6 +163,7 @@ services:
       - MYSQL_PASSWORD=${MYSQL_PASSWORD}
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
       - TZ=${WORKSPACE_TIMEZONE}
+    container_name: db
     volumes:
       - ${DATA_PATH_HOST}/mysql:/var/lib/mysql
       - ${MYSQL_ENTRYPOINT_INITDB}:/docker-entrypoint-initdb.d
@@ -169,6 +174,7 @@ services:
   ### Redis ################################################
   redis:
     build: ./redis
+    container_name: redis
     volumes:
       - ${DATA_PATH_HOST}/redis:/data
     ports:
@@ -179,6 +185,7 @@ services:
   docker-in-docker:
     image: docker:dind
     privileged: true
+    container_name: docker_indocker
     volumes:
       - ${APP_CODE_PATH_HOST}:${APP_CODE_PATH_CONTAINER}
       - ${DATA_PATH_HOST}/dind:/var/lib/docker
