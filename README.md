@@ -51,6 +51,11 @@ FLUSH PRIVILEGES;
 by setting MYSQL_VERSION=5.7 in laradock/.env
 after that in your .env file see the var called DATA_PATH_HOST and go to that folder, after that delete the mysql folder there and then do the docker-compose build --no-cache mysql and then docker-compose up -d mysql
 
+# 创建迁移
+php artisan migrate
+# 生成种子
+php artisan db:seed
+
 # 绑定host 访问即可
 127.0.0.1 abianji-dev.com
 ```
