@@ -34,6 +34,16 @@ composer install
 
 npm install
 
+# 设定mysql root 密码
+1 update user set authentication_string=password('yourpasssword') where user='root';
+2 FLUSH PRIVILEGES;
+# 创建数据库
+create database abianji character set utf8mb4;
+# 创建新的用户
+GRANT ALL ON abianji.* TO 'liseen'@'%' IDENTIFIED BY 'yourpasssword';
+FLUSH PRIVILEGES;
+
+
 # 绑定host 访问即可
 127.0.0.1 abianji-dev.com
 ```
