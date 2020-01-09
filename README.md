@@ -43,6 +43,13 @@ create database abianji character set utf8mb4;
 GRANT ALL ON abianji.* TO 'liseen'@'%' IDENTIFIED BY 'yourpasssword';
 FLUSH PRIVILEGES;
 
+# 开启访问权限
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'Liseen315song#' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
+
+# 如果由于更改密码导致的mysql访问失败请使用如下方法解决
+by setting MYSQL_VERSION=5.7 in laradock/.env
+after that in your .env file see the var called DATA_PATH_HOST and go to that folder, after that delete the mysql folder there and then do the docker-compose build --no-cache mysql and then docker-compose up -d mysql
 
 # 绑定host 访问即可
 127.0.0.1 abianji-dev.com
