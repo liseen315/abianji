@@ -111,6 +111,8 @@ Services Provider 使用jourdon/slug 自己改造去掉了百度,修复了Larave
 ## 邮件队列
 
 ```
+# docker-compose 进不去容器使用
+docker exec -it a144032d1598 /bin/sh 进
 php artisan queue:work --queue=email --tries=3
 ```
 
