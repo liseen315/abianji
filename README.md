@@ -44,7 +44,7 @@ GRANT ALL ON abianji.* TO 'liseen'@'%' IDENTIFIED BY 'yourpasssword';
 FLUSH PRIVILEGES;
 
 # 开启访问权限
-GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'Liseen315song#' WITH GRANT OPTION;
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'Liseen315song' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
 
 # 如果由于更改密码导致的mysql访问失败请使用如下方法解决
@@ -57,7 +57,7 @@ php artisan migrate
 php artisan db:seed
 
 # 绑定host 访问即可
-127.0.0.1 abianji-dev.com
+127.0.0.1 abianji.com
 ```
 
 ## 安装Redis扩展

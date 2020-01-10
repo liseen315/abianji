@@ -6,14 +6,12 @@
     <section class="jumbotron">
         <div class="video">
             <div class="video-frame">
-                <img src="{{ asset('assets/ocean/overlay-hero.png') }}" alt="Decorative image frame">
+                <img src="https://res.cloudinary.com/dnakxpzhj/image/upload/v1578622409/blog/ocean/overlay-hero.png" alt="Decorative image frame">
             </div>
             <div class="video-media">
                 <video playsinline="" autoplay="" loop="" muted="" data-autoplay=""
-                       poster="{{ asset('assets/ocean/ocean.png') }}">
-                    <source src="{{ asset('assets/ocean/ocean.mp4') }}" type="video/mp4">
-                    <source src="{{ asset('assets/ocean/ocean.ogv') }}" type="video/ogg">
-                    <source src="{{ asset('assets/ocean/ocean.webm') }}" type="video/webm">
+                       poster="https://res.cloudinary.com/dnakxpzhj/image/upload/v1578622419/blog/ocean/ocean.png">
+                    <source src="https://res.cloudinary.com/dnakxpzhj/video/upload/v1578622424/blog/ocean/ocean.mp4" type="video/mp4">
                     <p>Your user agent does not support the HTML5 Video element.</p>
                 </video>
                 <div class="video-overlay"></div>

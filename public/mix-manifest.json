@@ -1,10 +1,10 @@
 {
-    "/js/admin/Layout.js": "/js/admin/Layout.js",
-    "/css/admin/admin.css": "/css/admin/admin.css",
-    "/css/home/home.css": "/css/home/home.css",
-    "/js/admin/Treeview.js": "/js/admin/Treeview.js",
-    "/js/admin/admin.js": "/js/admin/admin.js",
-    "/js/admin/article.js": "/js/admin/article.js",
-    "/js/home/article.js": "/js/home/article.js",
-    "/js/home/home.js": "/js/home/home.js"
+    "/js/admin/Layout.js": "/js/admin/Layout.js?id=d358c21e1ff64b8bec9a",
+    "/css/admin/admin.css": "/css/admin/admin.css?id=8b08ad97db7b3e042782",
+    "/css/home/home.css": "/css/home/home.css?id=4f9311043b55727a4ce6",
+    "/js/admin/Treeview.js": "/js/admin/Treeview.js?id=6e3f39d204d0ba05b160",
+    "/js/admin/admin.js": "/js/admin/admin.js?id=58ec7da04df63a7790f7",
+    "/js/admin/article.js": "/js/admin/article.js?id=ee6f76c789e1304ad5c7",
+    "/js/home/article.js": "/js/home/article.js?id=241afc762f82d369ea33",
+    "/js/home/home.js": "/js/home/home.js?id=cf0035e257b492620375"
 }
