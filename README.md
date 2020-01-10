@@ -63,6 +63,10 @@ flushall
 127.0.0.1 abianji.com
 ```
 
+## 社会化登录配置
+
+先去[申请账号](https://github.com/settings/applications/new)
+
 ## 安装Redis扩展
 
 ```bash
