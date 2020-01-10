@@ -12,6 +12,8 @@
     @yield('style')
     <link rel="stylesheet" href="{{ mix('css/home/home.css') }}">
     <script type="text/javascript" src="{{ asset('assets/pace/pace.min.js') }}"></script>
+    {!! blog_config('analysis') !!}
+
 </head>
 <body>
 <main class="content">
@@ -20,8 +22,8 @@
         <div class="outer">
             <div class="float-right"></div>
             <ul class="list-inline">
-                <li>{{ blog_config('ipc') }}</li>
-                <li>Powered by <a href="https://github.com/liseen315/abianji" target="_blank">Abianji</a></li>
+                <li>© {{ Carbon\Carbon::now()->year }} Abianji.com</li>
+                <li><a href="//www.beian.miit.gov.cn/" target="_blank">{{ blog_config('icp') }}</a></li>
                 <li>Theme <a href="https://github.com/zhwangart/hexo-theme-ocean" target="_blank">Ocean</a></li>
             </ul>
         </div>

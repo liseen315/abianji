@@ -58,8 +58,8 @@ class ConfigsTableSeeder extends Seeder
             ],
             [
                 'name' => '备案号',
-                'title' => 'ipc',
-                'value' => '© ' . Carbon::now()->year . ' Abianji.com',
+                'title' => 'icp',
+                'value' => '京ICP19058619',
                 'type' => 'text',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
