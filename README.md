@@ -59,6 +59,9 @@ php artisan db:seed
 # 如果更改了网站配置字段等需要手动清理redis
 flushall
 
+# 启动容器
+docker-compose up -d nginx mysql redis php-worker
+
 # 绑定host 访问即可
 127.0.0.1 abianji.com
 ```
