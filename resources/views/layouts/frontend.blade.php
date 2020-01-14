@@ -9,6 +9,7 @@
     <meta name="description" content="{{ blog_config('description') }}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title') @if(request()->path() !== '/') - {{ blog_config('site_name') }} @endif</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-96x96.png">
     @yield('style')
     <link rel="stylesheet" href="{{ mix('css/home/home.css') }}">
     <script type="text/javascript" src="{{ asset('assets/pace/pace.min.js') }}"></script>
