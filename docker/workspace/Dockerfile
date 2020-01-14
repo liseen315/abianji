@@ -314,6 +314,19 @@ RUN if [ ${INSTALL_YARN} = true ]; then \
 ENV PATH $PATH:/home/laradock/.yarn/bin
 
 ###########################################################################
+# MySQL Client:
+###########################################################################
+
+USER root
+
+ARG INSTALL_MYSQL_CLIENT=false
+
+RUN if [ ${INSTALL_MYSQL_CLIENT} = true ]; then \
+    apt-get update -yqq && \
+    apt-get -y install mysql-client \
+;fi
+
+###########################################################################
 # PYTHON:
 ###########################################################################
 
