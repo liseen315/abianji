@@ -11,15 +11,15 @@
 |
 */
 
-Route::get('/info', function () {
-    return phpinfo();
-});
+// Route::get('/info', function () {
+//     return phpinfo();
+// });
 
-Route::get('mailable',function () {
-    $comment = App\Models\Comment::find(5);
+// Route::get('mailable',function () {
+//     $comment = App\Models\Comment::find(5);
 
-    return new App\Mail\SocialComment($comment);
-});
+//     return new App\Mail\SocialComment($comment);
+// });
 
 Route::namespace('Home')->group(function () {
     Route::get('/', 'HomeController@index')->name('home.index');

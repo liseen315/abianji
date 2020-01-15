@@ -26,7 +26,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $articles = Article::orderBy('is_top', 'desc')->orderBy('created_at', 'desc')->paginate(3);
+        $articles = Article::orderBy('is_top', 'desc')->orderBy('created_at', 'desc')->paginate(10);
         return view('app.index', compact('articles'));
     }
 
@@ -44,6 +44,8 @@ class HomeController extends Controller
             cache([$viewsKey => ''], $expiresAt);
             $article->increment('views');
         }
+
+
         $prev = Article::where('id', '<', $article->id)->limit(1)->first();
         $next = Article::where('id', '>', $article->id)->limit(1)->first();
         $commentsNum = Comment::where('article_id', $article->id)->count();

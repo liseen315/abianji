@@ -88,6 +88,9 @@ default-time_zone = '+8:00'
 docker-compose down
 docker-compose build mysql
 docker-compose up
+
+# 查看mysql查询次数
+show global status where variable_name in('com_select','com_insert','com_delete','com_update');
 ```
 
 ## 社会化登录配置

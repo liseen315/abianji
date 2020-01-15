@@ -4,7 +4,8 @@ namespace App\Providers;
 
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Route;
-
+use App\Services\RedisServices;
+use App\Models\Article;
 class RouteServiceProvider extends ServiceProvider
 {
     /**
@@ -26,6 +27,10 @@ class RouteServiceProvider extends ServiceProvider
         //
 
         parent::boot();
+        // Route::bind('slug',function ($value) {
+        //     $artcle = app(RedisServices::class)->cacheArticle($value);
+        //     return $artcle;
+        // });
     }
 
     /**

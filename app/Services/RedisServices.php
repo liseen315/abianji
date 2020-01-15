@@ -3,9 +3,10 @@
 
 namespace App\Services;
 
-
+use App\Models\Article;
 use App\Models\Config;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Cache;
 
 class RedisServices
 {
@@ -30,5 +31,13 @@ class RedisServices
         }
         cache(['configs' => $configs], $this->expiresAt);
 
+    }
+
+    public function cacheArticle($value) {
+        $key = hash('sha256', $value);
+        $cache = Cache::remember($key, $this->expiresAt, function () use ($value) {
+            return Article::where('slug',$value)->first();
+        });
+        return $cache;
     }
 }
