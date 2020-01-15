@@ -40,6 +40,7 @@ class Article {
         });
         this.fetchComments()
         this.initComments()
+        this.initShare()
     }
 
     fetchComments() {
@@ -279,6 +280,53 @@ class Article {
                                 </div>
                             </div>`;
         return commentItemHtml;
+    }
+
+    initShare() {
+        $('body').on('click','.article-share-link',event => {
+            event.stopPropagation();
+            let targetShareBtn = event.target;
+            let url = $(targetShareBtn).data('url');
+            let encodeUrl = encodeURIComponent(url);
+            let id = 'article-share-box-' + $(targetShareBtn).data('id');
+            let offset = $(targetShareBtn).offset();
+            if ($('#' + id).length) {
+                let box = $('#' + id)
+                if (box.hasClass('on')) {
+                    box.removeClass('on');
+                }else {
+                    box.addClass('on');
+                }
+            }else {
+                let windowHTML = this.createShareWindow(id,url,encodeUrl)
+                let shareWindow = $(windowHTML);
+                $('body').append(shareWindow);
+                shareWindow.css({
+                    top: offset.top+25,
+                    left: offset.left
+                }).addClass('on');
+            }
+        })
+
+        $('body').on('click',event => {
+            event.stopPropagation();
+            $('.article-share-box').removeClass('on');
+        })
+    }
+
+    createShareWindow(id,url,encodeUrl) {
+        let windowHtml = `
+        <div id="${id}" class="article-share-box">
+            <input class="article-share-input" value="${url}">
+            <div class="article-share-links">
+                <a href="https://twitter.com/intent/tweet?url=${encodeUrl}" class="article-share-twitter" target="_blank" title="Twitter"></a>
+                <a href="https://www.facebook.com/sharer.php?u=${encodeUrl}" class="article-share-facebook" target="_blank" title="Facebook"></a>
+                <a href="http://pinterest.com/pin/create/button/?url=${encodeUrl}" class="article-share-pinterest" target="_blank" title="Pinterest"></a>
+                <a href="https://plus.google.com/share?url=${encodeUrl}" class="article-share-google" target="_blank" title="Google+"></a>
+            </div>
+        </div>
+        `
+        return windowHtml;
     }
 }
 

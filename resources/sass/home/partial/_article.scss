@@ -86,17 +86,6 @@
     align-items: center;
 }
 
-.article-share-link {
-    cursor: pointer;
-    margin-left: 20px;
-    text-decoration: none;
-    &:before {
-        content: "\f14f";
-        font-family: feathericon;
-        padding-right: 6px;
-    }
-}
-
 .articles {
     .article {
         padding: 3rem 0;
@@ -156,5 +145,105 @@
 .about {
     .article-footer {
         justify-content: flex-end;
+    }
+}
+
+.article-share-link {
+    position: relative;
+    cursor: pointer;
+    margin-left: 20px;
+    text-decoration: none;
+    &:before {
+        content: "\f14f";
+        font-family: feathericon;
+        padding-right: 6px;
+    }
+}
+
+.article-share-box {
+    position: absolute;
+    display: none;
+    background: white;
+    border-radius: .4rem;
+    box-shadow: 1px 2px 10px rgba(0,0,0,0.2);
+    border-radius: 3px;
+    margin-left: -145px;
+    overflow: hidden;
+    z-index: 1;
+    &.on {
+        display: block;
+    }
+}
+
+.article-share-input {
+    width: 100%;
+    background: none;
+    box-sizing: border-box;
+    padding: 0 1.5rem;
+    outline: none;
+    border: none;
+    border-bottom: $border-width $border-color solid;
+    height: 3.6rem;
+    line-height: 3.6rem;
+}
+
+.article-share-links {
+    display: flex;
+}
+
+.article-link-item {
+    width: 5rem;
+    height: 3.6rem;
+    color: $sea-dark;
+    text-align: center;
+    text-decoration: none;
+    &::before{
+        font-size: 20px;
+        font-family: feathericon;
+    }
+    &:hover {
+        color: white;
+    }
+}
+
+.article-share-twitter {
+    @extend .article-link-item;
+    &::before {
+        content: "\f1dd";
+    }
+    &:hover {
+        background: $twitter-color;
+        text-shadow: 0 1px darken($twitter-color,20%);
+    }
+}
+.article-share-facebook {
+    @extend .article-link-item;
+    &::before{
+        content: "\f1d4";
+    }
+    &:hover {
+        background: $facebook-color;
+        text-shadow: 0 1px darken($facebook-color,20%);
+    }
+}
+
+.article-share-pinterest {
+    @extend .article-link-item;
+    &::before{
+        content: "\f1db";
+    }
+    &:hover {
+        background: $pinterest-color;
+        text-shadow: 0 1px darken($pinterest-color,20%);
+    }
+}
+.article-share-google {
+    @extend .article-link-item;
+    &::before{
+        content: "\f1d8";
+    }
+    &:hover {
+        background: $google-color;
+        text-shadow: 0 1px darken($google-color,20%);
     }
 }

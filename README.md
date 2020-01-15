@@ -12,9 +12,6 @@ cd docker
 # 根据自己环境需要更改对应的配置文件
 cp env-example .env
 
-# 安装镜像并启动对应容器
-docker-compose up -d nginx mysql redis
-
 docker-compose ps
 
 # 当看到如下的容器后证明启动成功
@@ -64,6 +61,33 @@ docker-compose up -d nginx mysql redis php-worker
 
 # 绑定host 访问即可
 127.0.0.1 abianji.com
+
+# 查看mysql 时区
+show variables like '%time_zone%';
++------------------+--------+
+| Variable_name    | Value  |
++------------------+--------+
+| system_time_zone | UTC    |
+| time_zone        | SYSTEM |
++------------------+--------+
+2 rows in set (0.00 sec)
+
+# 查看mysql当前时间
+select now();
++---------------------+
+| now()               |
++---------------------+
+| 2020-01-15 01:45:17 |
++---------------------+
+1 row in set (0.01 sec)
+
+如果时区与中国相差8小时那么可以更改docker mysql内的mysql配置
+# vi my.conf [mysqld] 添加时区偏移
+default-time_zone = '+8:00'
+
+docker-compose down
+docker-compose build mysql
+docker-compose up
 ```
 
 ## 社会化登录配置

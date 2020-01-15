@@ -34,7 +34,7 @@
                             @endforeach
                         </ul>
                     @endif
-                    <a href="javascript:void(0);" data-url="{{ $article->url }}" class="article-share-link">分享</a>
+                    <a href="javascript:void(0);" data-url="{{ $article->url }}" data-id="{{ $article->id}}" class="article-share-link">分享</a>
                 </div>
             </div>
             @if(!is_null($prev) || !is_null($next))
