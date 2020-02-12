@@ -15,9 +15,9 @@ class Comment extends Model
 
     public function getCreatedAtAttribute($date)
     {
-        if (Carbon::now() > Carbon::parse($date)->addDays(15)) {
-            return Carbon::parse($date);
-        }
+        // if (Carbon::now() > Carbon::parse($date)->addDays(15)) {
+        //     return Carbon::parse($date);
+        // }
 
         return Carbon::parse($date)->diffForHumans();
     }

@@ -62,6 +62,9 @@ docker-compose up -d nginx mysql redis php-worker
 # 绑定host 访问即可
 127.0.0.1 abianji.com
 
+docker-compose exec mysql bash
+mysql -uliseen -pLiseen315song
+
 # 查看mysql 时区
 show variables like '%time_zone%';
 +------------------+--------+
