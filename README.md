@@ -1,4 +1,13 @@
-# 阿比安吉Laravel
+# 阿比安吉Laravel版Blog
+
+## 特性
+
+* 基于Bootstrap Admin的后台管理系统
+* 前端自适应
+* Redis缓存网站基础配置
+* 基于mailgun的邮件队列
+* 基于github社交登录的文章留言
+* docker部署
 
 ## 项目安装
 
@@ -151,4 +160,4 @@ php artisan queue:work --queue=email --tries=3
 
 ## docker
 
-整体参考laradock,去掉了本站无用的镜像以及相关相关配置,保持精简并根据本站优化,具体可以查看docker文件夹
+整体参考laradock,去掉了本站无用的镜像以及相关配置,保持精简并根据本站优化,具体可以查看docker文件夹
