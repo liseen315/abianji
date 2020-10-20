@@ -7,6 +7,9 @@
 * Redis缓存网站基础配置
 * 基于mailgun的邮件队列
 * 基于github社交登录的文章留言
+* mysql定时备份
+* 基于youdao翻译的文章url slug
+* 基于cloudinary的文章图片上传
 * docker部署
 
 ## 项目安装
